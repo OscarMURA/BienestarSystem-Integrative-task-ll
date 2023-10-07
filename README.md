@@ -2,6 +2,7 @@
 -Integrantes:
 
 -Ricardo Andres Chamorro Martinez  A00399846
+
 -Oscar Stiven Muñoz Ramirez A00399922
 
 
