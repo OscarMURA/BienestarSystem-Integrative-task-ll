@@ -72,3 +72,78 @@
 |Output | message| String|-A text string with the student message was removed or not |
 
 ---
+
+| Indentifier and Name |-   FR4. Generate BIM Histogram report  |
+|--|--|
+|Summary  |The system must allow the user to generate a report through two histograms represented in the two months (September 2022 and April 2023). The number of students who are within the possible categories (low weight, normal, overweight, obese and morbidly obese) must be shown, represented in small asterisks (*) that represent the number of a student in that category. |
+
+|Inputs|Output name|DataType|Format|
+|--|--|--|--|
+|Input| - | - | - |
+
+|||
+|--|--|
+|Result or postcondition|Se mostrará el histograma con la cantidad de estudiantes por apartado de categoría.|
+
+||Output name|DataType|Format|
+|--|--|--|--|
+|Output | - | - | - |
+---
+| Indentifier and Name |-   FR5.Generate BIM listing reports  |
+|--|--|
+|Summary |The system must allow the user to generate a report through a list of the two months evaluated (September 2022 and April 2023). The list must be shown with the complete data of the students who are within the possible categories (low weight, normal, overweight, obese and morbidly obese). The user will be able to choose how the list order format will be: BMI, alphabetical order or student age. |
+
+|Inputs|Output name|DataType|Format|
+|--|--|--|--|
+| Inputs | Output name | DataType | Format |
+| Input  | orderList   | int      | Numeric character only |
+|        |             |          | You can choose only three order options: |
+|        |             |          | 1. BMI |
+|        |             |          | 2. alphabetical|
+|        |             |          | 3. Age |
+
+|||
+|--|--|
+|Result or postcondition|The list will be displayed with the number of students per category section.|
+
+||Output name|DataType|Format|
+|--|--|--|--|
+|Output | - |  - | - |
+---
+| Indentifier and Name |-   FR6.Generate indicators of changes in nutritional status  |
+|--|--|
+|Summary |The system must allow the user to generate a report through indicators of the number of students whose nutritional status changed. The report, in addition to having the number of students who changed their nutritional status, will have a favorable and unfavorable change section, in the favorable section the number of students who lost weight or gained weight to a normal weight will appear, and in the unfavorable section those students who gained weight or lost weight, both underweight and overweight and obese. |
+
+|Inputs|Output name|DataType|Format|
+|--|--|--|--|
+|Input| -  | - | - |
+
+|||
+|--|--|
+|Result or postcondition|The report will be shown by indicators of the number of students who changed their nutritional status by category.|
+
+||Output name|DataType|Format|
+|--|--|--|--|
+|Output | - |  - | - |
+---
+| Indentifier and Name |-   FR7. Generate lists of nutritional status changes  |
+|--|--|
+|Summary |The system must allow the user to generate a report through indicators of the number of students whose nutritional status changed between September 2022 and April 2023. The report, in addition to having the number of students who changed their nutritional status, will show their complete data added. in the registry. On the other hand, the user will be able to choose how the list order format will be: BMI, alphabetical order or age of the student.|
+
+|Inputs|Output name|DataType|Format|
+|--|--|--|--|
+| Inputs | Output name | DataType | Format |
+| Input  | orderList   | int      | Numeric character only |
+|        |             |          | You can choose only three order options: |
+|        |             |          | 1. BMI |
+|        |             |          | 2. alphabetical|
+|        |             |          | 3. Age |
+
+|||
+|--|--|
+|Result or postcondition|The report will be displayed by listing the number of students who changed their nutritional status with their complete data.|
+
+||Output name|DataType|Format|
+|--|--|--|--|
+|Output | - |  - | - |
+---
