@@ -21,8 +21,6 @@ public class NutritionalStates {
         this.type = calculateTypeStates(weight, height);
     }
 
-
-
     public double getWeight() {
         return this.weight;
     }
@@ -33,6 +31,7 @@ public class NutritionalStates {
      */
     public void setWeight(double weight) {
         this.weight = weight;
+        this.type=calculateTypeStates(weight, height);
     }
 
     public double getHeight() {
@@ -45,11 +44,14 @@ public class NutritionalStates {
      */
     public void setHeight(double height) {
         this.height = height;
+        this.type=calculateTypeStates(weight, height);
     }
 
     public double calculateBIM() {
-        // calculateBIM
-        throw new UnsupportedOperationException();
+        double bim = 0.0;
+        bim = this.weight / (this.height * this.height);
+        bim = Math.round(bim * 10.0) / 10.0;
+        return bim;
     }
 
     public Calendar getDate() {
@@ -70,13 +72,24 @@ public class NutritionalStates {
      * @param height
      */
     private TypeStates calculateTypeStates(double weight, double height) {
-        // calculateTypeStates
-        throw new UnsupportedOperationException();
+        TypeStates type = null;
+        double bim = calculateBIM();
+        if (bim < 18.5) {
+            type = TypeStates.LOW_WEIGHT;
+        } else if (bim >= 18.5 && bim <= 24.9) {
+            type = TypeStates.NORMAL_WEIGHT;
+        } else if (bim >= 25 && bim <= 29.9) {
+            type = TypeStates.OVERWEIGHT;
+        } else if (bim >= 30 && bim < 40.0) {
+            type = TypeStates.OBESITY;
+        }else{
+            type = TypeStates.MORBID_OBESITY;
+        }
+        return type;
     }
 
     public TypeStates getType() {
-        // getType
-        throw new UnsupportedOperationException();
+        return this.type;
     }
 
 }
