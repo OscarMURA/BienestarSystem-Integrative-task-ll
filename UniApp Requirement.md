@@ -4,6 +4,6 @@
 
 ## [UniApp Requirements Table](https://github.com/APO-2/tarea-integradora-2-2023-2-equipo-serio/blob/feedback/RequerimentsTableUniApp.md)
 
-## [UniApp Test Table](https://github.com/APO-2/tarea-integradora-2-2023-2-equipo-serio/blob/feedback/UniApp%20Test%20Table.md)
+## [UniApp Test Table](https://github.com/APO-2/tarea-integradora-2-2023-2-equipo-serio/blob/develop/Testing.md)
 
 ## [UniApp Test Plan]()
