@@ -12,6 +12,7 @@
 |Summary  | The system must provide users with the ability to add new students to the University Welfare database. To achieve this, the following information will be requested: the student's institutional code, age, gender, full name, and last name, as well as details related to their nutritional status. Initially, the student's height and weight will be required for the dates of September 2022, and subsequently in April 2023, with the purpose of evaluating and recording changes in their nutritional status. |
 
 
+
 |Inputs|Output name|DataType|Format|
 |--|--|--|--|
 | Input|name |String | A character string with a maximum size of 30 is allowed.
