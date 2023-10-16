@@ -1,11 +1,11 @@
-package test;
+package test.model;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import model.Reports;
 import java.util.Arrays;
-
 import java.util.ArrayList;
 import java.util.List;
+import exceptions.ExceptionFormatOfValueNotAllowed;
 
 public class ReportsTest {
 
@@ -34,40 +34,41 @@ public class ReportsTest {
 
     @Test
     public void getsTestOfTheClassReports(){
-
+        setUpScenary1();
     }
 
     @Test
     public void setstestOfTheClassReports(){
+        setUpScenary1();
     }
 
     @Test
     public void histogramGeneratorTest(){
-
+        setUpScenary1();
 
     }
 
     @Test
     public void exceptionOfHistogramGeneratorTest(){
-
+        setUpScenary2();
     }
 
     @Test
     public void statesIndicatorReportsTest(){
-
+        setUpScenary1();
     }
 
     @Test
     public void exceptionOfStatesIndicatorReports(){
-
+        setUpScenary2();
     }
     @Test
     public void listIndicatorReportsTest(){
-
+        setUpScenary2();
     }
     @Test
     public void exceptionOfListIndicatorReportsTest(){
-
+        setUpScenary1();
     }
 
 }

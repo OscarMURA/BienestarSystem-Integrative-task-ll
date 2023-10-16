@@ -128,3 +128,45 @@
 
 
 ----
+
+## Collection Testing 
+
+
+|**Name**|**Class**|**Scenery**|
+| :-: | :-: | :-: |
+|**setUp1Collection**|**Collection Test**|**ArrayList={1,2,3,4,5,6,7,8,9,10}**|
+|**setUp2Collection**|**Collection Test**|**ArrayList={10,9,8,7,6,5,4,3,2,1}**|
+
+----
+|**Objective:** That the selectionSort function works in its extreme case and in its best case in the correct way.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|CollectionTest|selecctionSort|setUp1Collection|void|The arrayList returned must be equal to ArrayList={{1,2,3,4,5,6,7,8,9,10}|
+|CollectionTest|selecctionSort|setUp2Collection|void|The arrayList of Integers in this extreme case entered, must be sorted to return an ArrayList with the order of these elements {1,2,3,4,5,6,7,8,9,10}.|
+
+----
+
+|**Objective:** The binaryInsert() function should correctly insert items into an already sorted list in an efficient way.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|CollectionTest|binaryInsert|setUp1Collection|Add element=4|The arrayList with the inserted elements must return true (added), and the arrayList must be equal to {1,2,3,4,4,5,6,7,8,9,10}.|
+|CollectionTest|binaryInsert|setUp2Collection|void|You must return the exception that the ArrayNo is not sorted, so you cannot add a new element.|
+
+----
+
+|**Objective:** The binarySearch() function can correctly find the elements efficiently, as long as the list is sorted.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|CollectionTest|binarySearch()|setUp1Collection|Search element=4|In the search you must return element 4, to verify that the search was successful..|
+|CollectionTest|binarySearch()|setUp2Collection|Search element=4|You must return the exception that the ArrayNo is not sorted, so you cannot search a element.|
+
+---

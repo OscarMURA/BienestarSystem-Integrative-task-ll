@@ -1,4 +1,4 @@
-package test;
+package test.model;
 import model.NutritionalStates;
 import org.junit.Test;
 import static org.junit.Assert.*;

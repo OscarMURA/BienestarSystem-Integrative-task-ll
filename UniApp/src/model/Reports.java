@@ -1,6 +1,6 @@
 package model;
 import java.util.ArrayList;
-
+import exceptions.ExceptionFormatOfValueNotAllowed;
 public class Reports {
 
     private String title;
