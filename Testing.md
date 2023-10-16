@@ -128,3 +128,27 @@
 
 
 ----
+
+|Objective: Test that all attributes can be obtained correctly|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|Gets\*|testGetId|void|All returned values ​​All returned values ​​must be equal to the attributes of the Student Object|
+
+|Objective:That when a nutritional status value is added, it is correctly added to the student|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|ReportsTest|<p>Sets\*</p><p>Gets\*</p>|testGetId|<p>name="Alice"</p><p>lastname="Smith"</p><p>years=25</p><p>Sex=M</p>
+|All the values ​​that were modified, when the values ​​are returned these must be the changed values|
+-------
+|Objective: That when a nutritional status value is added, it is correctly added to the student|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|AddNutritionalState|testAddNutritionalState|<p>weight=70</p><p>height=1.75</p><p>date=22-05-2023</p>|The addNutritionalState function works correctly by adding a NutritionalStates object to the list and the list is updated properly. 
+|
+-------
