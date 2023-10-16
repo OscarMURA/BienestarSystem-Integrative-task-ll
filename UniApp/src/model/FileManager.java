@@ -1,31 +1,39 @@
 package model;
 
-import java.io.*   ;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+
 public class FileManager {
 
     private static FileManager instance;
-    private File dataFolder;
-    private File reports;
-    private File jsonFile;
+    public File dataFolder;
+    public File reports;
+    public File jsonFile;
 
-    private FileManager(){
+    private FileManager() {
 
-        File projectDir=new File(System.getProperty("user.dir"));
-        dataFolder=new File(projectDir+"/data");
-        reports=new File(dataFolder+"/reports");
-        jsonFile=new File(dataFolder+"/students.json");
+        File projectDir = new File(System.getProperty("user.dir"));
+        dataFolder = new File(projectDir + "/data");
+        reports = new File(dataFolder + "/reports");
+        jsonFile = new File(dataFolder + "/students.json");
     }
 
-    public static FileManager getInstance(){
-        if(instance==null){
-            instance=new FileManager();
+    public static FileManager getInstance() {
+        if (instance == null) {
+            instance = new FileManager();
         }
         return instance;
     }
 
-    private void createResources() {
-        // createResources
-        throw new UnsupportedOperationException();
+    public void createResources() throws IOException {
+        if (!dataFolder.exists()) {
+            dataFolder.mkdirs();
+        }
+        if (!reports.exists()) {
+            reports.mkdirs();
+        }
     }
 
     /**
