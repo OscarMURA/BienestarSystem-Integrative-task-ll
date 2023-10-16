@@ -115,4 +115,8 @@ public class NutritionalStatesTest {
         assertEquals(TypeStates.MORBID_OBESITY, nutritionalStates.getType());
     }
 
+<<<<<<< HEAD:UniApp/src/test/model/NutritionalStatesTest.java
+=======
+
+>>>>>>> ef2a1b7c8daf0327040476d18a26a281cfee3d20:UniApp/src/test/NutritionalStatesTest.java
 }
