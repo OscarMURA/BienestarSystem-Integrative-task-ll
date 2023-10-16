@@ -1,17 +1,18 @@
 package model;
+import java.util.ArrayList;
 
 public class Reports {
 
     private String title;
     private String[] Category;
-    private Object[] values;
+    private ArrayList<Object> values;
 
     /**
      *
      * @param title
      * @param Category
      */
-    public Reports(String title, String[] Category, Object[] values) {
+    public Reports(String title, String[] Category, ArrayList<Object> values) {
         this.title = title;
         this.Category = Category;
         this.values = values;
@@ -31,7 +32,7 @@ public class Reports {
         throw new UnsupportedOperationException();
     }
 
-    public Object[] getValues() {
+    public ArrayList<Object> getValues() {
         return this.values;
     }
 
@@ -39,7 +40,7 @@ public class Reports {
      *
      * @param values
      */
-    public void setValues(Object[] values) {
+    public void setValues(ArrayList<Object> values) {
         this.values = values;
     }
 

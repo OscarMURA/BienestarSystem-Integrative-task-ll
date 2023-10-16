@@ -14,18 +14,22 @@ public class NutritionalStatesTest {
         Calendar date = new GregorianCalendar(2024, 02, 22);
         nutritionalStates = new NutritionalStates(65.0, 1.65, date);
     }
+
     private void setUpLowWeight() {
         Calendar date = new GregorianCalendar(2024, 03, 22);
         nutritionalStates = new NutritionalStates(50.0, 1.7, date);
     }
+
     private void setUpWeightOverweight() {
         Calendar date = new GregorianCalendar(2023, 05, 25);
         nutritionalStates = new NutritionalStates(80.0, 1.75, date);
     }
+
     private void setUpWeightObesity() {
         Calendar date = new GregorianCalendar(2024, 02, 22);
         nutritionalStates = new NutritionalStates(120.0, 1.8, date);
     }
+
     private void setUpWeightMorbidObesity() {
         Calendar date = new GregorianCalendar(2024, 02, 22);
         nutritionalStates = new NutritionalStates(150.0, 1.7, date);
@@ -43,6 +47,7 @@ public class NutritionalStatesTest {
         assertTrue(equalsHeight);
         assertTrue(equalsDate);
     }
+
     @Test
     public void setsTestOfTheNutrituonalStates(){
         setUpWeightNormal();
@@ -104,9 +109,6 @@ public class NutritionalStatesTest {
         assertEquals(51.9,nutritionalStates.calculateBIM(),0.0);
         assertEquals(TypeStates.MORBID_OBESITY,nutritionalStates.getType());
     }
-
-
-
 
 
 }
