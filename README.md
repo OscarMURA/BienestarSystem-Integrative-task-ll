@@ -1,4 +1,4 @@
-# !En esta rama no trabajamos, por que no la tenemos en nuestro repositorio loca, en la que si trabajamos es en la develop, entonces evaluen esa rama por favor!
+# !En esta rama no trabajamos,  en la que si trabajamos es en la develop, entonces evaluen esa rama por favor!
 
 
 
