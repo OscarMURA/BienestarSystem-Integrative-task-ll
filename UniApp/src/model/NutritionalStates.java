@@ -3,10 +3,8 @@ import java.util.Calendar;
 
 public class NutritionalStates {
     private double weight;
-
     private double height;
     private Calendar date;
-    private TypeStates type;
 
     /**
      *
@@ -18,7 +16,6 @@ public class NutritionalStates {
         this.weight = weight;
         this.height = height;
         this.date = date;
-        this.type = calculateTypeStates(weight, height);
     }
 
     public double getWeight() {
@@ -31,7 +28,7 @@ public class NutritionalStates {
      */
     public void setWeight(double weight) {
         this.weight = weight;
-        this.type=calculateTypeStates(weight, height);
+
     }
 
     public double getHeight() {
@@ -44,7 +41,7 @@ public class NutritionalStates {
      */
     public void setHeight(double height) {
         this.height = height;
-        this.type=calculateTypeStates(weight, height);
+
     }
 
     public double calculateBIM() {
@@ -89,7 +86,8 @@ public class NutritionalStates {
     }
 
     public TypeStates getType() {
-        return this.type;
+        return calculateTypeStates(this.weight, this.height);
     }
+
 
 }

@@ -1,8 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Student {
+public class Student implements Comparable<Student>, Comparator<Student>{
 
     private String id;
     private String name;
@@ -67,4 +68,21 @@ public class Student {
     public ArrayList<NutritionalStates> getNutritionalStates() {
         return nutritionalStates;
     }
+
+    public String toString() {
+        return name + " " + lastName + " " + years + " " + sex; // + " " + nutritionalStates;
+    }
+        @Override
+        public int compareTo(Student o) {
+            return this.id.compareTo(o.id);
+        }
+        @Override
+        public int compare(Student o1, Student o2) {
+            return this.id.compareTo(o2.id);
+        }
+
+        public String toCSV() {
+            return name + ";" + lastName + ";" + years + ";"+id+";"+sex+";"+nutritionalStates.get(0).getWeight()
+                    +";"+nutritionalStates.get(1).getWeight()+";"+nutritionalStates.get(1).getHeight()+";"+nutritionalStates.get(0).calculateBIM()+ ";" + nutritionalStates.get(1).calculateBIM();
+        }
 }

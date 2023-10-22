@@ -92,22 +92,30 @@ public class Reports {
         sb.append("============================================");
         sb.append("\n"+title+"\n");
         sb.append("============================================");
+        Double averege = 0.0;
 
         for (int i = 0; i < category.size(); i++) {
-            sb.append("\n* Category "+category.get(i)+":\t"+values.get(i));
+            sb.append("\n*Category "+category.get(i)+":\t"+values.get(i));
+            averege+=(Integer) values.get(i);
         }
-
+        averege/=category.size();
+        sb.append("\n\nThe average of the nutritional states is: "+averege+"\n");
         return sb.toString();
     }
 
     public String listIndicatorReports() throws ExceptionFormatOfValueNotAllowed {
         String out="";
-        if(!(values.get(0) instanceof String)){
-            throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(),"String");
+        if(!(values.get(0) instanceof ArrayList<?>)){
+            throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "ArrayList");
         }
+        ArrayList<Object > values2= (ArrayList<Object>) values.get(0);
+        if(!(values2.get(0) instanceof String)){
+            throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "String");
+        }
+        out+=title+"\n";
 
         for (int i = 0; i < category.size(); i++) {
-            out+="\n* Category "+category.get(i)+":\n";
+            out+="\n*Category "+category.get(i)+":\n";
             for (int j = 0; j < ((ArrayList<String>) values.get(i)).size(); j++) {
                 out+="\t"+((ArrayList<String>) values.get(i)).get(j)+"\n";
             }

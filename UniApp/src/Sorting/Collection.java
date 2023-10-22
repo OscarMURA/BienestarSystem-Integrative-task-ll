@@ -2,7 +2,7 @@ package Sorting;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.function.Function;
+
 
 import exceptions.ExceptionForArrayListUnordered;
 public class Collection <T extends  Comparable<? super T>,V extends Comparable<? super T>>{
@@ -25,11 +25,13 @@ public class Collection <T extends  Comparable<? super T>,V extends Comparable<?
         } while (swapped);
     }
 
-    public  <T extends Comparable<T>> void binaryInsert(ArrayList<T> list, Comparator<T> comparator, T elementToInsert) {
+    public static <T extends Comparable<T>> void binaryInsert(ArrayList<T> list, Comparator<T> comparator, T elementToInsert) throws ExceptionForArrayListUnordered {
+        if (!isListSorted(list, comparator)) {
+            throw new ExceptionForArrayListUnordered();
+        }
         int left = 0;
         int right = list.size() - 1;
-
-        while (left <= right) {
+        while (left <= right ) {
             int mid = left + (right - left) / 2;
             T midElement = list.get(mid);
 
@@ -38,8 +40,18 @@ public class Collection <T extends  Comparable<? super T>,V extends Comparable<?
             } else {
                 left = mid + 1;
             }
+
         }
         list.add(left, elementToInsert);
+    }
+
+    public static <T> boolean isListSorted(ArrayList<T> list, Comparator<T> comparator) {
+        for (int i = 1; i < list.size(); i++) {
+            if (comparator.compare(list.get(i - 1), list.get(i)) > 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
