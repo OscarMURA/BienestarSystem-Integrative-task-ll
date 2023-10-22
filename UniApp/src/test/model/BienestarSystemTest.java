@@ -1,16 +1,15 @@
 package test.model;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 import model.BienestarSystem;
 import model.Student;
 
 public class BienestarSystemTest {
     private BienestarSystem bienestarSystem;
 
-    @BeforeEach
+    @Test
     public void setUp() {
         bienestarSystem = new BienestarSystem();
     }

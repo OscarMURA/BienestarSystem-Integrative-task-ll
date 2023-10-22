@@ -1,8 +1,8 @@
 package test.model;
 
 import model.NutritionalStates;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import java.util.Calendar;
 import model.TypeStates;
 import java.util.GregorianCalendar;

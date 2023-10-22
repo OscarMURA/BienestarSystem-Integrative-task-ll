@@ -16,7 +16,7 @@ public class ReportsTest {
         String title="Illustration of quantitative data of nutritional statuses ";
         String category[]={"low weight","normal" ,"overweight", "obesity", "morbid obesity"};
         Object value[]={2,4,7,10,7};
-        reports = new Reports(title, category,  new ArrayList<>(List.of(value)));
+        reports = new Reports(title,new ArrayList<>(Arrays.asList(category)), new ArrayList<>(List.of(value)));
     }
 
     private void setUpScenary2(){
@@ -29,7 +29,7 @@ public class ReportsTest {
         values.add(new ArrayList<>(Arrays.asList("Sofia Jimenez", "Ricardo Castro", "Elena Diaz")));
         values.add(new ArrayList<>(Arrays.asList("Julia Vargas", "Manuel Soto")));
         values.add(new ArrayList<>(Arrays.asList("Isabella Torres", "Andres Ortiz")));
-        reports = new Reports(title, category, values);
+        reports = new Reports(title, new ArrayList<>(Arrays.asList(category)), values);
     }
 
     @Test

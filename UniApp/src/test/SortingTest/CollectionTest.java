@@ -41,6 +41,7 @@ public class CollectionTest {
         list.add(3);
         list.add(2);
         list.add(1);
+
         return list;
     }
 
@@ -53,6 +54,8 @@ public class CollectionTest {
     @Test
     public void selecctionSortTestCorrectlyInWorstCase(){
         ArrayList<Integer> list = setUpScenary2();
+
+
     }
 
     @Test
@@ -72,7 +75,7 @@ public class CollectionTest {
 
     @Test
     public void binarySearchTestWithListUnordered(){
-        ArrayList<Integer> list = setUpScenary2();
+
     }
 
 }

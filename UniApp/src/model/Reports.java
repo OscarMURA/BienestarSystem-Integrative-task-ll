@@ -4,7 +4,7 @@ import exceptions.ExceptionFormatOfValueNotAllowed;
 public class Reports {
 
     private String title;
-    private String[] Category;
+    private ArrayList<String> category;
     private ArrayList<Object> values;
 
     /**
@@ -12,24 +12,23 @@ public class Reports {
      * @param title
      * @param Category
      */
-    public Reports(String title, String[] Category, ArrayList<Object> values) {
+    public Reports(String title, ArrayList<String> Category, ArrayList<Object> values) {
         this.title = title;
-        this.Category = Category;
+        this.category = Category;
         this.values = values;
     }
 
-    public String[] getCategory() {
-        // getCategory
-        throw new UnsupportedOperationException();
+    public ArrayList<String> getCategory() {
+        return this.category;
     }
 
     /**
      *
      * @param Category
      */
-    public void setCategory(String[] Category) {
-        // setCategory
-        throw new UnsupportedOperationException();
+    public void setCategory(ArrayList<String> Category) {
+        this.category = Category;
+
     }
 
     public ArrayList<Object> getValues() {
@@ -56,19 +55,65 @@ public class Reports {
         this.title = title;
     }
 
-    public String histogramGenerator() {
-        // histogramGenerator
-        throw new UnsupportedOperationException();
+
+
+    public String histogramGenerator() throws ExceptionFormatOfValueNotAllowed {
+
+        if(!(values.get(0) instanceof Integer)){
+            throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "Integer");
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("============================================");
+        sb.append("\n"+title+"\n");
+        sb.append("============================================");
+
+        for (int i = 0; i < category.size(); i++) {
+            sb.append("\ncategory "+category.get(i)+":\t"+values.get(i));
+        }
+        sb.append("\n\n");
+        for (int i = 0; i < category.size(); i++) {
+            String bar="";
+            for (int j = 0; j < (Integer) values.get(i); j++) {
+                bar+="█";
+            }
+            sb.append(category.get(i)+"\n"+bar+"\n"+bar+"\n");
+        }
+        return sb.toString();
     }
 
-    public String statesIndicatorReports() {
-        // statesIndicatorReports
-        throw new UnsupportedOperationException();
+    public String statesIndicatorReports() throws ExceptionFormatOfValueNotAllowed {
+
+        if(!(values.get(0) instanceof Integer)){
+            throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "Integer");
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("============================================");
+        sb.append("\n"+title+"\n");
+        sb.append("============================================");
+
+        for (int i = 0; i < category.size(); i++) {
+            sb.append("\n* Category "+category.get(i)+":\t"+values.get(i));
+        }
+
+        return sb.toString();
     }
 
-    public String listIndicatorReports() {
-        // listIndicatorReports
-        throw new UnsupportedOperationException();
+    public String listIndicatorReports() throws ExceptionFormatOfValueNotAllowed {
+        String out="";
+        if(!(values.get(0) instanceof String)){
+            throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(),"String");
+        }
+
+        for (int i = 0; i < category.size(); i++) {
+            out+="\n* Category "+category.get(i)+":\n";
+            for (int j = 0; j < ((ArrayList<String>) values.get(i)).size(); j++) {
+                out+="\t"+((ArrayList<String>) values.get(i)).get(j)+"\n";
+            }
+        }
+
+        return out;
     }
 
 }
