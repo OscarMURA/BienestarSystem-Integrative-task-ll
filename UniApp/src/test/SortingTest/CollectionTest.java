@@ -46,7 +46,9 @@ public class CollectionTest {
         return list;
     }
 
-
+    /**
+     * This method evaluates that the Sort method correctly sorts an ordered list.
+     */
     @Test
     public void selecctionSortTestCorrectlyInBestCase(){
         ArrayList<Integer> list = setUpScenary1();
@@ -63,6 +65,9 @@ public class CollectionTest {
         assertEquals(10, (int) list.get(9));
     }
 
+    /**
+     * This method evaluates that the Sort method correctly sorts an unordered list.
+     */
     @Test
     public void selecctionSortTestCorrectlyInWorstCase(){
         ArrayList<Integer> list = setUpScenary2();
@@ -79,6 +84,9 @@ public class CollectionTest {
         assertEquals(10, (int) list.get(9));
     }
 
+    /**
+     * This method verifies that the binary insertion correctly adds an array element.
+     */
     @Test
     public void binaryInsertTestCorrectly(){
         ArrayList<Integer> list = setUpScenary1();
@@ -101,6 +109,11 @@ public class CollectionTest {
         assertEquals(11, (int) list.get(10));
     }
 
+    /**
+     * This test method verifies that it throws the ExceptionForArrayListUnordered exception when trying to insert an item in an ordered list.
+     * when trying to insert an element in an ordered list.
+     */
+
     @Test
     public void binaryInsertTestWithListUnordered(){
         ArrayList<Integer> list = setUpScenary2();
@@ -113,11 +126,18 @@ public class CollectionTest {
         }
     }
 
+    /**
+     * This test method checks if a list is sorted.
+     */
     @Test
     public void isListSorted(){
         ArrayList<Integer> list = setUpScenary1();
         assertTrue(Collection.isListSorted(list, (a, b) -> a - b));
     }
+
+    /**
+     * This test method checks if a list is not out of order.
+     */
     @Test
     public void isListSortedWithListUnordered() {
         ArrayList<Integer> list = setUpScenary2();
