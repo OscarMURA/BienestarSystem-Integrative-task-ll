@@ -18,7 +18,9 @@ public class UniApp {
 
     public static void main(String[] args) {
         UniApp uniApp = new UniApp();
-        uniApp.loadStudent();
+        uniApp.loadStudentJson();
+        uniApp.loadStudentsCSV();
+        uniApp.loadStudentTxt();
         uniApp.menu();
     }
 
@@ -75,12 +77,28 @@ public class UniApp {
         reader.close();
     }
 
-    public void loadStudent() {
-        bienestarSystem.loadStudents();
+    public void loadStudentJson() {
+        bienestarSystem.loadStudentsJson();
     }
 
-    public void saveStudent() {
-        bienestarSystem.saveStudents();
+    public void saveStudentJson() {
+        bienestarSystem.saveStudentsJson();
+    }
+
+    public void loadStudentsCSV() {
+        bienestarSystem.loadStudentsCSV();
+    }
+
+    public void saveStudentCSV() {
+        bienestarSystem.saveStudentsCVC();
+    }
+
+    public void loadStudentTxt() {
+        bienestarSystem.loadStudentsTxt();
+    }
+
+    public void saveStudentTxt(String information) {
+        bienestarSystem.saveStudentsTxt(information);
     }
 
     public void addStudent() {
@@ -134,8 +152,8 @@ public class UniApp {
         System.out.println(message);
 
         nutritionalState(id);
-
-        saveStudent();
+        saveStudentJson();
+        saveStudentCSV();
     }
 
     public void nutritionalState(String id) {
@@ -160,7 +178,8 @@ public class UniApp {
         System.out.println("Nutritional state for Sep 2022: " + messageSep);
         System.out.println("Nutritional state for Apr 2023: " + messageApr);
         System.out.println("===========================================");
-        saveStudent();
+        saveStudentJson();
+        saveStudentCSV();
     }
 
     public void modifyStudent() {
@@ -257,7 +276,8 @@ public class UniApp {
             modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newHealthAbr, newDateAbr2023);
 
             System.out.println(modifyMessage);
-            saveStudent();
+            saveStudentJson();
+            saveStudentCSV();
 
         } else {
             System.out.println("===========================================");
@@ -276,12 +296,13 @@ public class UniApp {
 
         if (message.equals("Student removed successfully.")) {
             System.out.println("Student removed successfully.");
-            bienestarSystem.saveStudents();
+            bienestarSystem.saveStudentsJson();
         } else {
             System.out.println(message);
         }
 
-        saveStudent();
+        saveStudentJson();
+        saveStudentCSV();
     }
 
     public int validateInt() {
@@ -357,10 +378,12 @@ public class UniApp {
             switch (option) {
                 case 1:
                     String histogram = bienestarSystem.histogramGenerator();
+                    saveStudentTxt(histogram);
                     System.out.println(histogram);
                     break;
                 case 2:
                     String reportList = menuListReport();
+                    saveStudentTxt(reportList);
                     System.out.println(reportList);
                     break;
                 case 0:
@@ -390,10 +413,12 @@ public class UniApp {
             switch (option) {
                 case 1:
                     String indicatorReport = bienestarSystem.indicatorChangesNutritionalStates();
+                    saveStudentTxt(indicatorReport);
                     System.out.println(indicatorReport);
                     break;
                 case 2:
                     String reportListIndicator = menuListReportIndicator();
+                    saveStudentTxt(reportListIndicator);
                     System.out.println(reportListIndicator);
                     break;
                 case 0:

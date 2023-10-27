@@ -25,7 +25,7 @@ public class BienestarSystem {
         reports = new Reports(title, new ArrayList<>(Arrays.asList(categories)), values);
     }
 
-    public String loadStudents() {
+    public String loadStudentsJson() {
         String msj = "";
         try {
             students = fileManager.loadStudent("/resources/studentsData.json");
@@ -38,6 +38,66 @@ public class BienestarSystem {
 
     }
 
+    public String saveStudentsJson() {
+        String msj = "";
+        try {
+            fileManager.saveStudents(students, "/resources/studentsData.json");
+        } catch (IOException e) {
+            msj = "Error al guardar los estudiantes en el archivo JSON.";
+        } catch (ExceptionFormatFileNotAllowed e) {
+            msj = "Error al cargar los estudiantes desde el archivo JSON. por el formato";
+        }
+        return msj;
+    }
+
+    public String loadStudentsCSV() {
+        String msj = "";
+        try {
+            students = fileManager.loadCSV("/resources/freshman_kgs.csv");
+        } catch (IOException e) {
+            msj = "Error al cargar los estudiantes desde el archivo CSV.";
+        } catch (exceptions.ExceptionFormatFileNotAllowed e) {
+            msj = "Error al cargar los estudiantes desde el archivo CSV. por el formato";
+        }
+        return msj;
+    }
+
+    public String saveStudentsCVC() {
+        String msj = "";
+        try {
+            fileManager.saveCSV(students, "/resources/freshman_kgs.csv");
+        } catch (IOException e) {
+            msj = "Error al guardar los estudiantes en el archivo CSV.";
+        } catch (ExceptionFormatFileNotAllowed e) {
+            msj = "Error al cargar los estudiantes desde el archivo CSV. por el formato";
+        }
+        return msj;
+    }
+
+    public String loadStudentsTxt() {
+        String msj = "";
+        try {
+            msj = fileManager.loadFileTXT("/resources/students.txt");
+        } catch (IOException e) {
+            msj = "Error al cargar los estudiantes desde el archivo TXT: " + e.getMessage();
+        } catch (ExceptionFormatFileNotAllowed e) {
+            msj = "Error al cargar los estudiantes desde el archivo TXT. Formato de archivo no permitido.";
+        }
+        return msj;
+    }
+
+    public String saveStudentsTxt(String information) {
+        String msj = "";
+        try {
+            msj = fileManager.saveFileTXT("/resources/students.txt", information);
+        } catch (IOException e) {
+            msj = "Error al guardar los estudiantes en el archivo TXT: " + e.getMessage();
+        } catch (ExceptionFormatFileNotAllowed e) {
+            msj = "Error al guardar los estudiantes en el archivo TXT. Formato de archivo no permitido.";
+        }
+        return msj;
+    }
+
     public String addNutritionalStateToStudent(String id, double weight, double height, Calendar date) {
         String msj = "";
         NutritionalStates nutritionalState = new NutritionalStates(weight, height, date);
@@ -47,18 +107,6 @@ public class BienestarSystem {
             msj = "Estado nutricional añadido correctamente";
         } else {
             msj = "No se encontro el estudiante con id: " + student.getId();
-        }
-        return msj;
-    }
-
-    public String saveStudents() {
-        String msj = "";
-        try {
-            fileManager.saveStudents(students, "/resources/studentsData.json");
-        } catch (IOException e) {
-            msj = "Error al guardar los estudiantes en el archivo JSON.";
-        } catch (ExceptionFormatFileNotAllowed e) {
-            msj = "Error al cargar los estudiantes desde el archivo JSON. por el formato";
         }
         return msj;
     }

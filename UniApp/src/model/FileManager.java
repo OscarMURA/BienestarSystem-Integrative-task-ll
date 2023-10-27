@@ -96,14 +96,13 @@ public class FileManager {
             throw new ExceptionFormatFileNotAllowed("TXT");
         }
         reports = new File(dataFolder + path);
-        System.out.println("entre al save");
         createResources();
-        System.out.println("entre al save");
-        
+
         FileOutputStream save = new FileOutputStream(reports);
         String data = information;
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(save));
         writer.write(data); // IOException
+        writer.newLine();
         writer.flush();
         writer.close();
         return "The report was saved successfully\n\n";
