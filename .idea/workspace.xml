@@ -2,68 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36737e7a-a0e0-483a-b5ab-fc0879932b67" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequerimentsTableUniApp.md" beforeDir="false" afterPath="$PROJECT_DIR$/RequerimentsTableUniApp.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/Testing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/Sorting/Collection.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/Sorting/Collection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/BienestarSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/BienestarSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/FileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/NutritionalStates.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/NutritionalStates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/Reports.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/Reports.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/TypeStates.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/model/TypeStates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/SortingTest/CollectionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/SortingTest/CollectionTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/BienestarSystemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/BienestarSystemTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/FileManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/FileManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/NutritionalStatesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/NutritionalStatesTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/ReportsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/test/model/ReportsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/out/production/UniApp/ui/UniApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/out/production/UniApp/ui/UniApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/Sorting/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/Sorting/Collection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/model/BienestarSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/model/BienestarSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/model/NutritionalStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/model/NutritionalStates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/model/Reports.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/model/Reports.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/test/SortingTest/CollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/test/SortingTest/CollectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/test/model/BienestarSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/test/model/BienestarSystemTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/test/model/FileManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/test/model/FileManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/test/model/NutritionalStatesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/test/model/NutritionalStatesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniApp/src/test/model/ReportsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/src/test/model/ReportsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dataTest/studentsTest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/data/dataTest/studentsTest.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dataTest/studentsTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/data/dataTest/studentsTest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dataTest/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/data/dataTest/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/freshman_kgs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/data/resources/freshman_kgs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resources/studentsData.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/resources/studentsData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datastudentsData.json" beforeDir="false" afterPath="$PROJECT_DIR$/UniApp/data/resources/studentsData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gson-2.9.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/junit-platform-console-standalone-1.10.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/Sorting/Collection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/exceptions/ExceptionForArrayListUnordered.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/exceptions/ExceptionFormatFileNotAllowed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/exceptions/ExceptionFormatOfValueNotAllowed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/BienestarSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/BienestarSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/FileManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/NutritionalStates.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/Reports.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/Sex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/model/TypeStates.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/NutritionalStatesTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/ReportsTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/SortingTest/CollectionTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/model/BienestarSystemTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/model/FileManagerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/model/NutritionalStatesTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/model/ReportsTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/test/model/StudentTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/ui/UniApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tarea-integradora-2-2023-2-equipo-serio/ui/UniApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tarea-integradora-2-2023-2-equipo-serio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tarea-integradora-2-2023-2-equipo-serio.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,21 +26,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/chamo/Pictures/tarea-integradora-1-2023-2-e9&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/chamo/Pictures/tarea-integradora-2-2023-2-equipo-serio",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.UniApp">
     <configuration name="UniApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk-19" />

@@ -60,7 +60,7 @@ public class UniApp {
                         classificationReport();
                         break;
                     case 5:
-                        print();
+                        nutritionalStateReport();
                         break;
                     case 6:
                         System.out.println("Exiting the application.");
@@ -302,9 +302,12 @@ public class UniApp {
             reader.nextLine();
             switch (option) {
                 case 1:
-                    
+                    String histogram = bienestarSystem.histogramGenerator();
+                    System.out.println(histogram);
                     break;
                 case 2:
+                    String reportList = menuListReport();
+                    System.out.println(reportList);
                     break;
                 case 0:
                     break;
@@ -316,13 +319,58 @@ public class UniApp {
         } while (option != 0);
     }
 
-    public String print() {
-        String msj = "";
-        ArrayList<Student> students = bienestarSystem.getStudents();
-        for (int i = 0; i < students.size(); i++) {
-            msj += students.get(i).toString() + "\n";
-        }
-        return msj;
+    public void nutritionalStateReport() {
+        int option = 0;
+        do {
+            System.out.println("1. Indicator reporting");
+            System.out.println("2. Report by listing");
+            System.out.println("0. Return to Main Menu");
+            System.out.print("Choose an option: ");
+            option = validateInt();
+            reader.nextLine();
+            switch (option) {
+                case 1:
+                    String indicatorReport = bienestarSystem.indicatorChangesNutritionalStates();
+                    System.out.println(indicatorReport);
+                    break;
+                case 2:
+                    String reportListIndicator = menuListReportIndicator();
+                    System.out.println(reportListIndicator);
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+                    break;
+            }
+
+        } while (option != 0);
+    }
+
+    public String menuListReport() {
+        int optionReport = 0;
+        System.out.println("Ingrese el tipo de orden que desea realizar su reporte");
+        System.out.println("1. BMI");
+        System.out.println("2. Age");
+        System.out.println("3. Alphabetical");
+        System.out.println("0. Return to Main Menu");
+        optionReport = validateInt();
+        String report = bienestarSystem.statesListReports(optionReport);
+
+        return report;
+    }
+
+    public String menuListReportIndicator() {
+        int optionReport = 0;
+        System.out.println("Ingrese el tipo de orden que desea realizar su reporte");
+        System.out.println("1. BMI");
+        System.out.println("2. Age");
+        System.out.println("3. Alphabetical");
+        System.out.println("0. Return to Main Menu");
+        optionReport = validateInt();
+        String report = bienestarSystem.indicatorListChangeNutritionalStates(optionReport);
+
+        return report;
     }
 
 }
