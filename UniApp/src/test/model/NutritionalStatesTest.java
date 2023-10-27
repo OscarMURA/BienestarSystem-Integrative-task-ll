@@ -104,7 +104,7 @@ public class NutritionalStatesTest {
         nutritionalStates.setHeight(height);
         nutritionalStates.setDate(date);
 
-        assertEquals(26.1, nutritionalStates.calculateBIM(), 0.0);
+        assertEquals(26.1, nutritionalStates.getBMI(), 0.0);
         assertEquals(TypeStates.OVERWEIGHT, nutritionalStates.getType());
     }
 
@@ -114,7 +114,7 @@ public class NutritionalStatesTest {
     @Test
     public void verifyCorrectCalculationOFBIMAndWeightNormal() {
         setUpWeightNormal();
-        assertEquals(23.9, nutritionalStates.calculateBIM(), 0.0);
+        assertEquals(23.9, nutritionalStates.getBMI(), 0.0);
         assertEquals(TypeStates.NORMAL_WEIGHT, nutritionalStates.getType());
     }
 
@@ -124,7 +124,7 @@ public class NutritionalStatesTest {
     @Test
     public void verifyCorrectCalculationOFBIMAndLowWeight() {
         setUpLowWeight();
-        assertEquals(17.3, nutritionalStates.calculateBIM(), 0.0);
+        assertEquals(17.3, nutritionalStates.getBMI(), 0.0);
         assertEquals(TypeStates.LOW_WEIGHT, nutritionalStates.getType());
     }
 
@@ -134,7 +134,7 @@ public class NutritionalStatesTest {
     @Test
     public void verifyCorrectCalculationOFBIMAndWeightOverweight() {
         setUpWeightOverweight();
-        assertEquals(26.1, nutritionalStates.calculateBIM(), 0.0);
+        assertEquals(26.1, nutritionalStates.getBMI(), 0.0);
         assertEquals(TypeStates.OVERWEIGHT, nutritionalStates.getType());
     }
 
@@ -144,7 +144,7 @@ public class NutritionalStatesTest {
     @Test
     public void verifyCorrectCalculationOFBIMAndWeightObesity() {
         setUpWeightObesity();
-        assertEquals(37.0, nutritionalStates.calculateBIM(), 0.0);
+        assertEquals(37.0, nutritionalStates.getBMI(), 0.0);
         assertEquals(TypeStates.OBESITY, nutritionalStates.getType());
     }
 
@@ -154,7 +154,7 @@ public class NutritionalStatesTest {
     @Test
     public void verifyCorrectCalculationOFBIMAndWeightMorbidObesity() {
         setUpWeightMorbidObesity();
-        assertEquals(51.9, nutritionalStates.calculateBIM(), 0.0);
+        assertEquals(51.9, nutritionalStates.getBMI(), 0.0);
         assertEquals(TypeStates.MORBID_OBESITY, nutritionalStates.getType());
     }
 

@@ -52,7 +52,8 @@ public class CollectionTest {
     @Test
     public void selecctionSortTestCorrectlyInBestCase(){
         ArrayList<Integer> list = setUpScenary1();
-        Collection.Sort(list, (a, b) -> a - b);
+        collection= new Collection<>();
+        collection.Sort(list, (a, b) -> a - b);
         assertEquals(1, (int) list.get(0));
         assertEquals(2, (int) list.get(1));
         assertEquals(3, (int) list.get(2));
@@ -71,7 +72,7 @@ public class CollectionTest {
     @Test
     public void selecctionSortTestCorrectlyInWorstCase(){
         ArrayList<Integer> list = setUpScenary2();
-        Collection.Sort(list, (a, b) -> a - b);
+        collection.Sort(list, (a, b) -> a - b);
         assertEquals(1, (int) list.get(0));
         assertEquals(2, (int) list.get(1));
         assertEquals(3, (int) list.get(2));

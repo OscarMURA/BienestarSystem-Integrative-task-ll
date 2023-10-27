@@ -5,5 +5,5 @@ public enum TypeStates {
      NORMAL_WEIGHT,
      OVERWEIGHT,
      OBESITY,
-     MORBID_OBESITY;
+     MORBID_OBESITY, UNKNOWN;
 }

@@ -14,9 +14,14 @@ public class BienestarSystemTest {
         bienestarSystem = new BienestarSystem();
     }
 
+
     @Test
     public void testAddStudents() {
-
+        setUp();
+        bienestarSystem.loadStudents();
+        //System.out.println(bienestarSystem.indicatorChangesNutritionalStates());
+        System.out.println(bienestarSystem.histogramGenerator());
+        //System.out.println(bienestarSystem.indicatorListChangeNutritionalStates(1));
     }
 
     @Test

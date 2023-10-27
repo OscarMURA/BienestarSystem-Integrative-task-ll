@@ -7,22 +7,19 @@ import java.util.Comparator;
 import exceptions.ExceptionForArrayListUnordered;
 public class Collection <T extends  Comparable<? super T>,V extends Comparable<? super T>>{
 
-    public static <T extends Comparable<T>> void Sort(ArrayList<T> list, Comparator<T> comparator) {
+    public <T> void Sort(ArrayList<T> list, Comparator<T> comparator) {
         int n = list.size();
-        boolean swapped;
-        do {
-            swapped = false;
-            for (int i = 1; i < n; i++) {
-                T a = list.get(i - 1);
-                T b = list.get(i);
-                if (comparator.compare(a, b) > 0) {
-                    // Swap a and b
-                    list.set(i - 1, b);
-                    list.set(i, a);
-                    swapped = true;
-                }
+        for (int i = 1; i < n; i++) {
+            T current = list.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && comparator.compare(current, list.get(j)) < 0) {
+                list.set(j + 1, list.get(j));
+                j--;
             }
-        } while (swapped);
+
+            list.set(j + 1, current);
+        }
     }
 
     public static <T extends Comparable<T>> void binaryInsert(ArrayList<T> list, Comparator<T> comparator, T elementToInsert) throws ExceptionForArrayListUnordered {

@@ -217,6 +217,7 @@ public class FileManagerTest {
             fileManager.saveFileTXT("/dataTest/test.txt", message);
         } catch (IOException e) {
             fail("IOException thrown when saving file");
+        
         } catch (ExceptionFormatFileNotAllowed e) {
             fail();
         }
