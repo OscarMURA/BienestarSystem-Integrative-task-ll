@@ -30,42 +30,74 @@ public class FileManagerTest {
         return students;
     }
 
-    public void setUp() throws IOException {
-        fileManager = FileManager.getInstance();
-        ArrayList<Student> students = setUpStudent();
-        try {
-            fileManager.saveStudents(students, "/dataTest/studentsTest.json");
-        } catch (ExceptionFormatFileNotAllowed e) {
-            fail();
-        }
-    }
 
+
+    /**
+     * This test scenario creates the necessary resources for testing.
+     */
     public void setUpIntence() {
         fileManager = FileManager.getInstance();
     }
 
+    /**
+     * This test tests that the getInstance method of the FileManager class
+     * returns the same instance of the FileManager class
+     * by using the singleton method
+     */
     @Test
     public void testGetInstance() {
+        setUpIntence();
         FileManager instance1 = FileManager.getInstance();
-        FileManager instance2 = FileManager.getInstance();
-        assertSame(instance1, instance2);
+        assertSame(instance1, fileManager);
     }
 
-    @Test
-    public void testSingletonInstance() {
-        FileManager anotherFileManager = FileManager.getInstance();
-        assertSame(FileManager.getInstance(), anotherFileManager);
-    }
 
+
+    /**
+     * This test scenario tests that the createResources method of the FileManager class
+     * creates the necessary resources for testing
+     */
     @Test
     public void testCreateResources() {
+        setUpIntence();
         try {
-            setUp();
+            ArrayList<Student> students = setUpStudent();
+            try {
+                fileManager.saveStudents(students, "/dataTest/studentsTest.json");
+            } catch (ExceptionFormatFileNotAllowed e) {
+                fail();
+            }
         } catch (IOException e) {
             fail("IOException thrown when creating resources");
         }
     }
 
+    /**
+     * The system reports the exception ExceptionFormatFileNotAllowed,
+     * because the type of file that was tried to save the student dat
+     * a is not valid.
+     */
+    @Test
+    public void testCreateResourcesWithException() {
+        setUpIntence();
+        try {
+            ArrayList<Student> students = setUpStudent();
+            try {
+                fileManager.saveStudents(students, "/dataTest/studentsJSON.txt");
+            } catch (ExceptionFormatFileNotAllowed e) {
+                assertNotNull(e.getMessage());
+
+            }
+        } catch (IOException e) {
+            fail();
+        }
+    }
+
+
+    /**
+     * This test scenario tests that the saveStudents method of the FileManager class
+     * saves the students in a json file
+     */
     @Test
     public void testLoadStudent() {
         ArrayList<Student> students = null;
@@ -83,6 +115,11 @@ public class FileManagerTest {
         }
     }
 
+    /**
+     * This method tests that the loadStudent method of the FileManager class
+     * throws an exception of type ExceptionFormatFileNotAllowed when an attempt is made to load a file
+     * that does not have the extension .json
+     */
     @Test
     public void testLoadStudentWithException(){
         setUpIntence();
@@ -96,7 +133,10 @@ public class FileManagerTest {
         }
     }
 
-
+    /**
+     * This method tests the saving of student data in a csv file to see if it is saved correctly and the resources are created correctly.
+     * to see if it is saved correctly and the resources are created correctly.
+     */
     @Test
     public void testSaveCSV() {
         ArrayList<Student> students = setUpStudent();
@@ -109,6 +149,11 @@ public class FileManagerTest {
         }
     }
 
+
+    /**
+     * This method tests that the exception of type ExceptionFormatFileNotAllowed is thrown when trying to save a file that does not have extension .csv
+     * is thrown when trying to save a file that does not have the .csv extension.
+     */
     @Test
     public void testSaveCSVWithException() {
         ArrayList<Student> students = setUpStudent();
@@ -122,6 +167,11 @@ public class FileManagerTest {
         }
     }
 
+
+    /**
+     * This method tests that the loadCSV method of the FileManager class
+     * loads the students from a csv file
+     */
     @Test
     public void testLoadCSV() {
         ArrayList<Student> students = setUpStudent();
@@ -137,6 +187,11 @@ public class FileManagerTest {
             assertEquals(students.get(i).toString(), loadedStudents.get(i).toString());
         }
     }
+
+    /**
+     * This method tests that the exception of type ExceptionFormatFileNotAllowed is thrown when trying to load a file that does not have extension .csv
+     * is thrown when trying to load a file that does not have the .csv extension.
+     */
     @Test
     public void testLoadCSVWithException() {
         setUpIntence();
@@ -150,6 +205,10 @@ public class FileManagerTest {
         }
     }
 
+    /**
+     * This method tests that the saveFileTXT method of the FileManager class
+     * saves the information in a txt file
+     */
     @Test
     public void testSaveFileTXT() {
         setUpIntence();
@@ -164,6 +223,10 @@ public class FileManagerTest {
         }
     }
 
+    /**
+     * This method tests that the exception of type ExceptionFormatFileNotAllowed is
+     * thrown when trying to save a file that does not have extension .txt
+     */
     @Test
     public void testSaveFileTXTWithException() {
         setUpIntence();
@@ -179,6 +242,10 @@ public class FileManagerTest {
         }
     }
 
+    /**
+     * This method tests that the loadFileTXT method of the FileManager class
+     * loads the information from a txt file
+     */
     @Test
     public void testLoadFileTXT() {
         setUpIntence();
@@ -194,6 +261,10 @@ public class FileManagerTest {
         assertEquals(message, loadedMessage);
     }
 
+    /**
+     * This method tests that the exception of type ExceptionFormatFileNotAllowed is
+     * thrown when trying to load a file that does not have extension .txt
+     */
     @Test
     public void testLoadFileTXTWithException() {
         setUpIntence();

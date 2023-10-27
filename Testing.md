@@ -170,6 +170,95 @@
 
 ---
 
+
+# File Manager Testing 
+
+
+|**Name**|**Class**|**Scenery**|
+| :-: | :-: | :-: |
+|**setUpStudents**|**FileManager Test**|[Diagram](https://drive.google.com/file/d/1F_-4IlHyVATWtZaYP3fGdnFzjvK2qKK6/view?usp=drive_link)|
+|setUpIntance|FileManager test|[FileManager.getIntance()](https://drive.google.com/file/d/1OlkmDUVxIlRbM5pxZrVoZKd_VxaPMMK9/view?usp=sharing)|
+
+---
+
+|**Objective:** Check that the singlaton method works correctly, despite the fact that 2 objects of the same class are being tried.|
+| :- |
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** |getIntance|setUpIntance|Intance1=FileManager.getIntance()|The two objects must be the same because they point to the same reference|
+
+----
+
+|**Objective:** Test that the save method correctly saves the array of students, as long as its nomenclature is correctly written, otherwise it returns an exception because that file type is not accepted in the json save.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test**|saveStudents|<p>setUpIntance()</p><p>setUpStudents</p>|--|The system must save correctly and without errors the student data in json format in the assigned path.|
+|**FileManager Test**|saveStudents|setUp2Collection|--|The system reports the exception ExceptionFormatFileNotAllowed, because the type of file that was tried to save the student data is not valid.|
+
+----
+
+|<p>**Objective: The objective is that the load method, load the files correctly and in case of loading a file with a different format, throw an exception for invalid format.**</p><p></p>|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|loadStudent|setUpStudents|---|Student data uploaded to the system must have the same values as the students in the student scenario.|
+|**FileManager Test** t|loadStudent|setUpStudents|---|The system must report the exception ExceptionFormatFileNotAllowed, for trying to load a file that is not valid in the json format..|
+
+----
+
+|**Objective:** The system must correctly save the students' data in CSV format without exceptions, in case of errors it is either because of IOexeption or because the format of the saving file is not valid.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|saveCSV|setUpStudents|---|The system must be able to save student data in a csv file, as long as the file format is valid, so it should not return IOExcepion errors.|
+|**FileManager Test** t|saveCSV|setUpStudents|---|When trying to save student data in CSV format, and the nomenclature is not valid. You must return an exception for invalid file format.|
+
+-----
+
+|**Objective:** In the system the LoadCSV load method should work correctly, but if the load file does not exist or does not load it should return an exception.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|loadCSV|setUpStudents|---|The method must correctly load the student data without errors, and the student data must be the same as the setUpStudents data.|
+|**FileManager Test** t|loadCSV|setUpStudents|---|When uploading student data and the file is not in CSV format, you must return the error ExceptionFormatFileNotAllowed, due to invalid upload format.|
+
+
+----
+
+|**Objective:** The system should work correctly the save method of saveFileTXT, when saving String type information, and it should not fail as long as it is a valid format and the file exists.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|saveFileTXT|setUpIntance|Massage=”This is a test”|the saveFileTXT method should correctly save the selected information without errors in the process, as long as the save format is valid.|
+|**FileManager Test** t|saveFileTXT|setUpIntance|Massage=”This is a test”|When saving the file and it is saved in an invalid .txt format, the ExceptionFormatFileNotAllowed exception must be returned.|
+
+----
+
+|**Objective:** The system should be able to load TXT files correctly, as long as it has the valid format and the file exists.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|loadFileTXT|setUpIntance|Massage=”This is a test”|The system must be able to load the file test.txt, and its information must be equal to "This is a test".|
+|**FileManager Test** t|loadFileTXT|setUpIntance|Massage=”This is a test”|The system must return an error when loading the data, because the file to load does not have the valid .txt format.|
+
+
+
+---
+
 ## Student Testing 
 
 

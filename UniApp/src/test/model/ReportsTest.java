@@ -17,8 +17,8 @@ public class ReportsTest {
         String category[]={"low weight","normal" ,"overweight", "obesity", "morbid obesity"};
         Object value[]={2,4,7,10,7};
         reports = new Reports(title,new ArrayList<>(Arrays.asList(category)), new ArrayList<>(List.of(value)));
-    }
 
+    }
     private void setUpScenary2(){
         String title="Illustration of quanlitative data of nutritional statuses ";
         String category[]={"low weight","normal" ,"overweight", "obesity", "morbid obesity"};
@@ -32,6 +32,9 @@ public class ReportsTest {
         reports = new Reports(title, new ArrayList<>(Arrays.asList(category)), values);
     }
 
+    /**
+     * Test of gets testOfTheClassReports method, of class Reports.
+     */
     @Test
     public void getsTestOfTheClassReports(){
         setUpScenary1();
@@ -51,6 +54,9 @@ public class ReportsTest {
     }
 
 
+    /**
+     * Test of sets testOfTheClassReports method, of class Reports.
+     */
     @Test
     public void setstestOfTheClassReports(){
         setUpScenary1();
@@ -74,6 +80,11 @@ public class ReportsTest {
 
     }
 
+    /**
+     * This test method checks that all the elements added in your instance are correctly represented in the instogram.
+     * represented in the instogram, and verifies that the histogram is generated correctly.
+     * to the dimensions of the aggregated values in your instance in your bars.
+     */
     @Test
     public void histogramGeneratorTest(){
         setUpScenary1();
@@ -100,6 +111,10 @@ public class ReportsTest {
         }
     }
 
+    /**
+     * This test method verifies, that histograms cannot be made when
+     * the study variables are qualitative, so it throws the exception ExceptionFormatOfValueAllowed.
+     */
     @Test
     public void exceptionOfHistogramGeneratorTest(){
         setUpScenary2();
@@ -111,6 +126,11 @@ public class ReportsTest {
         }
     }
 
+    /**
+     * This test method checks that all the elements added in your instance are correctly represented in the list.
+     * represented in the list, and verifies that the list is generated correctly.
+     * to the dimensions of the aggregated values in your instance.
+     */
     @Test
     public void statesIndicatorReportsTest(){
         setUpScenary1();
@@ -130,6 +150,10 @@ public class ReportsTest {
     }
 
 
+    /**
+     * This test method verifies, that the list cannot be made when
+     * the study variables are quantitative, so it throws the exception ExceptionFormatOfValueAllowed.
+     */
     @Test
     public void exceptionOfStatesIndicatorReports(){
         setUpScenary2();
@@ -141,6 +165,11 @@ public class ReportsTest {
         }
     }
 
+    /**
+     * This test method checks that all the elements added in your instance are correctly represented in the list.
+     * represented in the list, and verifies that the list is generated correctly.
+     * to the dimensions of the aggregated values in your instance.
+     */
     @Test
     public void listIndicatorReportsTest(){
         setUpScenary2();
@@ -157,6 +186,12 @@ public class ReportsTest {
             fail();
         }
     }
+
+    /**
+     *This test method, verifies that the exception of listIndicatorReports works.
+     *Since in the lists, each category will have a list, so it will be stored in an array,
+     * each array of the array will have the listing
+     */
     @Test
     public void exceptionOfListIndicatorReportsTest(){
         setUpScenary1();

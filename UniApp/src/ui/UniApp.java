@@ -169,10 +169,10 @@ public class UniApp {
                 System.out.println("3. Modify Years");
                 System.out.println("4. Modify Sex");
                 System.out.println("===== State Nutritional Menu =====");
-                System.out.println("5. Modify Health Abr 2023");
-                System.out.println("6. Modify Health Sep 2022 ");
-                System.out.println("7. Modify Weight Apr 2023 ");
-                System.out.println("8. Modify Weight Sep 2022 ");
+                System.out.println("5. Modify Height Abr 2023");
+                System.out.println("6. Modify Height Sep 2022 ");
+                System.out.println("7. Modify Weight Sep 2022 ");
+                System.out.println("8. Modify Weight Abr 2023 ");
                 System.out.println("0. Return to Main Menu");
                 System.out.print("Choose an option: ");
 
@@ -208,11 +208,11 @@ public class UniApp {
                         }
                         break;
                     case 5:
-                        System.out.print("New Health Abr 2023: ");
+                        System.out.print("New Height Abr 2023: ");
                         newHealthAbr = validateDouble();
                         break;
                     case 6:
-                        System.out.print("New Health Sep 2022: ");
+                        System.out.print("New Height Sep 2022: ");
                         newHealthSep = validateDouble();
                         break;
                     case 7:
@@ -230,11 +230,10 @@ public class UniApp {
             Calendar newDateSep2022 = new GregorianCalendar(2022, Calendar.SEPTEMBER, 1);
 
             String modifyMessage = bienestarSystem.modifyStudent(id, newYears, newName, newLastName, newSex);
-            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newWeightSep, newDateSep2022);
-            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newWeightSep, newDateAbr2023);
+            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightSep, newHealthSep, newDateSep2022);
+            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newHealthAbr, newDateAbr2023);
 
             System.out.println(modifyMessage);
-
 
             bienestarSystem.saveStudents();
         } else {
@@ -282,8 +281,8 @@ public class UniApp {
             } else {
 
                 reader.next();// limpiar el scanner
-                System.out.println("\tInvalid number!");
-                System.out.print("\tConrrently Type: ");
+                System.out.println("Invalid number!");
+                System.out.print("Conrrently Type: ");
                 option = Integer.MAX_VALUE;
             }
 
@@ -303,8 +302,7 @@ public class UniApp {
             reader.nextLine();
             switch (option) {
                 case 1:
-                    String histogramReport = bienestarSystem.histogramGenerator();
-                    System.out.println("Histogram Report:\n" + histogramReport);
+                    
                     break;
                 case 2:
                     break;

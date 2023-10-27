@@ -45,7 +45,7 @@ public class NutritionalStates {
     }
 
 
-    public double calculateBIM() {
+    public double getBMI() {
         double bim = 0.0;
         bim = this.weight / (this.height * this.height);
         bim = Math.round(bim * 10.0) / 10.0;
@@ -65,11 +65,11 @@ public class NutritionalStates {
     }
 
     /**
-     * @param weight
+     *
      */
-    TypeStates calculateTypeStates(double weight) {
+    TypeStates calculateTypeStates() {
         TypeStates type = null;
-        double bim = calculateBIM();
+        double bim = getBMI();
         if (bim < 18.5) {
             type = TypeStates.LOW_WEIGHT;
         } else if (bim >= 18.5 && bim <= 24.9) {
@@ -85,8 +85,9 @@ public class NutritionalStates {
     }
 
     public TypeStates getType() {
-        return calculateTypeStates(this.weight);
+        return calculateTypeStates();
     }
+
 
 
 }

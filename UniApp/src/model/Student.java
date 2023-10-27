@@ -71,6 +71,7 @@ public class Student implements Comparable<Student>, Comparator<Student> {
 
     @Override
     public String toString() {
+        String msg="";
         return name + " " + lastName + " " + years + " " + sex; // + " " + nutritionalStates;
     }
 
@@ -80,53 +81,44 @@ public class Student implements Comparable<Student>, Comparator<Student> {
     }
 
     @Override
-    public int compare(Student o1, Student o2) {
-        return o1.id.compareTo(o2.id);
+    public  int compare(Student o1, Student o2) {
+        int criteria1 = o1.name.compareTo(o2.name);
+        int criteria2 = o1.lastName.compareTo(o2.lastName);
+        if (criteria1 == 0) {
+            criteria1=criteria2;
+        }
+        return criteria1;
     }
 
     public String toCSV() {
         return name + ";" + lastName + ";" + years + ";" + id + ";" + sex + ";" + nutritionalStates.get(0).getWeight()
                 + ";" + nutritionalStates.get(1).getWeight() + ";" + nutritionalStates.get(1).getHeight() + ";"
-                + nutritionalStates.get(0).calculateBIM() + ";" + nutritionalStates.get(1).calculateBIM();
+                + nutritionalStates.get(0).getBMI() + ";" + nutritionalStates.get(1).getBMI();
     }
 
-    public double getBMI() {
-        double totalBMI = 0.0;
-        int count = 0;
-
-        for (NutritionalStates nutritionalState : nutritionalStates) {
-            totalBMI += nutritionalState.calculateBIM();
-            count++;
-        }
-
-        if (count > 0) {
-            return totalBMI / count;
-        } else {
-            return 0.0;
-        }
+    public String formatList(int dateIndex) {
+        String msg="";
+        msg +="Code: "+id+" Name: "+name + " " + lastName + " Age: " + years + " Sex:" + sex + " weight:" + nutritionalStates.get(dateIndex).getWeight() +" Height: " + nutritionalStates.get(dateIndex).getHeight() +" BMI: "+ nutritionalStates.get(dateIndex).getBMI();
+        return msg;
     }
 
-    public double getAverageBMIInTwoMonths() {
-        double totalBMI = 0.0;
-        int count = 0;
-
-        if (nutritionalStates.size() >= 2) {
-            NutritionalStates state1 = nutritionalStates.get(0);
-            NutritionalStates state2 = nutritionalStates.get(1);
-
-            double bmi1 = state1.calculateBIM();
-            totalBMI += bmi1;
-
-            double bmi2 = state2.calculateBIM();
-            totalBMI += bmi2;
-
-            count = 2;
-        }
-
-        if (count > 0) {
-            return totalBMI / count;
-        } else {
-            return 0.0;
-        }
+    public String indicatorList(){
+        double sep = nutritionalStates.get(0).getBMI();
+        double apr = nutritionalStates.get(1).getBMI();
+        return "Code: "+id+" Name: "+name + " " + lastName + " Age: " + years + " Sex:" + sex+" BIM (Sep)"+sep+" BIM(Abr)"+apr+"   AverageBMI" +averageBMI();
     }
+
+    public double averageBMI(){
+        double averageBMI = 0;
+        for (int i = 0; i < nutritionalStates.size(); i++) {
+            averageBMI += nutritionalStates.get(i).getBMI();
+        }
+        averageBMI = averageBMI / nutritionalStates.size();
+        return averageBMI;
+    }
+
+
+
+
+
 }

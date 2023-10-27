@@ -11,13 +11,18 @@ import exceptions.ExceptionFormatOfValueNotAllowed;
 
 public class BienestarSystem {
 
-    public ArrayList<Student> students;
-    public FileManager fileManager;
+    private ArrayList<Student> students;
+    private FileManager fileManager;
     private Reports reports;
 
     public BienestarSystem() {
         fileManager = FileManager.getInstance();
         students = new ArrayList<Student>();
+
+        String title = "Illustration of quantitative data of nutritional statuses ";
+        String[] categories = { "low weight", "normal", "overweight", "obesity", "morbid obesity" };
+        ArrayList<Object> values = new ArrayList<>();
+        reports = new Reports(title, new ArrayList<>(Arrays.asList(categories)), values);
     }
 
     public void loadStudents() {
@@ -69,7 +74,6 @@ public class BienestarSystem {
     }
 
     /**
-     *
      * @param id
      */
     public String removedStudent(String id) {
@@ -99,19 +103,19 @@ public class BienestarSystem {
                 student.setYears(years);
                 msg += "\nAño modificado.";
             }
-            if (name!=null) {
+            if (name != null) {
                 student.setName(name);
                 msg += "\nNombre modificado.";
             }
 
-            if (lastName!=null) {
+            if (lastName != null) {
                 student.setLastName(lastName);
                 msg += "\nLast name modificado.";
             }
 
-            if(sex !=null){
+            if (sex != null) {
                 student.setSex(sex);
-                msg+="\nSex modificado";
+                msg += "\nSex modificado";
             }
 
             if (!msg.isEmpty()) {
@@ -124,9 +128,9 @@ public class BienestarSystem {
         return msg + "\n";
     }
 
-    public Sex validateSex(String newSexInput){
+    public Sex validateSex(String newSexInput) {
         Sex newSex = null;
-        String msj="";
+        String msj = "";
         if (!newSexInput.isBlank()) {
             if (newSexInput.equalsIgnoreCase("M")) {
                 newSex = Sex.M;
@@ -141,15 +145,19 @@ public class BienestarSystem {
         return newSex;
     }
 
-    public String modifyNutritionalStudent(String id, double weight, double height, Calendar date) {
+    public String modifyNutritionalStudent(String id, Double weight, Double height, Calendar date) {
         String msj = "";
         Student student = binarySearch(students, id);
         if (student != null) {
             NutritionalStates nutritionalStateToModify = findNutritionalStateToModify(student, date);
             if (nutritionalStateToModify != null) {
-                nutritionalStateToModify.setWeight(weight);
-                nutritionalStateToModify.setHeight(height);
-                msj= "Nutritional state modified successfully.";
+                if (weight != 0.0) {
+                    nutritionalStateToModify.setWeight(weight);
+                }
+                if (height != 0.0) {
+                    nutritionalStateToModify.setHeight(height);
+                }
+                msj = "Nutritional state modified successfully.";
             } else {
                 msj = "Nutritional state for the specified date not found.";
             }
@@ -165,37 +173,93 @@ public class BienestarSystem {
         }
         return null;
     }
-    
 
     public String histogramGenerator() {
-        String msj = "";
-
-        try {
-            msj = reports.histogramGenerator();
-
-        } catch (ExceptionFormatOfValueNotAllowed e) {
-            msj = "Error: " + e.getMessage() + "\n\n";
-        }
-        return msj;
+        String msj = "", histogram = "";
+        int i = 0;
+        String[] categories = { "low weight", "normal", "overweight", "obesity", "morbid obesity" };
+        String[] title = { "Histogram_of_the_BMI_of_students_in_September_2022",
+                "Histogram_of_the_BMI_of_students_in_April_2023" };
+        do {
+            ArrayList<Integer> values = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 0));
+            ArrayList<Object> objects = new ArrayList<>();
+            for (Student student : students) {
+                TypeStates type = student.getNutritionalStates().get(i).getType();
+                if (type.equals(TypeStates.LOW_WEIGHT))
+                    values.set(0, values.get(0) + 1);
+                else if (type.equals(TypeStates.NORMAL_WEIGHT))
+                    values.set(1, values.get(1) + 1);
+                else if (type.equals(TypeStates.OVERWEIGHT))
+                    values.set(2, values.get(2) + 1);
+                else if (type.equals(TypeStates.OBESITY))
+                    values.set(3, values.get(3) + 1);
+                else if (type.equals(TypeStates.MORBID_OBESITY))
+                    values.set(4, values.get(4) + 1);
+            }
+            objects.addAll(values);
+            reports = new Reports(title[i], new ArrayList<>(Arrays.asList(categories)), objects);
+            try {
+                histogram += reports.histogramGenerator() + "\n\n";
+            } catch (ExceptionFormatOfValueNotAllowed e) {
+                msj = "Error: " + e.getMessage() + "\n\n";
+            }
+            i++;
+        } while (i < 2);
+        return histogram;
     }
 
-    public String statesIndicatorReports() {
+    public String statesListReports(int option) {
         String msj = "";
+        Comparator<Student> comparator = null;
+        Comparator<Student> comparator2 = null;
+        String[] title = { "List_of_the_BMI_of_students_in_September_2022",
+                "List_of_the_BMI_of_students_in_April_2023" };
+        String[] categories = { "low weight", "normal", "overweight", "obesity", "morbid obesity" };
 
-        try {
-            msj = reports.statesIndicatorReports();
+        if (option == 1) {
+            comparator = (student1, student2) -> Double.compare(student1.getNutritionalStates().get(0).getBMI(),
+                    student2.getNutritionalStates().get(0).getBMI());
+            comparator2 = (student1, student2) -> Double.compare(student1.getNutritionalStates().get(1).getBMI(),
+                    student2.getNutritionalStates().get(1).getBMI());
+        } else if (option == 2)
+            comparator = Comparator.comparing(Student::getYears);
+        else if (option == 3)
+            comparator = (student1, student2) -> student1.compare(student1, student2);
+        ArrayList<Student> studentsSorted = new ArrayList<>(students);
+        Collection<Student, Student> collection = new Collection();
+        collection.Sort(studentsSorted, comparator);
+        int i = 0;
+        do {
+            if (option == 1 && i == 1) {
+                collection.Sort(studentsSorted, comparator2);
+            }
+            String lowWeight = "", normalWeight = "", overweight = "", obesity = "", morbidObesity = "";
 
-        } catch (ExceptionFormatOfValueNotAllowed e) {
-            msj = "Error: " + e.getMessage() + "\n\n";
-        }
+            for (Student student : studentsSorted) {
+                TypeStates type = student.getNutritionalStates().get(i).getType();
+                if (type.equals(TypeStates.LOW_WEIGHT)) {
+                    lowWeight += "\t" + student.formatList(i) + "\n";
+                } else if (type.equals(TypeStates.NORMAL_WEIGHT))
+                    normalWeight += "\t" + student.formatList(i) + "\n";
+                else if (type.equals(TypeStates.OVERWEIGHT))
+                    overweight += "\t" + student.formatList(i) + "\n";
+                else if (type.equals(TypeStates.OBESITY))
+                    obesity += "\t" + student.formatList(i) + "\n";
+                else if (type.equals(TypeStates.MORBID_OBESITY))
+                    morbidObesity += "\t" + student.formatList(i) + "\n";
+            }
+            ArrayList<Object> values = new ArrayList<>(
+                    Arrays.asList(lowWeight, normalWeight, overweight, obesity, morbidObesity));
+            reports = new Reports(title[i], new ArrayList<>(Arrays.asList(categories)), values);
+            try {
+                msj += reports.listIndicatorReports();
+            } catch (ExceptionFormatOfValueNotAllowed e) {
+                msj = "Error: " + e.getMessage() + "\n\n";
+            }
+            i++;
+        } while (i < 2);
         return msj;
     }
-
-    /*
-     * public String listIndicatorReport(int typeOrden) {
-     * 
-     * }
-     */
 
     public ArrayList<Student> getStudents() {
         return students;
@@ -208,7 +272,6 @@ public class BienestarSystem {
     public Student binarySearch(ArrayList<Student> students, String searchId) {
         int left = 0;
         int right = students.size() - 1;
-
         while (left <= right) {
             int mid = left + (right - left) / 2;
             Student student = students.get(mid);
@@ -222,15 +285,138 @@ public class BienestarSystem {
                 right = mid - 1;
             }
         }
-
         return null;
     }
 
-    public String listStudents() {
-        String msj = "";
+    public String indicatorChangesNutritionalStates() {
+        String out = "";
+        int lowToNormal = 0, overweightToNormal = 0, obesityToNormal = 0, morbidObesityToNormal = 0;
+        int normalToLow = 0, normalToOverwieght = 0, overweightToMore = 0, obesityToMorbid = 0;
+        int allChange = 0, plus = 0, less = 0;
+
         for (Student student : students) {
-            msj += student.toString() + "\n";
+            TypeStates type = student.getNutritionalStates().get(0).getType();
+            TypeStates type2 = student.getNutritionalStates().get(1).getType();
+
+            if (type.equals(TypeStates.LOW_WEIGHT) && type2.equals(TypeStates.NORMAL_WEIGHT))
+                lowToNormal++;
+            else if (type.equals(TypeStates.OVERWEIGHT) && type2.equals(TypeStates.NORMAL_WEIGHT))
+                overweightToNormal++;
+            else if (type.equals(TypeStates.OBESITY)
+                    && (type2.equals(TypeStates.NORMAL_WEIGHT) || type2.equals(TypeStates.OVERWEIGHT)))
+                obesityToNormal++;
+            else if (type.equals(TypeStates.MORBID_OBESITY)
+                    && (type2.equals(TypeStates.NORMAL_WEIGHT) || type2.equals(TypeStates.OVERWEIGHT)))
+                morbidObesityToNormal++;
+            else if (type.equals(TypeStates.NORMAL_WEIGHT) && type2.equals(TypeStates.LOW_WEIGHT))
+                normalToLow++;
+            else if (type.equals(TypeStates.NORMAL_WEIGHT)
+                    && (type2.equals(TypeStates.OVERWEIGHT) || (type2.equals(TypeStates.OBESITY))))
+                normalToOverwieght++;
+            else if (type.equals(TypeStates.OVERWEIGHT)
+                    && ((type2.equals(TypeStates.OBESITY)) || type2.equals(TypeStates.MORBID_OBESITY)))
+                overweightToMore++;
+            else if (type.equals(TypeStates.OBESITY) && type2.equals(TypeStates.MORBID_OBESITY))
+                obesityToMorbid++;
+
         }
-        return msj;
+        allChange = lowToNormal + overweightToNormal + obesityToNormal + morbidObesityToNormal + normalToLow
+                + normalToOverwieght + overweightToMore + obesityToMorbid;
+        plus = lowToNormal + overweightToNormal + obesityToNormal + morbidObesityToNormal;
+        less = normalToLow + normalToOverwieght + overweightToMore + obesityToMorbid;
+
+        ArrayList<Object> values = new ArrayList<>(Arrays.asList(lowToNormal, overweightToNormal, obesityToNormal,
+                morbidObesityToNormal, normalToLow, normalToOverwieght, overweightToMore, obesityToMorbid));
+        String titleAndSubtitle = "Changes in nutritional status";
+        titleAndSubtitle += "\n============================================\n";
+        titleAndSubtitle += "Total changes of students: " + allChange;
+        ArrayList<String> categories = new ArrayList<>();
+        loadCategories(categories, plus, less);
+        reports = new Reports(titleAndSubtitle, categories, values);
+        try {
+            out = reports.statesIndicatorReports();
+        } catch (ExceptionFormatOfValueNotAllowed e) {
+            out = "Error: " + e.getMessage() + "\n\n";
+        }
+        return out;
+
     }
+
+    public String indicatorListChangeNutritionalStates(int option) {
+        String out = "";
+        String lowToNormal = "", overweightToNormal = "", obesityToNormal = "", morbidObesityToNormal = "";
+        String normalToLow = "", normalToOverwieght = "", overweightToMore = "", obesityToMorbid = "";
+        Comparator<Student> comparator = null;
+        int allChange = 0, plus = 0, less = 0;
+        if (option == 1) {
+            comparator = (student1, student2) -> Double.compare(student1.getNutritionalStates().get(1).getBMI(),
+                    student2.getNutritionalStates().get(1).getBMI());
+        } else if (option == 2)
+            comparator = (student1, student2) -> Integer.compare(student1.getYears(), student2.getYears());
+        else if (option == 3)
+            comparator = (student1, student2) -> student1.compare(student1, student2);
+        ArrayList<Student> studentsSorted = new ArrayList<>(students);
+        Collection<Student, Student> collection = new Collection();
+        collection.Sort(studentsSorted, comparator);
+        for (Student student : students) {
+            TypeStates type = student.getNutritionalStates().get(0).getType();
+            TypeStates type2 = student.getNutritionalStates().get(1).getType();
+            if (type.equals(TypeStates.LOW_WEIGHT) && type2.equals(TypeStates.NORMAL_WEIGHT)) {
+                lowToNormal += "\t" + student.indicatorList() + "\n";
+                plus++;
+            } else if (type.equals(TypeStates.NORMAL_WEIGHT) && type2.equals(TypeStates.LOW_WEIGHT)) {
+                normalToLow += "\t" + student.indicatorList() + "\n";
+                less++;
+            } else if (type.equals(TypeStates.NORMAL_WEIGHT)
+                    && (type2.equals(TypeStates.OVERWEIGHT) || (type2.equals(TypeStates.OBESITY)))) {
+                normalToOverwieght += "\t" + student.indicatorList() + "\n";
+                less++;
+            } else if (type.equals(TypeStates.OVERWEIGHT) && type2.equals(TypeStates.NORMAL_WEIGHT)) {
+                overweightToNormal += "\t" + student.indicatorList() + "\n";
+                plus++;
+            } else if (type.equals(TypeStates.OVERWEIGHT)
+                    && ((type2.equals(TypeStates.OBESITY)) || type2.equals(TypeStates.MORBID_OBESITY))) {
+                overweightToMore += "\t" + student.indicatorList() + "\n";
+                less++;
+            } else if (type.equals(TypeStates.OBESITY) && type2.equals(TypeStates.MORBID_OBESITY)) {
+                obesityToMorbid += "\t" + student.indicatorList() + "\n";
+                less++;
+            } else if (type.equals(TypeStates.MORBID_OBESITY)
+                    && (type2.equals(TypeStates.NORMAL_WEIGHT) || type2.equals(TypeStates.OVERWEIGHT))) {
+                morbidObesityToNormal += "\t" + student.indicatorList() + "\n";
+                plus++;
+            } else if (type.equals(TypeStates.OBESITY)
+                    && (type2.equals(TypeStates.NORMAL_WEIGHT) || type2.equals(TypeStates.OVERWEIGHT))) {
+                obesityToNormal += "\t" + student.indicatorList() + "\n";
+                plus++;
+            }
+        }
+        allChange = plus + less;
+        ArrayList<Object> values = new ArrayList<>(Arrays.asList(lowToNormal, overweightToNormal, obesityToNormal,
+                morbidObesityToNormal, normalToLow, normalToOverwieght, overweightToMore, obesityToMorbid));
+        String titleAndSubtitle = "Changes in nutritional status";
+        titleAndSubtitle += "\n====================================\n";
+        titleAndSubtitle += "Total changes of students: " + allChange + "\n";
+        ArrayList<String> categories = new ArrayList<>();
+        loadCategories(categories, plus, less);
+        reports = new Reports(titleAndSubtitle, categories, values);
+        try {
+            out = reports.listIndicatorReports();
+        } catch (ExceptionFormatOfValueNotAllowed e) {
+            out = "Error: " + e.getMessage() + "\n\n";
+        }
+        return out;
+    }
+
+    private void loadCategories(ArrayList<String> categories, int plus, int less) {
+        categories.add("\nStudents with positive changes " + plus + "\n\t*Change low weight to normal weight: ");
+        categories.add(" \t*Change overweight to normal weight: ");
+        categories.add(" \t*Change obesity to overweight or normal weight: ");
+        categories.add(" \t*Change morbid obesity to normal weight or overweight: ");
+        categories.add("Students with negative changes " + less + "\n \t*Change normal weight to low weight: ");
+        categories.add(" \t*Change normal weight to overweight or obesity: ");
+        categories.add(" \t*Change of overweight to more category: ");
+        categories.add(" \t*Change obesity to morbid obesity: ");
+    }
+
 }

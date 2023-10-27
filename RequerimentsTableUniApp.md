@@ -51,9 +51,9 @@
 |-|-|
 |Resultt or postcondition|The system will search for the user in the database through their ID, and if it cannot find them, it will provide a notification accordingly. Additionally, when the system makes modifications to the student's data, it will display the changes made so that the user can review the updates made to the student's information.|
 
-||Output name|DataType|Format|
-|--|--|--|--|
-|Output | message| String|-A text string with the student message was modified or not |
+|        |Output name|DataType|Format|
+|--------|--|--|--|
+| Output | message| String|-A text string with the student message was modified or not |
 
 ---
 | Indentifier and Name |-   FR3.Delete student registration  |
@@ -64,13 +64,13 @@
 |--|--|--|--|
 |Input|id|String|The code allowed by the institution is added|
 
-|||
-|--|--|
-|Resultt or postcondition|El software will search for the student through their ID, and if it doesn't exist in the database, it will notify the absence. However, once the student is found, the system will proceed to delete them from the database, making them inaccessible for future searches as they will no longer be available in the system.|
+||                                                                                                                                                                                                                                                                                                                               |
+|--|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Resultt or postcondition| The software will search for the student through their ID, and if it doesn't exist in the database, it will notify the absence. However, once the student is found, the system will proceed to delete them from the database, making them inaccessible for future searches as they will no longer be available in the system. |
 
-||Output name|DataType|Format|
-|--|--|--|--|
-|Output | message| String|-A text string with the student message was removed or not |
+|        |Output name|DataType|Format|
+|--------|--|--|--|
+| Output | message| String|-A text string with the student message was removed or not |
 
 ---
 
@@ -86,9 +86,9 @@
 |--|--|
 |Result or postcondition|Se mostrará el histograma con la cantidad de estudiantes por apartado de categoría.|
 
-||Output name|DataType|Format|
-|--|--|--|--|
-|Output | - | - | - |
+|        |Output name|DataType|Format|
+|--------|--|--|--|
+| Output | - | - | - |
 ---
 | Indentifier and Name |-   FR5.Generate BIM listing reports  |
 |--|--|
@@ -107,9 +107,9 @@
 |--|--|
 |Result or postcondition|The list will be displayed with the number of students per category section.|
 
-||Output name|DataType|Format|
-|--|--|--|--|
-|Output | - |  - | - |
+|        |Output name|DataType|Format|
+|--------|--|--|--|
+| Output | - |  - | - |
 ---
 | Indentifier and Name |-   FR6.Generate indicators of changes in nutritional status  |
 |--|--|
@@ -123,9 +123,9 @@
 |--|--|
 |Result or postcondition|The report will be shown by indicators of the number of students who changed their nutritional status by category.|
 
-||Output name|DataType|Format|
-|--|--|--|--|
-|Output | - |  - | - |
+|        |Output name|DataType|Format|
+|--------|--|--|--|
+| Output | - |  - | - |
 ---
 | Indentifier and Name |-   FR7. Generate lists of nutritional status changes  |
 |--|--|
@@ -144,7 +144,7 @@
 |--|--|
 |Result or postcondition|The report will be displayed by listing the number of students who changed their nutritional status with their complete data.|
 
-||Output name|DataType|Format|
-|--|--|--|--|
-|Output | - |  - | - |
+|        |Output name|DataType|Format|
+|--------|--|--|--|
+| Output | - |  - | - |
 ---

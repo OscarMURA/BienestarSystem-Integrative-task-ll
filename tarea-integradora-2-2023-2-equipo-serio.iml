@@ -17,6 +17,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+<<<<<<< HEAD
+=======
     <orderEntry type="module-library">
       <library name="JUnit4">
         <CLASSES>
@@ -27,6 +29,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+>>>>>>> f3f17e9b5cc3319f961a0f80ba8587cd789c1156
     <orderEntry type="library" name="google.code.gson" level="project" />
   </component>
 </module>
