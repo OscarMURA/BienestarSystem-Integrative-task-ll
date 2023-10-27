@@ -25,20 +25,22 @@ public class BienestarSystem {
         reports = new Reports(title, new ArrayList<>(Arrays.asList(categories)), values);
     }
 
-    public void loadStudents() {
+    public String loadStudents() {
+        String msj = "";
         try {
             students = fileManager.loadStudent("/resources/studentsData.json");
-            System.out.println("Datos de estudiantes cargados exitosamente.");
         } catch (IOException e) {
-            System.err.println("Error al cargar los estudiantes desde el archivo JSON.");
+            msj = "Error al cargar los estudiantes desde el archivo JSON.";
         } catch (exceptions.ExceptionFormatFileNotAllowed e) {
-            System.err.println("Error al cargar los estudiantes desde el archivo JSON. por el formato");
+            msj = "Error al cargar los estudiantes desde el archivo JSON. por el formato";
         }
+        return msj;
 
     }
 
-    public String addNutritionalStateToStudent(String id, NutritionalStates nutritionalState) {
+    public String addNutritionalStateToStudent(String id, double weight, double height, Calendar date) {
         String msj = "";
+        NutritionalStates nutritionalState = new NutritionalStates(weight, height, date);
         Student student = binarySearch(students, id);
         if (student != null) {
             student.addNutritionalState(nutritionalState);
@@ -49,42 +51,46 @@ public class BienestarSystem {
         return msj;
     }
 
-    public void saveStudents() {
+    public String saveStudents() {
+        String msj = "";
         try {
             fileManager.saveStudents(students, "/resources/studentsData.json");
-
-            System.out.println("Datos de estudiantes guardados exitosamente.");
         } catch (IOException e) {
-            System.err.println("Error al guardar los estudiantes en el archivo JSON.");
+            msj = "Error al guardar los estudiantes en el archivo JSON.";
         } catch (ExceptionFormatFileNotAllowed e) {
-            System.err.println("Error al cargar los estudiantes desde el archivo JSON. por el formato");
+            msj = "Error al cargar los estudiantes desde el archivo JSON. por el formato";
         }
+        return msj;
     }
 
     public String addStudents(String id, int years, String name, String lastName, Sex sex) {
+        String msj = "";
         Student student = new Student(id, years, name, lastName, sex);
         Collection<Student, Student> collection = new Collection<>();
         Comparator<Student> comparator = Comparator.comparing(Student::getId);
         try {
             collection.binaryInsert(students, comparator, student);
-            return "Estudiante añadido exitosamente.";
+            msj = "Estudiante añadido exitosamente.";
         } catch (ExceptionForArrayListUnordered e) {
-            return "La lista de estudiantes no está ordenada.";
+            msj = "La lista de estudiantes no está ordenada.";
         }
+        return msj;
     }
 
     /**
      * @param id
      */
     public String removedStudent(String id) {
+        String msj = "";
         Student studentToRemove = binarySearch(students, id);
 
         if (studentToRemove != null) {
             students.remove(studentToRemove);
-            return "Student removed successfully.";
+            msj = "Student removed successfully.";
         } else {
-            return "Student not found.";
+            msj = "Student not found.";
         }
+        return msj;
     }
 
     /**
@@ -166,12 +172,16 @@ public class BienestarSystem {
     }
 
     public NutritionalStates findNutritionalStateToModify(Student student, Calendar date) {
-        for (NutritionalStates nutritionalState : student.getNutritionalStates()) {
+        NutritionalStates state = null;
+        int i = 0;
+        while (state == null && i < student.getNutritionalStates().size()) {
+            NutritionalStates nutritionalState = student.getNutritionalStates().get(i);
             if (nutritionalState.getDate().equals(date)) {
-                return nutritionalState;
+                state = nutritionalState;
             }
+            i++;
         }
-        return null;
+        return state;
     }
 
     public String histogramGenerator() {
@@ -275,7 +285,7 @@ public class BienestarSystem {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             Student student = students.get(mid);
-            int comparison = student.getId().compareTo(searchId);
+            int comparison = student.getId().toUpperCase().compareTo(searchId.toUpperCase());
 
             if (comparison == 0) {
                 return student;
