@@ -18,10 +18,6 @@ public class BienestarSystem {
     public BienestarSystem() {
         fileManager = FileManager.getInstance();
         students = new ArrayList<Student>();
-        String title = "Illustration of quantitative data of nutritional statuses ";
-        String[] categories = { "low weight", "normal", "overweight", "obesity", "morbid obesity" };
-        ArrayList<Object> values = new ArrayList<>();
-        reports = new Reports(title, new ArrayList<>(Arrays.asList(categories)), values);
     }
 
     public void loadStudents() {
@@ -38,7 +34,7 @@ public class BienestarSystem {
 
     public String addNutritionalStateToStudent(String id, NutritionalStates nutritionalState) {
         String msj = "";
-        Student student = searchStudent(id);
+        Student student = binarySearch(students, id);
         if (student != null) {
             student.addNutritionalState(nutritionalState);
             msj = "Estado nutricional añadido correctamente";
@@ -46,7 +42,6 @@ public class BienestarSystem {
             msj = "No se encontro el estudiante con id: " + student.getId();
         }
         return msj;
-
     }
 
     public void saveStudents() {
@@ -78,7 +73,7 @@ public class BienestarSystem {
      * @param id
      */
     public String removedStudent(String id) {
-        Student studentToRemove = searchStudent(id);
+        Student studentToRemove = binarySearch(students, id);
 
         if (studentToRemove != null) {
             students.remove(studentToRemove);
@@ -89,40 +84,77 @@ public class BienestarSystem {
     }
 
     /**
-     *
      * @param id
      */
-    public Student searchStudent(String id) {
-        return binarySearch(students, id);
+    public boolean searchStudent(String id) {
+        return binarySearch(students, id) != null;
     }
 
     public String modifyStudent(String id, int years, String name, String lastName, Sex sex) {
-        Student student = searchStudent(id);
+        String msg = "";
+        Student student = binarySearch(students, id);
+
         if (student != null) {
-            student.setYears(years);
-            student.setName(name);
-            student.setLastName(lastName);
-            student.setSex(sex);
-            return "Student modified successfully.";
+            if (years != 0) {
+                student.setYears(years);
+                msg += "\nAño modificado.";
+            }
+            if (name!=null) {
+                student.setName(name);
+                msg += "\nNombre modificado.";
+            }
+
+            if (lastName!=null) {
+                student.setLastName(lastName);
+                msg += "\nLast name modificado.";
+            }
+
+            if(sex !=null){
+                student.setSex(sex);
+                msg+="\nSex modificado";
+            }
+
+            if (!msg.isEmpty()) {
+                msg = "Atributos modificados exitosamente:" + msg;
+            }
         } else {
-            return "Student not found.";
+            msg = "La tarea con el ID " + id + " no existe.";
         }
+
+        return msg + "\n";
+    }
+
+    public Sex validateSex(String newSexInput){
+        Sex newSex = null;
+        String msj="";
+        if (!newSexInput.isBlank()) {
+            if (newSexInput.equalsIgnoreCase("M")) {
+                newSex = Sex.M;
+            } else if (newSexInput.equalsIgnoreCase("F")) {
+                newSex = Sex.F;
+            } else if (newSexInput.equalsIgnoreCase("O")) {
+                newSex = Sex.O;
+            } else {
+                msj = "Invalid sex input. Please enter M, F, or O.";
+            }
+        }
+        return newSex;
     }
 
     public String modifyNutritionalStudent(String id, double weight, double height, Calendar date) {
-        Student student = searchStudent(id);
+        String msj = "";
+        Student student = binarySearch(students, id);
         if (student != null) {
             NutritionalStates nutritionalStateToModify = findNutritionalStateToModify(student, date);
             if (nutritionalStateToModify != null) {
                 nutritionalStateToModify.setWeight(weight);
                 nutritionalStateToModify.setHeight(height);
-                return "Nutritional state modified successfully.";
+                msj= "Nutritional state modified successfully.";
             } else {
-                return "Nutritional state for the specified date not found.";
+                msj = "Nutritional state for the specified date not found.";
             }
-        } else {
-            return "Student not found.";
         }
+        return msj;
     }
 
     public NutritionalStates findNutritionalStateToModify(Student student, Calendar date) {

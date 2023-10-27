@@ -1,9 +1,6 @@
 package ui;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import exceptions.ExceptionFormatFileNotAllowed;
 import model.BienestarSystem;
 import model.FileManager;
 import model.NutritionalStates;
@@ -12,7 +9,6 @@ import model.Student;
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import com.google.gson.Gson;
 
 public class UniApp {
 
@@ -90,33 +86,37 @@ public class UniApp {
     public void addStudent() {
         System.out.print("ID: ");
         String id = reader.nextLine();
-        System.out.print("Name: ");
-        String name = reader.nextLine();
-        System.out.print("Last Name: ");
-        String lastName = reader.nextLine();
-        System.out.print("Years: ");
-        int years = Integer.parseInt(reader.nextLine());
-        System.out.print("Sex (M/F/O): ");
-        String sexInput = reader.nextLine();
-
-        Sex sex;
-        if (sexInput.equalsIgnoreCase("M")) {
-            sex = Sex.M;
-        } else if (sexInput.equalsIgnoreCase("F")) {
-            sex = Sex.F;
-        } else if (sexInput.equalsIgnoreCase("O")) {
-            sex = Sex.O;
+        if (bienestarSystem.searchStudent(id)) {
+            System.out.println("El id ingresado ya existe");
         } else {
-            System.out.println("Invalid sex input. Please enter M, F, or O.");
-            return;
+            System.out.print("Name: ");
+            String name = reader.nextLine();
+            System.out.print("Last Name: ");
+            String lastName = reader.nextLine();
+            System.out.print("Years: ");
+            int years = Integer.parseInt(reader.nextLine());
+            System.out.print("Sex (M/F/O): ");
+            String sexInput = reader.nextLine();
+
+            Sex sex;
+            if (sexInput.equalsIgnoreCase("M")) {
+                sex = Sex.M;
+            } else if (sexInput.equalsIgnoreCase("F")) {
+                sex = Sex.F;
+            } else if (sexInput.equalsIgnoreCase("O")) {
+                sex = Sex.O;
+            } else {
+                System.out.println("Invalid sex input. Please enter M, F, or O.");
+                return;
+            }
+
+            String message = bienestarSystem.addStudents(id, years, name, lastName, sex);
+            System.out.println(message);
+
+            nutritionalState(id);
+
+            bienestarSystem.saveStudents();
         }
-
-        String message = bienestarSystem.addStudents(id, years, name, lastName, sex);
-        System.out.println(message);
-
-        nutritionalState(id);
-
-        bienestarSystem.saveStudents();
 
     }
 
@@ -150,13 +150,16 @@ public class UniApp {
         System.out.print("Enter student ID to modify: ");
         String id = reader.nextLine();
 
-        Student existingStudent = bienestarSystem.searchStudent(id);
+        if (bienestarSystem.searchStudent(id)) {
+            String newName = null;
+            String newLastName = null;
+            int newYears = 0;
+            Sex newSex = null;
+            double newHealthAbr = 0.0;
+            double newHealthSep = 0.0;
+            double newWeightApr = 0.0;
+            double newWeightSep = 0.0;
 
-        if (existingStudent != null) {
-            String newName = existingStudent.getName();
-            String newLastName = existingStudent.getLastName();
-            int newYears = existingStudent.getYears();
-            Sex newSex = existingStudent.getSex();
             int modifyChoice;
 
             do {
@@ -171,7 +174,6 @@ public class UniApp {
                 System.out.println("7. Modify Weight Apr 2023 ");
                 System.out.println("8. Modify Weight Sep 2022 ");
                 System.out.println("0. Return to Main Menu");
-
                 System.out.print("Choose an option: ");
 
                 modifyChoice = validateInt();
@@ -179,28 +181,19 @@ public class UniApp {
 
                 switch (modifyChoice) {
                     case 1:
-                        System.out.print("New Name (leave blank to keep current: ");
-                        String newNameInput = reader.nextLine();
-                        if (!newNameInput.isBlank()) {
-                            newName = newNameInput;
-                        }
+                        System.out.print("New Name: ");
+                        newName = reader.nextLine();
                         break;
                     case 2:
-                        System.out.print("New Last Name (leave blank to keep current: ");
-                        String newLastNameInput = reader.nextLine();
-                        if (!newLastNameInput.isBlank()) {
-                            newLastName = newLastNameInput;
-                        }
+                        System.out.print("New Last Name: ");
+                        newLastName = reader.nextLine();
                         break;
                     case 3:
-                        System.out.print("New Years (0 to keep current): ");
-                        int newYearsInput = validateInt();
-                        if (newYearsInput != 0) {
-                            newYears = newYearsInput;
-                        }
+                        System.out.print("New Years: ");
+                        newYears = validateInt();
                         break;
                     case 4:
-                        System.out.print("New Sex (M/F/O, leave blank to keep current): ");
+                        System.out.print("New Sex (M/F/O): ");
                         String newSexInput = reader.nextLine();
                         if (!newSexInput.isBlank()) {
                             if (newSexInput.equalsIgnoreCase("M")) {
@@ -214,18 +207,34 @@ public class UniApp {
                             }
                         }
                         break;
+                    case 5:
+                        System.out.print("New Health Abr 2023: ");
+                        newHealthAbr = validateDouble();
+                        break;
                     case 6:
+                        System.out.print("New Health Sep 2022: ");
+                        newHealthSep = validateDouble();
                         break;
-                    case 0:
+                    case 7:
+                        System.out.print("New Weight Sep 2022: ");
+                        newWeightSep = validateDouble();
                         break;
-                    default:
-                        System.out.println("Invalid option. Please try again.");
+                    case 8:
+                        System.out.print("New Weight Abr 2023: ");
+                        newWeightApr = validateDouble();
                         break;
                 }
             } while (modifyChoice != 0);
 
+            Calendar newDateAbr2023 = new GregorianCalendar(2023, Calendar.APRIL, 1);
+            Calendar newDateSep2022 = new GregorianCalendar(2022, Calendar.SEPTEMBER, 1);
+
             String modifyMessage = bienestarSystem.modifyStudent(id, newYears, newName, newLastName, newSex);
+            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newWeightSep, newDateSep2022);
+            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newWeightSep, newDateAbr2023);
+
             System.out.println(modifyMessage);
+
 
             bienestarSystem.saveStudents();
         } else {
@@ -262,6 +271,24 @@ public class UniApp {
                 option = Integer.MAX_VALUE;
             }
         } while (option == Integer.MAX_VALUE);
+        return option;
+    }
+
+    public double validateDouble() {
+        double option = 0;
+        do {
+            if (reader.hasNextDouble()) {
+                option = reader.nextDouble();
+            } else {
+
+                reader.next();// limpiar el scanner
+                System.out.println("\tInvalid number!");
+                System.out.print("\tConrrently Type: ");
+                option = Integer.MAX_VALUE;
+            }
+
+        } while (option == Integer.MAX_VALUE);
+
         return option;
     }
 
