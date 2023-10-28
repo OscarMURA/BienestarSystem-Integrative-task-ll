@@ -1,0 +1,49 @@
+==============================================
+-------Changes in nutritional status-------
+=============================================
+Total changes of students: 13
+==============================================
+
+ - Category 
+Students with positive changes 6
+
+ Change low weight to normal weight  :
+
+	Code: A00399901 Name: Juan Casta�eda Age: 18 Sex:M BIM (Sep)13.9 BIM(Abr)20.1   AverageBMI17.0
+	Code: A00399922 Name: Andres Chamorro Age: 18 Sex:M BIM (Sep)16.7 BIM(Abr)19.8   AverageBMI18.25
+	Code: A00456783 Name: Lucia Villanueva Age: 19 Sex:F BIM (Sep)17.8 BIM(Abr)19.5   AverageBMI18.65
+	Code: A00678910 Name: Elena Jimenez Age: 19 Sex:F BIM (Sep)18.4 BIM(Abr)18.8   AverageBMI18.6
+	Code: A00765429 Name: Gerardo Sepulveda Age: 18 Sex:F BIM (Sep)18.3 BIM(Abr)19.4   AverageBMI18.85
+
+ - Category  change overweight to normal weight  :
+
+
+ - Category  change obesity to overweight or normal weight  :
+
+	Code: A00765432 Name: Daniel Torres Age: 18 Sex:F BIM (Sep)30.3 BIM(Abr)29.4   AverageBMI29.85
+
+ - Category  change morbid obesity to normal weight or overweight  :
+
+
+ - Category 
+Students with negative changes 7
+
+ Change normal weight to low weight  :
+
+	Code: A00123456 Name: Juan Garcia Age: 17 Sex:M BIM (Sep)22.0 BIM(Abr)18.0   AverageBMI20.0
+	Code: A00456789 Name: Ana Gonzalez Age: 19 Sex:M BIM (Sep)18.6 BIM(Abr)17.4   AverageBMI18.0
+	Code: A00987654 Name: Maria Rodriguez Age: 19 Sex:M BIM (Sep)19.7 BIM(Abr)17.4   AverageBMI18.549999999999997
+
+ - Category  change normal weight to overweight or obesity  :
+
+	Code: A00123451 Name: Guillermo Orellana Age: 18 Sex:F BIM (Sep)23.4 BIM(Abr)25.1   AverageBMI24.25
+	Code: A00123452 Name: Fabiola Escobar Age: 17 Sex:M BIM (Sep)23.7 BIM(Abr)25.9   AverageBMI24.799999999999997
+	Code: A00543213 Name: Silvia Parra Age: 18 Sex:M BIM (Sep)22.6 BIM(Abr)25.0   AverageBMI23.8
+
+ - Category  change of overweight to more category  :
+
+
+ - Category  change obesity to morbid obesity  :
+
+	Code: A00678902 Name: Isaac Miranda Age: 17 Sex:M BIM (Sep)36.7 BIM(Abr)41.0   AverageBMI38.85
+

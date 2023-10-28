@@ -1,0 +1,25 @@
+============================================
+Histogram of the BMI of students in September 2022
+============================================
+category low weight:	11
+category normal:	54
+category overweight:	6
+category obesity:	3
+category morbid obesity:	0
+
+low weight
+███████████
+███████████
+normal
+██████████████████████████████████████████████████████
+██████████████████████████████████████████████████████
+overweight
+██████
+██████
+obesity
+███
+███
+morbid obesity
+
+
+

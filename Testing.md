@@ -170,6 +170,95 @@
 
 ---
 
+
+# File Manager Testing 
+
+
+|**Name**|**Class**|**Scenery**|
+| :-: | :-: | :-: |
+|**setUpStudents**|**FileManager Test**|[Diagram](https://drive.google.com/file/d/1F_-4IlHyVATWtZaYP3fGdnFzjvK2qKK6/view?usp=drive_link)|
+|setUpIntance|FileManager test|[FileManager.getIntance()](https://drive.google.com/file/d/1OlkmDUVxIlRbM5pxZrVoZKd_VxaPMMK9/view?usp=sharing)|
+
+---
+
+|**Objective:** Check that the singlaton method works correctly, despite the fact that 2 objects of the same class are being tried.|
+| :- |
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** |getIntance|setUpIntance|Intance1=FileManager.getIntance()|The two objects must be the same because they point to the same reference|
+
+----
+
+|**Objective:** Test that the save method correctly saves the array of students, as long as its nomenclature is correctly written, otherwise it returns an exception because that file type is not accepted in the json save.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test**|saveStudents|<p>setUpIntance()</p><p>setUpStudents</p>|--|The system must save correctly and without errors the student data in json format in the assigned path.|
+|**FileManager Test**|saveStudents|setUp2Collection|--|The system reports the exception ExceptionFormatFileNotAllowed, because the type of file that was tried to save the student data is not valid.|
+
+----
+
+|<p>**Objective: The objective is that the load method, load the files correctly and in case of loading a file with a different format, throw an exception for invalid format.**</p><p></p>|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|loadStudent|setUpStudents|---|Student data uploaded to the system must have the same values as the students in the student scenario.|
+|**FileManager Test** t|loadStudent|setUpStudents|---|The system must report the exception ExceptionFormatFileNotAllowed, for trying to load a file that is not valid in the json format..|
+
+----
+
+|**Objective:** The system must correctly save the students' data in CSV format without exceptions, in case of errors it is either because of IOexeption or because the format of the saving file is not valid.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|saveCSV|setUpStudents|---|The system must be able to save student data in a csv file, as long as the file format is valid, so it should not return IOExcepion errors.|
+|**FileManager Test** t|saveCSV|setUpStudents|---|When trying to save student data in CSV format, and the nomenclature is not valid. You must return an exception for invalid file format.|
+
+-----
+
+|**Objective:** In the system the LoadCSV load method should work correctly, but if the load file does not exist or does not load it should return an exception.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|loadCSV|setUpStudents|---|The method must correctly load the student data without errors, and the student data must be the same as the setUpStudents data.|
+|**FileManager Test** t|loadCSV|setUpStudents|---|When uploading student data and the file is not in CSV format, you must return the error ExceptionFormatFileNotAllowed, due to invalid upload format.|
+
+
+----
+
+|**Objective:** The system should work correctly the save method of saveFileTXT, when saving String type information, and it should not fail as long as it is a valid format and the file exists.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|saveFileTXT|setUpIntance|Massage=”This is a test”|the saveFileTXT method should correctly save the selected information without errors in the process, as long as the save format is valid.|
+|**FileManager Test** t|saveFileTXT|setUpIntance|Massage=”This is a test”|When saving the file and it is saved in an invalid .txt format, the ExceptionFormatFileNotAllowed exception must be returned.|
+
+----
+
+|**Objective:** The system should be able to load TXT files correctly, as long as it has the valid format and the file exists.|
+| :- |
+
+
+|**Class**|**Method**|**Scenary**|**Input value**|**Result**|
+| :-: | :-: | :-: | :-: | :-: |
+|**FileManager Test** t|loadFileTXT|setUpIntance|Massage=”This is a test”|The system must be able to load the file test.txt, and its information must be equal to "This is a test".|
+|**FileManager Test** t|loadFileTXT|setUpIntance|Massage=”This is a test”|The system must return an error when loading the data, because the file to load does not have the valid .txt format.|
+
+
+
+---
+
 ## Student Testing 
 
 
@@ -178,14 +267,14 @@
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-|StudentTest|Gets\*|testGetId|void|All returned values ​​All returned values ​​must be equal to the attributes of the Student Object|
+|StudentTest|Gets\*|SetupScenary1|void|All returned values ​​All returned values ​​must be equal to the attributes of the Student Object|
 
 |Objective:That when a nutritional status value is added, it is correctly added to the student|
 | :- |
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-|ReportsTest|<p>Sets\*</p><p>Gets\*</p>|testGetId|<p>name="Alice"</p><p>lastname="Smith"</p><p>years=25</p><p>Sex=M</p>
+|StudentTest|<p>Sets\*</p><p>Gets\*</p>|SetupScenary1|<p>name="Alice"</p><p>lastname="Smith"</p><p>years=25</p><p>Sex=M</p>
 |All the values ​​that were modified, when the values ​​are returned these must be the changed values|
 -------
 |Objective: That when a nutritional status value is added, it is correctly added to the student|
@@ -196,3 +285,88 @@
 |StudentTest|AddNutritionalState|testAddNutritionalState|<p>weight=70</p><p>height=1.75</p><p>date=22-05-2023</p>|The addNutritionalState function works correctly by adding a NutritionalStates object to the list and the list is updated properly. 
 |
 -------
+|Objective: Verify that the toString method of the Student class returns a correct text representation of a student.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|testToString|SetupScenary1|-|The result of the student's aggregation is expected to be "Jaime Smith 20 M". |
+-------
+|Objective: Verify that the compare method of the Student class compares two students based on a specific criterion and returns a correct value indicating the relationship between them.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|testCompare|SetupScenary1|-|The result of student 1.compare(student 1, student 2) is less than 0.|
+-------
+|Objective: Ensure that the methods of the Student class generate a text string in the required formats that contains the student's information and nutritional statuses. This scenario establishes specific dates for nutritional statuses.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|verifyDatesCVC|SetupScenary2|-|Expected result: "John;Jaimes;20;A00584485;M;70.0;75.0;1.82;21.1;22.6"|
+-------
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|testFormatList|SetupScenary2|-|Expected result: "Code: A00245865 Name: Alice Smith Age: 30 Sex:F weight:65.0 Height: 1.6 BMI: 25.4"|
+-------
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|testIndicatorList|SetupScenary2|-|Expected result: "Code: A00325486 Name: Bob Johnson Age: 35 Sex:M BIM (Sep)24.2 BIM(Apr)26.0 AverageBMI25.1"|
+-------
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|StudentTest|testAverageBMI|SetupScenary2|-|Expected result: The calculated value of the average BMI (average BMI) coincides with the expected value, with a margin of error of +/- 0.01.|
+-------
+
+## BienestarSystem Testing
+
+-------
+|**Name**|**Class**|**Scenery**|
+| :-: | :-: | :-: |
+|**setUpWithStudents**|**BienestarSystem**|[Diagram](https://drive.google.com/file/d/1jfPoIid9A3oKbf1-KbrMcFVDRbXxfFLa/view?usp=drive_link)|
+|setUpWithNutritionalState|BienestarSystem|[Diagram](https://drive.google.com/file/d/1jfPoIid9A3oKbf1-KbrMcFVDRbXxfFLa/view?usp=drive_link)|
+
+---
+|Objective: These tests verify that a student can be added correctly to the well-beingSystem system. Checks if adding a student is done without errors and if the number of students in the system increases by 1.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testAddStudentCorrecty|setUpWithStudents|-|It is expected that this test will successfully add a student to the system and that the returned message will be "Student added successfully." The number of students in the system should increase by 1.|
+-------
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+
+|BienestarSystem|testAddStudentAndNoPermitAddIdRepeated|setUpWithStudents|-|This test should attempt to add a student with an ID that already exists in the system. The expected result is that a message saying "The id of the student already exists" is issued, and the number of students in the system should not change.|
+-------
+|Objective: These tests verify that nutritional statuses can be added to a student in the system. It checks if the addition of nutritional states is performed without errors and if the number of nutritional states of the student increases correctly.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testAddNutritionalStates|setUpWithStudents|-|This test is expected to add nutritional statuses to a student in the system and the message returned is "Nutritional status added correctly.". The number of nutritional statuses for the student should increase.|
+-------
+|Objective: Tests the behavior of the function that removes students from the system, when an attempt is made to remove a student that does not exist in the system. Checks if an error message is issued and if the number of students in the system does not change.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testRemovedStutentThatNotExists|setUpWithStudents|Id: “A00000018”|It is expected that this test will attempt to delete a student that does not exist in the system and that the returned message will be "Student not found.". The number of students in the system should not change.|
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testRemovedStutentThatExists|setUpWithStudents|Id: “A00000001”|This test should attempt to remove a student that exists in the system and the message returned is expected to be "Student removed successfully.". The number of students in the system should decrease by 1.|
+-------
+|Objective: Tests the student modification function when modifying a student that exists in the system or does not exist in the system.|
+| :- |
+
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testModifyStudentThatNoExist|setUpWithStudents|-|It is expected that this test will attempt to modify a student that does not exist in the system and that the message returned will be "The student with the ID does not exist". The student information should not change.|
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testModifyStudentThatExist|setUpWithStudents|-|This test should modify a student that exists in the system and the message returned is expected to indicate the modifications made. The number of students in the system should not change.|
