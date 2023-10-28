@@ -140,8 +140,8 @@ public class UniApp {
      *                    data or information
      *                    about a student that needs to be saved.
      */
-    public void saveStudentTxt(String information) {
-        bienestarSystem.saveStudentsTxt(information);
+    public void saveStudentTxt(String path, String information) {
+        bienestarSystem.saveStudentsTxt(path, information);
     }
 
     /**
@@ -236,7 +236,7 @@ public class UniApp {
         } while (weightSep <= 0);
 
         do {
-            System.out.println("Enter the Height Sep 2022: ");
+            System.out.println("Enter the Height Sep 2022: (Ejem: 1.70)");
             heightSep = validateDouble();
             if (heightSep <= 0) {
                 System.out.println("Height must be greater than 0.");
@@ -253,7 +253,7 @@ public class UniApp {
         } while (weightApril <= 0 || weightApril <= weightSep);
 
         do {
-            System.out.println("Enter your Height Apr 2023:");
+            System.out.println("Enter your Height Apr 2023: (Ejem: 1.70)");
             heightApril = validateDouble();
             if (heightApril <= 0 || heightApril <= heightSep) {
                 System.out.println(
@@ -346,7 +346,7 @@ public class UniApp {
                         break;
                     case 5:
                         do {
-                            System.out.print("New Height Abr 2023: ");
+                            System.out.print("New Height Abr 2023: (Ejem: 1.70) ");
                             newHealthAbr = validateDouble();
                             if (newHealthAbr <= 0) {
                                 System.out.println("===========================================");
@@ -357,7 +357,7 @@ public class UniApp {
                         break;
                     case 6:
                         do {
-                            System.out.print("New Height Sep 2022: ");
+                            System.out.print("New Height Sep 2022: (Ejem: 1.70) ");
                             newHealthSep = validateDouble();
                             if (newHealthSep <= 0) {
                                 System.out.println("===========================================");
@@ -570,12 +570,12 @@ public class UniApp {
             switch (option) {
                 case 1:
                     String histogram = bienestarSystem.histogramGenerator();
-                    saveStudentTxt(histogram);
+                    saveStudentTxt("/resources/Histogram.txt", histogram);
                     System.out.println(histogram);
                     break;
                 case 2:
                     String reportList = menuListReport();
-                    saveStudentTxt(reportList);
+                    saveStudentTxt("/resources/Report_Order_List.txt", reportList);
                     System.out.println(reportList);
                     break;
                 case 0:
@@ -610,12 +610,12 @@ public class UniApp {
             switch (option) {
                 case 1:
                     String indicatorReport = bienestarSystem.indicatorChangesNutritionalStates();
-                    saveStudentTxt(indicatorReport);
+                    saveStudentTxt("/resources/Indicator_Report.txt", indicatorReport);
                     System.out.println(indicatorReport);
                     break;
                 case 2:
                     String reportListIndicator = menuListReportIndicator();
-                    saveStudentTxt(reportListIndicator);
+                    saveStudentTxt("/resources/List_Report.txt", reportListIndicator);
                     System.out.println(reportListIndicator);
                     break;
                 case 0:

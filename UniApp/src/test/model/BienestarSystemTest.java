@@ -2,14 +2,22 @@ package test.model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.io.File;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import model.BienestarSystem;
 
+/**
+ * The BienestarSystemTest class is used for testing the functionality of the BienestarSystem class.
+ */
 public class BienestarSystemTest {
     private BienestarSystem bienestarSystem;
 
     @Test
+   // The `setUpWithStudents()` method is used to set up the initial state of the `bienestarSystem`
+   // object by adding a list of students with their respective information (ID, age, first name, last
+   // name, and gender).
     public void setUpWithStudents() {
         bienestarSystem = new BienestarSystem();
         bienestarSystem.addStudents("A00000001", 18, "Ana", "Lopez", "F");
@@ -32,6 +40,9 @@ public class BienestarSystemTest {
 
     }
 
+    /**
+     * The function sets up nutritional states for multiple students in the bienestarSystem.
+     */
     @Test
     public void setUpWithNutritionalStates() {
         // Estudiante A00000001
@@ -149,6 +160,10 @@ public class BienestarSystemTest {
         assertEquals(18, bienestarSystem.getStudents().size());
     }
 
+    /**
+     * The testAddStudentAndNoPermitAddIdRepeated function tests that adding a student with a repeated
+     * ID returns an error message and does not add the student to the system.
+     */
     @Test
     public void testAddStudentAndNoPermitAddIdRepeated() {
         setUpWithStudents();
@@ -157,6 +172,10 @@ public class BienestarSystemTest {
         assertEquals(17, bienestarSystem.getStudents().size());
     }
 
+    /**
+     * The testAddNutritionalStates function tests the functionality of adding nutritional states to a
+     * student in the bienestarSystem.
+     */
     @Test
     public void testAddNutritionalStates() {
         setUpWithStudents();
@@ -170,6 +189,10 @@ public class BienestarSystemTest {
         assertEquals(2, bienestarSystem.getStudents().get(0).getNutritionalStates().size());
     }
 
+    /**
+     * The testRemovedStutentThatNotExists function tests the behavior of the removedStudent method
+     * when trying to remove a student that does not exist.
+     */
     @Test
     public void testRemovedStutentThatNotExists() {
         setUpWithStudents();
@@ -177,6 +200,8 @@ public class BienestarSystemTest {
         assertEquals(17, bienestarSystem.getStudents().size());
     }
 
+    //The `testRemovedStutentThatExists()` method is a unit test that checks the functionality of the
+    // `removedStudent()` method in the `BienestarSystem` class.
     @Test
     public void testRemovedStutentThatExists() {
         setUpWithStudents();
@@ -184,6 +209,10 @@ public class BienestarSystemTest {
         assertEquals(16, bienestarSystem.getStudents().size());
     }
 
+    /**
+     * The testModifyStudentThatNoExist function tests the behavior of the modifyStudent method when
+     * trying to modify a student that does not exist.
+     */
     @Test
     public void testModifyStudentThatNoExist() {
         setUpWithStudents();
@@ -193,6 +222,11 @@ public class BienestarSystemTest {
         assertEquals(17, bienestarSystem.getStudents().size());
     }
 
+    /**
+     * The testModifyStudentThatExist function tests the modifyStudent method in the bienestarSystem
+     * class by modifying the attributes of an existing student and checking if the modifications were
+     * successful.
+     */
     @Test
     public void testModifyStudentThatExist() {
         setUpWithStudents();
@@ -202,5 +236,103 @@ public class BienestarSystemTest {
                 + "\nModified last name." + "\nModified Sex" + "\n" + "\n";
         assertEquals(modifyCorrect, modifys);
         assertEquals(17, bienestarSystem.getStudents().size());
+    }
+
+
+    /**
+     * The testModifyNutritionalStudentToStudentThatNoExist function tests the modifyNutritionalStudent
+     * method in the bienestarSystem class by passing an ID of a student that does not exist.
+     */
+    @Test
+    public void testModifyNutritionalStudentToStudentThatNoExist() {
+        setUpWithNutritionalStates();
+        String id = "A000000018";
+        assertEquals(bienestarSystem.modifyNutritionalStudent(id, 46.0, 1.70, new GregorianCalendar(2022, Calendar.SEPTEMBER, 1)),"Student not found.");
+    }
+
+    /**
+     * The testModifyNutritionalAtSeptember function tests the modification of a student's nutritional
+     * state at a specific date in September.
+     */
+    @Test
+    public void testModifyNutritionalAtSeptember() {
+        setUpWithNutritionalStates();
+        String id = "A00000001";
+        assertEquals(bienestarSystem.modifyNutritionalStudent(id, 46.0, 1.70, new GregorianCalendar(2022, Calendar.SEPTEMBER, 1)),"Nutritional state modified successfully.");
+        assertEquals(46.0, bienestarSystem.getStudents().get(0).getNutritionalStates().get(0).getWeight(), 0.0);
+        assertEquals(1.70, bienestarSystem.getStudents().get(0).getNutritionalStates().get(0).getHeight(), 0.0);
+        assertEquals(new GregorianCalendar(2022, Calendar.SEPTEMBER, 1), bienestarSystem.getStudents().get(0).getNutritionalStates().get(0).getDate());
+    }
+
+    /**
+     * The testModifyNutritionalAtApril function tests the modification of a student's nutritional
+     * state at a specific date.
+     */
+    @Test
+    public void testModifyNutritionalAtApril() {
+        setUpWithNutritionalStates();
+        String id = "A00000001";
+        assertEquals(bienestarSystem.modifyNutritionalStudent(id, 58.0, 1.70, new GregorianCalendar(2023, Calendar.APRIL, 1)),"Nutritional state modified successfully.");
+        assertEquals(58.0, bienestarSystem.getStudents().get(0).getNutritionalStates().get(1).getWeight(), 0.0);
+        assertEquals(1.70, bienestarSystem.getStudents().get(0).getNutritionalStates().get(1).getHeight(), 0.0);
+        assertEquals(new GregorianCalendar(2023, Calendar.APRIL, 1), bienestarSystem.getStudents().get(0).getNutritionalStates().get(1).getDate());
+
+    }
+
+    /**
+     * The function tests if the histogram generated by the bienestarSystem is saved correctly to a
+     * text file.
+     */
+    @Test
+    public void saveCorrectlyHistogram(){
+        setUpWithNutritionalStates();
+        String histogram=bienestarSystem.histogramGenerator();
+        bienestarSystem.saveStudentsTxt("/dataTest/histogramControlData.txt", histogram);
+        File projectDir = new File(System.getProperty("user.dir"));
+        File file = new File(projectDir+"/data/dataTest/histogramControlData.txt");
+        assertTrue(file.exists());
+    }
+
+/**
+ * The function tests if a list report is saved correctly to a text file.
+ */
+
+    @Test
+    public void saveCorrectlyListReport(){
+        setUpWithNutritionalStates();
+        String listReport=bienestarSystem.statesListReports(1);
+        bienestarSystem.saveStudentsTxt("/dataTest/listReportControlData.txt",listReport);
+        File projectDir = new File(System.getProperty("user.dir"));
+        File file = new File(projectDir+"/data/dataTest/listReportControlData.txt");
+        assertTrue(file.exists());
+    }
+   
+
+/**
+ * The function tests if a file is saved correctly with the indicator change data.
+ */
+
+    @Test
+    public void saveCorrectlyIndicatorChange(){
+        setUpWithNutritionalStates();
+        String indicatorChange=bienestarSystem.indicatorChangesNutritionalStates();
+        bienestarSystem.saveStudentsTxt("/dataTest/indicatorChangeControlData.txt",indicatorChange);
+        File projectDir = new File(System.getProperty("user.dir"));
+        File file = new File(projectDir+"/data/dataTest/indicatorChangeControlData.txt");
+        assertTrue(file.exists());
+    }
+
+    /**
+     * The function tests if the indicator list change for nutritional states is saved correctly to a
+     * text file.
+     */
+    @Test
+    public void saveCorrectlyIndicatorListChange(){
+        setUpWithNutritionalStates();
+        String indicatorChange=bienestarSystem.indicatorListChangeNutritionalStates(1);
+        bienestarSystem.saveStudentsTxt("/dataTest/indicatorListChangeNutritionalStates.txt",indicatorChange);
+        File projectDir = new File(System.getProperty("user.dir"));
+        File file = new File(projectDir+"/data/dataTest/indicatorListChangeNutritionalStates.txt");
+        assertTrue(file.exists());
     }
 }

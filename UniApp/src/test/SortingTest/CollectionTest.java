@@ -4,14 +4,21 @@ import exceptions.ExceptionForArrayListUnordered;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import Sorting.Collection;
-import exceptions.ExceptionFormatOfValueNotAllowed;
 
 import java.util.ArrayList;
 
+/**
+ * The CollectionTest class is a Java class that is used for testing collections.
+ */
 public class CollectionTest {
 
     private Collection<Integer, Integer> collection;
 
+    /**
+     * The function setUpScenary1 returns an ArrayList of integers containing the numbers 1 to 10.
+     * 
+     * @return The method setUpScenary1() returns an ArrayList<Integer> containing the numbers 1 to 10.
+     */
     private ArrayList<Integer> setUpScenary1() {
         collection = new Collection<>();
         ArrayList<Integer> list = new ArrayList<>();
@@ -29,6 +36,13 @@ public class CollectionTest {
 
     }
 
+    /**
+     * The function setUpScenary2() returns an ArrayList of integers with values from 10 to 1 in
+     * descending order.
+     * 
+     * @return The method setUpScenary2() returns an ArrayList<Integer> containing the numbers 1 to 10
+     * in descending order.
+     */
     private ArrayList<Integer> setUpScenary2() {
         collection = new Collection<>();
         ArrayList<Integer> list = new ArrayList<>();
@@ -144,7 +158,5 @@ public class CollectionTest {
         ArrayList<Integer> list = setUpScenary2();
         assertFalse(Collection.isListSorted(list, (a, b) -> a - b));
     }
-
-
 
 }

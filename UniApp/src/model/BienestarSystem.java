@@ -146,10 +146,10 @@ public class BienestarSystem {
      *                    students that you want to save in the "students.txt" file.
      * @return The method is returning a String message.
      */
-    public String saveStudentsTxt(String information) {
+    public String saveStudentsTxt(String path, String information) {
         String msj = "";
         try {
-            msj = fileManager.saveFileTXT("/resources/students.txt", information);
+            msj = fileManager.saveFileTXT(path, information);
         } catch (IOException e) {
             msj = "\nError saving students to TXT file: " + e.getMessage();
         } catch (ExceptionFormatFileNotAllowed e) {
@@ -217,9 +217,9 @@ public class BienestarSystem {
         Comparator<Student> comparator = Comparator.comparing(Student::getId);
         try {
             collection.binaryInsert(students, comparator, student);
-            msj = "Estudiante añadido exitosamente.";
+            msj = "\nStudent added successfully.";
         } catch (ExceptionForArrayListUnordered e) {
-            msj = "La lista de estudiantes no está ordenada.";
+            msj = "\nStudent list is not sorted.";
         }
         return msj;
     }
@@ -369,6 +369,8 @@ public class BienestarSystem {
             } else {
                 msj = "Nutritional state for the specified date not found.";
             }
+        } else {
+            msj = "Student not found.";
         }
         return msj;
     }

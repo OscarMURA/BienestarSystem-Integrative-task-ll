@@ -7,7 +7,13 @@ import java.util.Calendar;
 import model.TypeStates;
 import java.util.GregorianCalendar;
 
+/**
+ * The NutritionalStatesTest class is used to test the functionality of the NutritionalStates class.
+ */
 public class NutritionalStatesTest {
+/**
+ * The ReportsTest class is used for testing reports functionality.
+ */
 
     private NutritionalStates nutritionalStates;
 

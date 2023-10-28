@@ -12,6 +12,9 @@ import static org.junit.Assert.*;
 import model.FileManager;
 import model.Sex;
 
+/**
+ * The FileManagerTest class is used for testing the functionality of the FileManager class.
+ */
 public class FileManagerTest {
     private FileManager fileManager;
 

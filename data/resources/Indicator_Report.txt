@@ -1,0 +1,20 @@
+============================================
+-------Changes in nutritional status-------
+============================================
+Total changes of students: 13
+============================================
+
+Students with positive changes: 6
+
+ 	- Change low weight to normal weight: :	5
+ 	- Change overweight to normal weight: :	0
+ 	- Change obesity to overweight or normal weight: :	1
+ 	- Change morbid obesity to normal weight or overweight: :	0
+
+Students with negative changes: 7
+
+ 	- Change normal weight to low weight: :	3
+ 	- Change normal weight to overweight or obesity: :	3
+ 	- Change of overweight to more category: :	0
+ 	- Change obesity to morbid obesity: :	1
+
