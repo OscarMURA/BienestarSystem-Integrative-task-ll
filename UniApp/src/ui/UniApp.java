@@ -1,7 +1,6 @@
 package ui;
 
 import model.BienestarSystem;
-import model.Sex;
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -105,6 +104,8 @@ public class UniApp {
         reader.nextLine();
         boolean validate = false;
         String id = "";
+        String sex = "";
+        int years = 0;
 
         while (!validate) {
             System.out.println("");
@@ -129,47 +130,74 @@ public class UniApp {
         String name = reader.nextLine();
         System.out.print("Ingrese el Last Name: ");
         String lastName = reader.nextLine();
-        System.out.print("Ingrese cuantos años tiene: ");
-        int years = Integer.parseInt(reader.nextLine());
-        System.out.print("Ingrese su Sex (M/F/O): ");
-        String sexInput = reader.nextLine();
+        do {
+            System.out.print("Ingrese cuantos años tiene: ");
+            years = validateInt();
+            if (years <= 0) {
+                System.out.println("===========================================");
+                System.out.println("Invalid years input. Years must be greater than 0.");
+                System.out.println("===========================================");
+            }
+        } while (years <= 0);
 
-        Sex sex;
-        if (sexInput.equalsIgnoreCase("M")) {
-            sex = Sex.M;
-        } else if (sexInput.equalsIgnoreCase("F")) {
-            sex = Sex.F;
-        } else if (sexInput.equalsIgnoreCase("O")) {
-            sex = Sex.O;
-        } else {
-            System.out.println("===========================================");
-            System.out.println("Invalid sex input. Please enter M, F, or O.");
-            System.out.println("===========================================");
-            return;
-        }
+        do {
+            System.out.print("Ingrese su Sex (M/F/O): ");
+            String sexInput = reader.nextLine();
+            sex = bienestarSystem.validateSex(sexInput);
 
-        String message = bienestarSystem.addStudents(id, years, name, lastName, sex);
-        System.out.println(message);
-
-        nutritionalState(id);
-        saveStudentJson();
-        saveStudentCSV();
+            if (sex != null) {
+                String message = bienestarSystem.addStudents(id, years, name, lastName, sex);
+                System.out.println(message);
+                nutritionalState(id);
+                saveStudentJson();
+                saveStudentCSV();
+            } else {
+                System.out.println("===========================================");
+                System.out.println("Invalid sex input. Please enter M, F, or O.");
+                System.out.println("===========================================");
+            }
+        } while (sex == null);
     }
 
     public void nutritionalState(String id) {
         System.out.println("");
         System.out.println("=========== Add Nutritional State ===========" + "\n");
-        System.out.println("Ingrese su Weight Sep 2022: ");
-        double weightSep = Double.parseDouble(reader.nextLine());
-        System.out.println("Ingrese su Height Sep 2022: ");
-        double heightSep = Double.parseDouble(reader.nextLine());
-        System.out.println("Ingrese su Weight Apr 2023: ");
-        double weightApril = Double.parseDouble(reader.nextLine());
-        System.out.println("Ingrese su Height Apr 2023: ");
-        double heightApril = Double.parseDouble(reader.nextLine());
+
+        double weightSep, heightSep, weightApril, heightApril;
+
+        do {
+            System.out.println("Ingrese su Weight Sep 2022: ");
+            weightSep = validateDouble();
+            if (weightSep <= 0) {
+                System.out.println("El peso debe ser mayor a 0.");
+            }
+        } while (weightSep <= 0);
+
+        do {
+            System.out.println("Ingrese su Height Sep 2022: ");
+            heightSep = validateDouble();
+            if (heightSep <= 0) {
+                System.out.println("La altura debe ser mayor a 0.");
+            }
+        } while (heightSep <= 0);
+
+        do {
+            System.out.println("Ingrese su Weight Apr 2023: ");
+            weightApril = validateDouble();
+            if (weightApril <= 0 || weightApril <= weightSep) {
+                System.out.println("El peso de Abril 2023 debe ser mayor que el de Septiembre 2022 y mayor a 0.");
+            }
+        } while (weightApril <= 0 || weightApril <= weightSep);
+
+        do {
+            System.out.println("Ingrese su Height Apr 2023: ");
+            heightApril = validateDouble();
+            if (heightApril <= 0 || heightApril <= heightSep) {
+                System.out.println("La altura de Abril 2023 debe ser mayor que la de Septiembre 2022 y mayor a 0.");
+            }
+        } while (heightApril <= 0 || heightApril <= heightSep);
 
         Calendar dateSep = new GregorianCalendar(2023, Calendar.SEPTEMBER, 1);
-
         Calendar dateApr = new GregorianCalendar(2023, Calendar.APRIL, 1);
 
         String messageSep = bienestarSystem.addNutritionalStateToStudent(id, weightSep, heightSep, dateSep);
@@ -183,6 +211,7 @@ public class UniApp {
     }
 
     public void modifyStudent() {
+        reader.nextLine();
         System.out.println("===========================================");
         System.out.print("Enter student ID to modify:\n");
         System.out.println("===========================================");
@@ -192,7 +221,7 @@ public class UniApp {
             String newName = null;
             String newLastName = null;
             int newYears = 0;
-            Sex newSex = null;
+            String newSex = null;
             double newHealthAbr = 0.0;
             double newHealthSep = 0.0;
             double newWeightApr = 0.0;
@@ -235,35 +264,61 @@ public class UniApp {
                         newYears = validateInt();
                         break;
                     case 4:
-                        System.out.print("New Sex (M/F/O): ");
-                        String newSexInput = reader.nextLine();
-                        if (!newSexInput.isBlank()) {
-                            if (newSexInput.equalsIgnoreCase("M")) {
-                                newSex = Sex.M;
-                            } else if (newSexInput.equalsIgnoreCase("F")) {
-                                newSex = Sex.F;
-                            } else if (newSexInput.equalsIgnoreCase("O")) {
-                                newSex = Sex.O;
-                            } else {
+                        do {
+                            System.out.print("New Sex (M/F/O): ");
+                            String newSexInput = reader.nextLine();
+                            newSex = bienestarSystem.validateSex(newSexInput);
+                            if (newSex == null) {
+                                System.out.println("===========================================");
                                 System.out.println("Invalid sex input. Please enter M, F, or O.");
+                                System.out.println("===========================================");
                             }
-                        }
+                        } while (newSex == null);
                         break;
                     case 5:
-                        System.out.print("New Height Abr 2023: ");
-                        newHealthAbr = validateDouble();
+                        do {
+                            System.out.print("New Height Abr 2023: ");
+                            newHealthAbr = validateDouble();
+                            if (newHealthAbr <= 0) {
+                                System.out.println("===========================================");
+                                System.out.println("La altura debe ser mayor a 0.");
+                                System.out.println("===========================================");
+                            }
+                        } while (newHealthAbr <= 0);
                         break;
                     case 6:
-                        System.out.print("New Height Sep 2022: ");
-                        newHealthSep = validateDouble();
+                        do {
+                            System.out.print("New Height Sep 2022: ");
+                            newHealthSep = validateDouble();
+                            if (newHealthSep <= 0) {
+                                System.out.println("===========================================");
+                                System.out.println("La altura debe ser mayor a 0.");
+                                System.out.println("===========================================");
+                            }
+                        } while (newHealthSep <= 0);
                         break;
                     case 7:
-                        System.out.print("New Weight Sep 2022: ");
-                        newWeightSep = validateDouble();
+                        do {
+                            System.out.print("New Weight Sep 2022: ");
+                            newWeightSep = validateDouble();
+                            if (newWeightSep <= 0) {
+                                System.out.println("===========================================");
+                                System.out.println("El peso debe ser mayor a 0.");
+                                System.out.println("===========================================");
+                            }
+                        } while (newWeightSep <= 0);
                         break;
                     case 8:
-                        System.out.print("New Weight Abr 2023: ");
-                        newWeightApr = validateDouble();
+                        do {
+                            System.out.print("New Weight Abr 2023: ");
+                            newWeightApr = validateDouble();
+                            if (newWeightApr <= 0 || newWeightApr <= newWeightSep) {
+                                System.out.println("===========================================");
+                                System.out.println(
+                                        "El peso de Abril 2023 debe ser mayor que el de Septiembre 2022 y mayor a 0.");
+                                System.out.println("===========================================");
+                            }
+                        } while (newWeightApr <= 0 || newWeightApr <= newWeightSep);
                         break;
                 }
             } while (modifyChoice != 0);
@@ -287,6 +342,7 @@ public class UniApp {
     }
 
     public void removeStudent() {
+        reader.nextLine();
         System.out.println("===========================================");
         System.out.print("Enter student ID to remove:\n");
         System.out.println("===========================================");
@@ -363,10 +419,29 @@ public class UniApp {
         return esValido;
     }
 
+    public String validateData(int newYears, double newHealthSep, double newHealthAbr, double newWeightSep,
+            double newWeightApr) {
+        String validationMessage = "";
+
+        if (newYears <= 0) {
+            validationMessage += "Invalid years input. Years must be greater than 0.\n";
+        }
+
+        if (newHealthSep <= 0 || newHealthAbr < newHealthSep) {
+            validationMessage += "Invalid height input. Height in April 2023 must be greater than height in September 2022.\n";
+        }
+
+        if (newWeightSep <= 0 || newWeightApr < newWeightSep) {
+            validationMessage += "Invalid weight input. Weight in April 2023 must be greater or equal to the weight in September 2022.\n";
+        }
+
+        return validationMessage;
+    }
+
     public void classificationReport() {
         int option = 0;
         do {
-            System.out.println("===========================================");
+            System.out.println("=========== Menu Reports ===========");
             System.out.println("1. Histogram reporting");
             System.out.println("2. Report by listing");
             System.out.println("0. Return to Main Menu");
@@ -401,7 +476,7 @@ public class UniApp {
     public void nutritionalStateReport() {
         int option = 0;
         do {
-            System.out.println("===========================================");
+            System.out.println("=========== Menu Reports ===========");
             System.out.println("1. Indicator reporting");
             System.out.println("2. Report by listing");
             System.out.println("0. Return to Main Menu");

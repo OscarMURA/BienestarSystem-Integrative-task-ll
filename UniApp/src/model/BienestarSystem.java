@@ -111,8 +111,9 @@ public class BienestarSystem {
         return msj;
     }
 
-    public String addStudents(String id, int years, String name, String lastName, Sex sex) {
+    public String addStudents(String id, int years, String name, String lastName, String newsex) {
         String msj = "";
+        Sex sex = Sex.valueOf(newsex);
         Student student = new Student(id, years, name, lastName, sex);
         Collection<Student, Student> collection = new Collection<>();
         Comparator<Student> comparator = Comparator.comparing(Student::getId);
@@ -148,8 +149,9 @@ public class BienestarSystem {
         return binarySearch(students, id) != null;
     }
 
-    public String modifyStudent(String id, int years, String name, String lastName, Sex sex) {
+    public String modifyStudent(String id, int years, String name, String lastName, String newSex) {
         String msg = "";
+        Sex sex = Sex.valueOf(newSex.toUpperCase());
         Student student = binarySearch(students, id);
 
         if (student != null) {
@@ -182,21 +184,15 @@ public class BienestarSystem {
         return msg + "\n";
     }
 
-    public Sex validateSex(String newSexInput) {
-        Sex newSex = null;
-        String msj = "";
-        if (!newSexInput.isBlank()) {
-            if (newSexInput.equalsIgnoreCase("M")) {
-                newSex = Sex.M;
-            } else if (newSexInput.equalsIgnoreCase("F")) {
-                newSex = Sex.F;
-            } else if (newSexInput.equalsIgnoreCase("O")) {
-                newSex = Sex.O;
-            } else {
-                msj = "Invalid sex input. Please enter M, F, or O.";
-            }
+    public String validateSex(String newSexInput) {
+        String result = null;
+        String newSex = newSexInput.toUpperCase();
+        if (newSex.equals("M") || newSex.equals("F") || newSex.equals("O")) {
+            result = newSex;
+        } else {
+            result = null;
         }
-        return newSex;
+        return result;
     }
 
     public String modifyNutritionalStudent(String id, Double weight, Double height, Calendar date) {
