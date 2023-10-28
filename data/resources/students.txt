@@ -1,165 +1,48 @@
-============================================
-List_of_the_BMI_of_students_in_September_2022
-============================================
-*Category low weight
-:		Code: A00399847 Name: Andres Pedro Age: 18 Sex:M weight:45.0 Height: 54.0 BMI: 0.0
-	Code: A00399846 Name: Andres Chamorro Age: 18 Sex:M weight:45.0 Height: 1.85 BMI: 13.1
-	Code: A00987647 Name: Hugo Rivas Age: 19 Sex:F weight:42.0 Height: 1.67 BMI: 15.1
-	Code: A00999999 Name: Pedro Diaz Age: 17 Sex:F weight:50.0 Height: 1.68 BMI: 17.7
-	Code: A00456783 Name: Lucia Villanueva Age: 19 Sex:F weight:52.0 Height: 1.71 BMI: 17.8
-	Code: A00765429 Name: Gerardo Sepulveda Age: 18 Sex:F weight:51.0 Height: 1.67 BMI: 18.3
-	Code: A00678910 Name: Elena Jimenez Age: 19 Sex:F weight:49.0 Height: 1.63 BMI: 18.4
+==============================================
+Changes in nutritional status
+=============================================
+Total changes of students: 12
+==============================================
 
-*Category normal
-:		Code: A00678903 Name: Estefania Ulloa Age: 17 Sex:O weight:64.0 Height: 1.86 BMI: 18.5
-	Code: A00456789 Name: Ana Gonzalez Age: 19 Sex:M weight:59.0 Height: 1.78 BMI: 18.6
-	Code: A00543217 Name: Eduardo Figueroa Age: 17 Sex:F weight:54.0 Height: 1.7 BMI: 18.7
-	Code: A00321095 Name: Guillermo Rojas Age: 17 Sex:M weight:54.0 Height: 1.69 BMI: 18.9
-	Code: A00765431 Name: Jorge Medina Age: 19 Sex:M weight:60.0 Height: 1.78 BMI: 18.9
-	Code: A00123458 Name: Isabel Nunez Age: 18 Sex:F weight:52.0 Height: 1.64 BMI: 19.3
-	Code: A00876539 Name: Rafael Soto Age: 17 Sex:M weight:64.0 Height: 1.81 BMI: 19.5
-	Code: A00888888 Name: Francisco Herrera Age: 18 Sex:F weight:53.0 Height: 1.65 BMI: 19.5
-	Code: A00543214 Name: Arturo Caceres Age: 19 Sex:F weight:60.0 Height: 1.75 BMI: 19.6
-	Code: A00123450 Name: Veronica Leiva Age: 18 Sex:F weight:59.0 Height: 1.73 BMI: 19.7
-	Code: A00987654 Name: Maria Rodriguez Age: 19 Sex:M weight:97.0 Height: 2.22 BMI: 19.7
-	Code: A00678909 Name: Fernando Espinoza Age: 17 Sex:F weight:56.0 Height: 1.68 BMI: 19.8
-	Code: A00234566 Name: Beatriz Carrasco Age: 18 Sex:F weight:54.0 Height: 1.64 BMI: 20.1
-	Code: A00765430 Name: Rosa Solis Age: 19 Sex:M weight:64.0 Height: 1.78 BMI: 20.2
-	Code: A00234564 Name: Susana Lara Age: 18 Sex:M weight:74.0 Height: 1.91 BMI: 20.3
-	Code: A00456784 Name: Mauricio Quintero Age: 18 Sex:M weight:74.0 Height: 1.91 BMI: 20.3
-	Code: A00987653 Name: Natalia Fuentes Age: 17 Sex:M weight:67.0 Height: 1.81 BMI: 20.5
-	Code: A00123457 Name: Miguel Morales Age: 19 Sex:F weight:57.0 Height: 1.66 BMI: 20.7
-	Code: A00543215 Name: Teresa Morales Age: 17 Sex:F weight:53.0 Height: 1.6 BMI: 20.7
-	Code: A00666666 Name: Alejandro Ortega Age: 19 Sex:M weight:67.0 Height: 1.8 BMI: 20.7
-	Code: A00987652 Name: Sergio Bravo Age: 17 Sex:M weight:70.0 Height: 1.83 BMI: 20.9
-	Code: A00543219 Name: Luis Delgado Age: 18 Sex:F weight:58.0 Height: 1.66 BMI: 21.0
-	Code: A00333333 Name: Andrea Castro Age: 17 Sex:F weight:56.0 Height: 1.63 BMI: 21.1
-	Code: A00765428 Name: Roxana Nieves Age: 19 Sex:M weight:64.0 Height: 1.74 BMI: 21.1
-	Code: A00321092 Name: Vector Baez Age: 18 Sex:M weight:66.0 Height: 1.76 BMI: 21.3
-	Code: A00876543 Name: Patricia Ramirez Age: 18 Sex:F weight:56.0 Height: 1.62 BMI: 21.3
-	Code: A00321098 Name: Roberto Perez Age: 17 Sex:F weight:68.0 Height: 1.78 BMI: 21.5
-	Code: A00678908 Name: Lorena Silva Age: 19 Sex:F weight:56.0 Height: 1.61 BMI: 21.6
-	Code: A00111111 Name: Claudia Flores Age: 19 Sex:O weight:58.0 Height: 1.63 BMI: 21.8
-	Code: A00543218 Name: Adriana Romero Age: 19 Sex:F weight:63.0 Height: 1.7 BMI: 21.8
-	Code: A00876538 Name: Gabriela Lagos Age: 18 Sex:F weight:55.0 Height: 1.59 BMI: 21.8
-	Code: A00876540 Name: Lorena Alvarez Age: 17 Sex:F weight:63.0 Height: 1.7 BMI: 21.8
-	Code: A00123456 Name: Juan Garcia Age: 17 Sex:M weight:72.0 Height: 1.81 BMI: 22.0
-	Code: A00321093 Name: Alejandra Montes Age: 17 Sex:F weight:55.0 Height: 1.58 BMI: 22.0
-	Code: A00234563 Name: Ernesto Calderon Age: 17 Sex:M weight:71.0 Height: 1.79 BMI: 22.2
-	Code: A00876541 Name: Alberto Salazar Age: 17 Sex:M weight:80.0 Height: 1.9 BMI: 22.2
-	Code: A00123459 Name: Ricardo Gutierrez Age: 18 Sex:F weight:57.0 Height: 1.6 BMI: 22.3
-	Code: A00321096 Name: Marta Guzman Age: 18 Sex:M weight:68.0 Height: 1.74 BMI: 22.5
-	Code: A00321097 Name: Javier Vargas Age: 17 Sex:M weight:68.0 Height: 1.74 BMI: 22.5
-	Code: A00678904 Name: Adrian Araya Age: 19 Sex:F weight:62.0 Height: 1.66 BMI: 22.5
-	Code: A00765427 Name: Rodrigo Gallegos Age: 18 Sex:M weight:65.0 Height: 1.7 BMI: 22.5
-	Code: A00543213 Name: Silvia Parra Age: 18 Sex:M weight:74.0 Height: 1.81 BMI: 22.6
-	Code: A00456787 Name: Gabriel Pera Age: 19 Sex:M weight:68.0 Height: 1.73 BMI: 22.7
-	Code: A00987648 Name: Mariana Contreras Age: 17 Sex:F weight:64.0 Height: 1.67 BMI: 22.9
-	Code: A00987649 Name: Omar Cordero Age: 19 Sex:F weight:65.0 Height: 1.68 BMI: 23.0
-	Code: A00222222 Name: Valeria Reyes Age: 18 Sex:F weight:61.0 Height: 1.62 BMI: 23.2
-	Code: A00123451 Name: Guillermo Orellana Age: 18 Sex:F weight:57.0 Height: 1.56 BMI: 23.4
-	Code: A00234568 Name: Oscar Rios Age: 18 Sex:M weight:87.0 Height: 1.92 BMI: 23.6
-	Code: A00123452 Name: Fabiola Escobar Age: 17 Sex:M weight:75.0 Height: 1.78 BMI: 23.7
-	Code: A00987651 Name: Carmen Paredes Age: 18 Sex:F weight:63.0 Height: 1.62 BMI: 24.0
-	Code: A00543210 Name: Carlos Lopez Age: 18 Sex:M weight:74.0 Height: 1.75 BMI: 24.2
-	Code: A00234567 Name: David Sanchez Age: 17 Sex:F weight:64.0 Height: 1.62 BMI: 24.4
-	Code: A00555555 Name: Sofia Cruz Age: 18 Sex:M weight:71.0 Height: 1.7 BMI: 24.6
-	Code: A00777777 Name: Paola Aguilar Age: 17 Sex:M weight:92.0 Height: 1.93 BMI: 24.7
+ - Category 
+Students with positive changes 5
 
-*Category overweight
-:		Code: A00456786 Name: Raquel Carvajal Age: 18 Sex:O weight:73.0 Height: 1.68 BMI: 25.9
-	Code: A00876542 Name: Paula Fernandez Age: 17 Sex:O weight:81.0 Height: 1.75 BMI: 26.4
-	Code: A00678901 Name: Laura Martinez Age: 18 Sex:M weight:93.0 Height: 1.86 BMI: 26.9
-	Code: A00444444 Name: Manuel Mendoza Age: 19 Sex:F weight:70.0 Height: 1.6 BMI: 27.3
-	Code: A00456788 Name: Camila Rivera Age: 18 Sex:F weight:69.0 Height: 1.57 BMI: 28.0
-	Code: A00234565 Name: Antonio Valenzuela Age: 19 Sex:M weight:77.0 Height: 1.64 BMI: 28.6
+ Change low weight to normal weight  :
 
-*Category obesity
-:		Code: A00765432 Name: Daniel Torres Age: 18 Sex:F weight:70.0 Height: 1.52 BMI: 30.3
-	Code: A00321091 Name: Julieta Aguirre Age: 19 Sex:O weight:48.0 Height: 1.15 BMI: 36.3
-	Code: A00678902 Name: Isaac Miranda Age: 17 Sex:M weight:94.0 Height: 1.6 BMI: 36.7
+	Code: A00399922 Name: Andres Chamorro Age: 18 Sex:M BIM (Sep)16.7 BIM(Abr)19.8   AverageBMI18.25
+	Code: A00456783 Name: Lucia Villanueva Age: 19 Sex:F BIM (Sep)17.8 BIM(Abr)19.5   AverageBMI18.65
+	Code: A00678910 Name: Elena Jimenez Age: 19 Sex:F BIM (Sep)18.4 BIM(Abr)18.8   AverageBMI18.6
+	Code: A00765429 Name: Gerardo Sepulveda Age: 18 Sex:F BIM (Sep)18.3 BIM(Abr)19.4   AverageBMI18.85
 
-*Category morbid obesity
-:	============================================
-List_of_the_BMI_of_students_in_April_2023
-============================================
-*Category low weight
-:		Code: A00399847 Name: Andres Pedro Age: 18 Sex:M weight:1.78 Height: 54.0 BMI: 0.0
-	Code: A00999999 Name: Pedro Diaz Age: 17 Sex:F weight:47.0 Height: 1.68 BMI: 16.7
-	Code: A00399846 Name: Andres Chamorro Age: 18 Sex:M weight:58.0 Height: 1.85 BMI: 16.9
-	Code: A00456789 Name: Ana Gonzalez Age: 19 Sex:M weight:55.0 Height: 1.78 BMI: 17.4
-	Code: A00987654 Name: Maria Rodriguez Age: 19 Sex:M weight:86.0 Height: 2.22 BMI: 17.4
-	Code: A00987647 Name: Hugo Rivas Age: 19 Sex:F weight:49.0 Height: 1.67 BMI: 17.6
-	Code: A00123456 Name: Juan Garcia Age: 17 Sex:M weight:59.0 Height: 1.81 BMI: 18.0
+ - Category  change overweight to normal weight  :
 
-*Category normal
-:		Code: A00678910 Name: Elena Jimenez Age: 19 Sex:F weight:50.0 Height: 1.63 BMI: 18.8
-	Code: A00888888 Name: Francisco Herrera Age: 18 Sex:F weight:52.0 Height: 1.65 BMI: 19.1
-	Code: A00765431 Name: Jorge Medina Age: 19 Sex:M weight:61.0 Height: 1.78 BMI: 19.3
-	Code: A00765429 Name: Gerardo Sepulveda Age: 18 Sex:F weight:54.0 Height: 1.67 BMI: 19.4
-	Code: A00543217 Name: Eduardo Figueroa Age: 17 Sex:F weight:56.0 Height: 1.7 BMI: 19.4
-	Code: A00456783 Name: Lucia Villanueva Age: 19 Sex:F weight:57.0 Height: 1.71 BMI: 19.5
-	Code: A00321095 Name: Guillermo Rojas Age: 17 Sex:M weight:56.0 Height: 1.69 BMI: 19.6
-	Code: A00678903 Name: Estefania Ulloa Age: 17 Sex:O weight:68.0 Height: 1.86 BMI: 19.7
-	Code: A00123458 Name: Isabel Nunez Age: 18 Sex:F weight:53.0 Height: 1.64 BMI: 19.7
-	Code: A00678909 Name: Fernando Espinoza Age: 17 Sex:F weight:57.0 Height: 1.68 BMI: 20.2
-	Code: A00876543 Name: Patricia Ramirez Age: 18 Sex:F weight:53.0 Height: 1.62 BMI: 20.2
-	Code: A00321098 Name: Roberto Perez Age: 17 Sex:F weight:64.0 Height: 1.78 BMI: 20.2
-	Code: A00666666 Name: Alejandro Ortega Age: 19 Sex:M weight:66.0 Height: 1.8 BMI: 20.4
-	Code: A00987653 Name: Natalia Fuentes Age: 17 Sex:M weight:67.0 Height: 1.81 BMI: 20.5
-	Code: A00123450 Name: Veronica Leiva Age: 18 Sex:F weight:62.0 Height: 1.73 BMI: 20.7
-	Code: A00333333 Name: Andrea Castro Age: 17 Sex:F weight:55.0 Height: 1.63 BMI: 20.7
-	Code: A00876539 Name: Rafael Soto Age: 17 Sex:M weight:68.0 Height: 1.81 BMI: 20.8
-	Code: A00234566 Name: Beatriz Carrasco Age: 18 Sex:F weight:56.0 Height: 1.64 BMI: 20.8
-	Code: A00765430 Name: Rosa Solis Age: 19 Sex:M weight:66.0 Height: 1.78 BMI: 20.8
-	Code: A00543214 Name: Arturo Caceres Age: 19 Sex:F weight:64.0 Height: 1.75 BMI: 20.9
-	Code: A00123457 Name: Miguel Morales Age: 19 Sex:F weight:58.0 Height: 1.66 BMI: 21.0
-	Code: A00543219 Name: Luis Delgado Age: 18 Sex:F weight:58.0 Height: 1.66 BMI: 21.0
-	Code: A00456784 Name: Mauricio Quintero Age: 18 Sex:M weight:77.0 Height: 1.91 BMI: 21.1
-	Code: A00111111 Name: Claudia Flores Age: 19 Sex:O weight:56.0 Height: 1.63 BMI: 21.1
-	Code: A00987652 Name: Sergio Bravo Age: 17 Sex:M weight:71.0 Height: 1.83 BMI: 21.2
-	Code: A00234564 Name: Susana Lara Age: 18 Sex:M weight:78.0 Height: 1.91 BMI: 21.4
-	Code: A00543215 Name: Teresa Morales Age: 17 Sex:F weight:56.0 Height: 1.6 BMI: 21.9
-	Code: A00543218 Name: Adriana Romero Age: 19 Sex:F weight:64.0 Height: 1.7 BMI: 22.1
-	Code: A00678908 Name: Lorena Silva Age: 19 Sex:F weight:58.0 Height: 1.61 BMI: 22.4
-	Code: A00765428 Name: Roxana Nieves Age: 19 Sex:M weight:68.0 Height: 1.74 BMI: 22.5
-	Code: A00321097 Name: Javier Vargas Age: 17 Sex:M weight:68.0 Height: 1.74 BMI: 22.5
-	Code: A00543210 Name: Carlos Lopez Age: 18 Sex:M weight:69.0 Height: 1.75 BMI: 22.5
-	Code: A00876541 Name: Alberto Salazar Age: 17 Sex:M weight:82.0 Height: 1.9 BMI: 22.7
-	Code: A00876540 Name: Lorena Alvarez Age: 17 Sex:F weight:66.0 Height: 1.7 BMI: 22.8
-	Code: A00321096 Name: Marta Guzman Age: 18 Sex:M weight:69.0 Height: 1.74 BMI: 22.8
-	Code: A00321092 Name: Vector Baez Age: 18 Sex:M weight:71.0 Height: 1.76 BMI: 22.9
-	Code: A00222222 Name: Valeria Reyes Age: 18 Sex:F weight:60.0 Height: 1.62 BMI: 22.9
-	Code: A00234567 Name: David Sanchez Age: 17 Sex:F weight:60.0 Height: 1.62 BMI: 22.9
-	Code: A00123459 Name: Ricardo Gutierrez Age: 18 Sex:F weight:59.0 Height: 1.6 BMI: 23.0
-	Code: A00456787 Name: Gabriel Pera Age: 19 Sex:M weight:69.0 Height: 1.73 BMI: 23.1
-	Code: A00321093 Name: Alejandra Montes Age: 17 Sex:F weight:58.0 Height: 1.58 BMI: 23.2
-	Code: A00678904 Name: Adrian Araya Age: 19 Sex:F weight:65.0 Height: 1.66 BMI: 23.6
-	Code: A00876538 Name: Gabriela Lagos Age: 18 Sex:F weight:60.0 Height: 1.59 BMI: 23.7
-	Code: A00234568 Name: Oscar Rios Age: 18 Sex:M weight:88.0 Height: 1.92 BMI: 23.9
-	Code: A00555555 Name: Sofia Cruz Age: 18 Sex:M weight:69.0 Height: 1.7 BMI: 23.9
-	Code: A00234563 Name: Ernesto Calderon Age: 17 Sex:M weight:77.0 Height: 1.79 BMI: 24.0
-	Code: A00987649 Name: Omar Cordero Age: 19 Sex:F weight:68.0 Height: 1.68 BMI: 24.1
-	Code: A00987648 Name: Mariana Contreras Age: 17 Sex:F weight:68.0 Height: 1.67 BMI: 24.4
-	Code: A00765427 Name: Rodrigo Gallegos Age: 18 Sex:M weight:71.0 Height: 1.7 BMI: 24.6
-	Code: A00777777 Name: Paola Aguilar Age: 17 Sex:M weight:92.0 Height: 1.93 BMI: 24.7
-	Code: A00987651 Name: Carmen Paredes Age: 18 Sex:F weight:65.0 Height: 1.62 BMI: 24.8
 
-*Category overweight
-:		Code: A00543213 Name: Silvia Parra Age: 18 Sex:M weight:82.0 Height: 1.81 BMI: 25.0
-	Code: A00123451 Name: Guillermo Orellana Age: 18 Sex:F weight:61.0 Height: 1.56 BMI: 25.1
-	Code: A00678901 Name: Laura Martinez Age: 18 Sex:M weight:88.0 Height: 1.86 BMI: 25.4
-	Code: A00123452 Name: Fabiola Escobar Age: 17 Sex:M weight:82.0 Height: 1.78 BMI: 25.9
-	Code: A00456786 Name: Raquel Carvajal Age: 18 Sex:O weight:75.0 Height: 1.68 BMI: 26.6
-	Code: A00444444 Name: Manuel Mendoza Age: 19 Sex:F weight:68.0 Height: 1.6 BMI: 26.6
-	Code: A00876542 Name: Paula Fernandez Age: 17 Sex:O weight:82.0 Height: 1.75 BMI: 26.8
-	Code: A00456788 Name: Camila Rivera Age: 18 Sex:F weight:69.0 Height: 1.57 BMI: 28.0
-	Code: A00234565 Name: Antonio Valenzuela Age: 19 Sex:M weight:79.0 Height: 1.64 BMI: 29.4
-	Code: A00765432 Name: Daniel Torres Age: 18 Sex:F weight:68.0 Height: 1.52 BMI: 29.4
+ - Category  change obesity to overweight or normal weight  :
 
-*Category obesity
-:		Code: A00321091 Name: Julieta Aguirre Age: 19 Sex:O weight:52.0 Height: 1.15 BMI: 39.3
+	Code: A00765432 Name: Daniel Torres Age: 18 Sex:F BIM (Sep)30.3 BIM(Abr)29.4   AverageBMI29.85
 
-*Category morbid obesity
-:		Code: A00678902 Name: Isaac Miranda Age: 17 Sex:M weight:105.0 Height: 1.6 BMI: 41.0
+ - Category  change morbid obesity to normal weight or overweight  :
+
+
+ - Category 
+Students with negative changes 7
+
+ Change normal weight to low weight  :
+
+	Code: A00123456 Name: Juan Garcia Age: 17 Sex:M BIM (Sep)22.0 BIM(Abr)18.0   AverageBMI20.0
+	Code: A00456789 Name: Ana Gonzalez Age: 19 Sex:M BIM (Sep)18.6 BIM(Abr)17.4   AverageBMI18.0
+	Code: A00987654 Name: Maria Rodriguez Age: 19 Sex:M BIM (Sep)19.7 BIM(Abr)17.4   AverageBMI18.549999999999997
+
+ - Category  change normal weight to overweight or obesity  :
+
+	Code: A00123451 Name: Guillermo Orellana Age: 18 Sex:F BIM (Sep)23.4 BIM(Abr)25.1   AverageBMI24.25
+	Code: A00123452 Name: Fabiola Escobar Age: 17 Sex:M BIM (Sep)23.7 BIM(Abr)25.9   AverageBMI24.799999999999997
+	Code: A00543213 Name: Silvia Parra Age: 18 Sex:M BIM (Sep)22.6 BIM(Abr)25.0   AverageBMI23.8
+
+ - Category  change of overweight to more category  :
+
+
+ - Category  change obesity to morbid obesity  :
+
+	Code: A00678902 Name: Isaac Miranda Age: 17 Sex:M BIM (Sep)36.7 BIM(Abr)41.0   AverageBMI38.85
 

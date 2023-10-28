@@ -509,6 +509,7 @@ public class UniApp {
     }
 
     public String menuListReport() {
+        String report = "";
         int optionReport = 0;
         System.out.println("======================================================");
         System.out.println("Ingrese el tipo de orden que desea realizar su reporte");
@@ -519,12 +520,19 @@ public class UniApp {
         System.out.println("0. Return to Main Menu");
         System.out.println("======================================================");
         optionReport = validateInt();
-        String report = bienestarSystem.statesListReports(optionReport);
+        if (optionReport < 0 || optionReport > 3) {
+            System.out.println("===========================================");
+            System.out.println("Invalid option. Please try again.");
+            System.out.println("===========================================");
+        } else {
+            report = bienestarSystem.statesListReports(optionReport);
+        }
 
         return report;
     }
 
     public String menuListReportIndicator() {
+        String report = "";
         int optionReport = 0;
         System.out.println("======================================================");
         System.out.println("Ingrese el tipo de orden que desea realizar su reporte");
@@ -535,7 +543,13 @@ public class UniApp {
         System.out.println("0. Return to Main Menu");
         System.out.println("======================================================");
         optionReport = validateInt();
-        String report = bienestarSystem.indicatorListChangeNutritionalStates(optionReport);
+        if (optionReport < 0 || optionReport > 3) {
+            System.out.println("===========================================");
+            System.out.println("Invalid option. Please try again.");
+            System.out.println("===========================================");
+        } else {
+            report = bienestarSystem.indicatorListChangeNutritionalStates(optionReport);
+        }
 
         return report;
     }

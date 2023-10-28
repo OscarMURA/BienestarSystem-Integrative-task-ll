@@ -1,6 +1,8 @@
 package model;
+
 import java.util.ArrayList;
 import exceptions.ExceptionFormatOfValueNotAllowed;
+
 public class Reports {
 
     private String title;
@@ -55,64 +57,62 @@ public class Reports {
         this.title = title;
     }
 
-
-
     public String histogramGenerator() throws ExceptionFormatOfValueNotAllowed {
 
-        if(!(values.get(0) instanceof Integer)){
+        if (!(values.get(0) instanceof Integer)) {
             throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "Integer");
         }
 
         StringBuilder sb = new StringBuilder();
         sb.append("============================================");
-        sb.append("\n"+title+"\n");
+        sb.append("\n" + title + "\n");
         sb.append("============================================");
 
         for (int i = 0; i < category.size(); i++) {
-            sb.append("\ncategory "+category.get(i)+":\t"+values.get(i));
+            sb.append("\ncategory " + category.get(i) + ":  " + values.get(i));
         }
         sb.append("\n\n");
         for (int i = 0; i < category.size(); i++) {
-            String bar="";
+            String bar = "";
             for (int j = 0; j < (Integer) values.get(i); j++) {
-                bar+="█";
+                bar += "█";
             }
-            sb.append(category.get(i)+"\n"+bar+"\n"+bar+"\n");
+            sb.append(category.get(i) + "\n" + bar + "\n" + bar + "\n");
         }
         return sb.toString();
     }
 
     public String statesIndicatorReports() throws ExceptionFormatOfValueNotAllowed {
-        String msj="";
-        if(!(values.get(0) instanceof Integer)){
+        String msj = "";
+        if (!(values.get(0) instanceof Integer)) {
             throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "Integer");
         }
 
         StringBuilder sb = new StringBuilder();
-        msj+=("============================================");
-        msj+=("\n"+title+"\n");
-        msj+=("============================================\n");
+        msj += ("============================================");
+        msj += ("\n" + title + "\n");
+        msj += ("============================================\n");
         for (int i = 0; i < category.size(); i++) {
-            msj+=(category.get(i)+":\t"+values.get(i)+"\n");
+            msj += (category.get(i) + ":  " + values.get(i) + "\n");
         }
 
         return msj;
     }
 
     public String listIndicatorReports() throws ExceptionFormatOfValueNotAllowed {
-        String out="";
-        if(!(values.get(0) instanceof String)){
+        String out = "";
+        if (!(values.get(0) instanceof String)) {
             throw new ExceptionFormatOfValueNotAllowed(values.get(0).getClass().getSimpleName(), "String");
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("============================================");
-        sb.append("\n"+title+"\n");
-        sb.append("============================================");
+        sb.append("==============================================");
+        sb.append("\n" + title + "\n");
+        sb.append("==============================================\n");
 
         for (int i = 0; i < category.size(); i++) {
-            sb.append("\n*Category "+category.get(i));
+            sb.append("\n - Category " + category.get(i) + " :\n");
             sb.append("\n");
-            sb.append(":\t"+values.get(i));
+            sb.append(values.get(i));
         }
 
         return sb.toString();

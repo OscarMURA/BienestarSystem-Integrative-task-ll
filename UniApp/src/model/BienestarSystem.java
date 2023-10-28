@@ -232,8 +232,8 @@ public class BienestarSystem {
         String msj = "", histogram = "";
         int i = 0;
         String[] categories = { "low weight", "normal", "overweight", "obesity", "morbid obesity" };
-        String[] title = { "Histogram_of_the_BMI_of_students_in_September_2022",
-                "Histogram_of_the_BMI_of_students_in_April_2023" };
+        String[] title = { "Histogram of the BMI of students in September 2022",
+                "Histogram of the BMI of students in April 2023" };
         do {
             ArrayList<Integer> values = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 0));
             ArrayList<Object> objects = new ArrayList<>();
@@ -253,7 +253,7 @@ public class BienestarSystem {
             objects.addAll(values);
             reports = new Reports(title[i], new ArrayList<>(Arrays.asList(categories)), objects);
             try {
-                histogram += reports.histogramGenerator() + "\n\n";
+                histogram += reports.histogramGenerator() + "\n";
             } catch (ExceptionFormatOfValueNotAllowed e) {
                 msj = "Error: " + e.getMessage() + "\n\n";
             }
@@ -266,8 +266,8 @@ public class BienestarSystem {
         String msj = "";
         Comparator<Student> comparator = null;
         Comparator<Student> comparator2 = null;
-        String[] title = { "List_of_the_BMI_of_students_in_September_2022",
-                "List_of_the_BMI_of_students_in_April_2023" };
+        String[] title = { "List of the BMI of students in September 2022",
+                "List of the BMI of students in April 2023" };
         String[] categories = { "low weight", "normal", "overweight", "obesity", "morbid obesity" };
 
         if (option == 1) {
@@ -381,7 +381,7 @@ public class BienestarSystem {
 
         ArrayList<Object> values = new ArrayList<>(Arrays.asList(lowToNormal, overweightToNormal, obesityToNormal,
                 morbidObesityToNormal, normalToLow, normalToOverwieght, overweightToMore, obesityToMorbid));
-        String titleAndSubtitle = "Changes in nutritional status";
+        String titleAndSubtitle = "-------Changes in nutritional status-------";
         titleAndSubtitle += "\n============================================\n";
         titleAndSubtitle += "Total changes of students: " + allChange;
         ArrayList<String> categories = new ArrayList<>();
@@ -449,10 +449,10 @@ public class BienestarSystem {
         ArrayList<Object> values = new ArrayList<>(Arrays.asList(lowToNormal, overweightToNormal, obesityToNormal,
                 morbidObesityToNormal, normalToLow, normalToOverwieght, overweightToMore, obesityToMorbid));
         String titleAndSubtitle = "Changes in nutritional status";
-        titleAndSubtitle += "\n====================================\n";
-        titleAndSubtitle += "Total changes of students: " + allChange + "\n";
+        titleAndSubtitle += "\n=============================================\n";
+        titleAndSubtitle += "Total changes of students: " + allChange;
         ArrayList<String> categories = new ArrayList<>();
-        loadCategories(categories, plus, less);
+        loadCategoriesList(categories, plus, less);
         reports = new Reports(titleAndSubtitle, categories, values);
         try {
             out = reports.listIndicatorReports();
@@ -463,14 +463,25 @@ public class BienestarSystem {
     }
 
     private void loadCategories(ArrayList<String> categories, int plus, int less) {
-        categories.add("\nStudents with positive changes " + plus + "\n\t*Change low weight to normal weight: ");
-        categories.add(" \t*Change overweight to normal weight: ");
-        categories.add(" \t*Change obesity to overweight or normal weight: ");
-        categories.add(" \t*Change morbid obesity to normal weight or overweight: ");
-        categories.add("Students with negative changes " + less + "\n \t*Change normal weight to low weight: ");
-        categories.add(" \t*Change normal weight to overweight or obesity: ");
-        categories.add(" \t*Change of overweight to more category: ");
-        categories.add(" \t*Change obesity to morbid obesity: ");
+        categories.add("\nStudents with positive changes: " + plus + "\n\n \t- Change low weight to normal weight: ");
+        categories.add(" \t- Change overweight to normal weight: ");
+        categories.add(" \t- Change obesity to overweight or normal weight: ");
+        categories.add(" \t- Change morbid obesity to normal weight or overweight: ");
+        categories.add("\nStudents with negative changes: " + less + "\n\n \t- Change normal weight to low weight: ");
+        categories.add(" \t- Change normal weight to overweight or obesity: ");
+        categories.add(" \t- Change of overweight to more category: ");
+        categories.add(" \t- Change obesity to morbid obesity: ");
+    }
+
+    private void loadCategoriesList(ArrayList<String> categories, int plus, int less) {
+        categories.add("\nStudents with positive changes " + plus + "\n\n Change low weight to normal weight ");
+        categories.add(" change overweight to normal weight ");
+        categories.add(" change obesity to overweight or normal weight ");
+        categories.add(" change morbid obesity to normal weight or overweight ");
+        categories.add("\nStudents with negative changes " + less + "\n\n Change normal weight to low weight ");
+        categories.add(" change normal weight to overweight or obesity ");
+        categories.add(" change of overweight to more category ");
+        categories.add(" change obesity to morbid obesity ");
     }
 
 }

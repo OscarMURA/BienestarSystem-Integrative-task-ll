@@ -116,9 +116,4 @@ public class Student implements Comparable<Student>, Comparator<Student> {
         averageBMI = averageBMI / nutritionalStates.size();
         return averageBMI;
     }
-
-
-
-
-
 }
