@@ -3,13 +3,15 @@ package model;
 import java.io.*;
 
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 import exceptions.ExceptionFormatFileNotAllowed;
 
+/**
+ * The FileManager class is used for managing files in Java.
+ */
 public class FileManager {
 
     private static FileManager instance;
@@ -17,6 +19,8 @@ public class FileManager {
     private File reports;
     private File jsonFile;
 
+    // The `private FileManager()` constructor is initializing the `FileManager` object by setting the
+    // paths for the data folder, reports folder, and JSON file.
     private FileManager() {
         File projectDir = new File(System.getProperty("user.dir"));
         dataFolder = new File(projectDir + "/data");
@@ -24,6 +28,12 @@ public class FileManager {
         jsonFile = new File(dataFolder + "/studentsData.json");
     }
 
+   /**
+    * The getInstance() function returns the instance of the FileManager class, creating it if it
+    * doesn't already exist.
+    * 
+    * @return The `getInstance()` method is returning an instance of the `FileManager` class.
+    */
     public static FileManager getInstance() {
         if (instance == null) {
             instance = new FileManager();
@@ -31,6 +41,9 @@ public class FileManager {
         return instance;
     }
 
+    /**
+     * The function creates necessary directories and files if they do not already exist.
+     */
     public void createResources() throws IOException {
         if (!dataFolder.exists()) {
             dataFolder.mkdirs();
@@ -44,7 +57,13 @@ public class FileManager {
     }
 
     /**
-     *
+     * The function saves a list of students to a JSON file.
+     * 
+     * @param students An ArrayList of Student objects that contains the students to be saved.
+     * @param path The path parameter is a string that represents the file path where the students'
+     * data will be saved.
+     * @return The method is returning a string message stating that the students were saved
+     * successfully.
      */
     public String saveStudents(ArrayList<Student> students, String path)
             throws IOException, ExceptionFormatFileNotAllowed {
@@ -64,6 +83,13 @@ public class FileManager {
         return "The students were saved successfully\n\n";
     }
 
+   /**
+    * The function loads student data from a JSON file and returns an ArrayList of Student objects.
+    * 
+    * @param path The path parameter is a string that represents the file path of the JSON file
+    * containing student data.
+    * @return The method is returning an ArrayList of Student objects.
+    */
     public ArrayList<Student> loadStudent(String path) throws IOException, ExceptionFormatFileNotAllowed {
         if (!path.endsWith(".json")) {
             throw new ExceptionFormatFileNotAllowed("JSON");
@@ -86,10 +112,15 @@ public class FileManager {
         return students;
     }
 
+    
     /**
-     *
-     * @param path
-     * @param information
+     * The function saves a given string of information to a text file at the specified path.
+     * 
+     * @param path The path parameter is a string that represents the file path where the TXT file will
+     * be saved.
+     * @param information The "information" parameter is a string that contains the data that you want
+     * to save in the TXT file.
+     * @return The method is returning a string message "The report was saved successfully\n\n".
      */
     public String saveFileTXT(String path, String information) throws IOException, ExceptionFormatFileNotAllowed {
         if (!path.endsWith(".txt")) {
@@ -108,6 +139,13 @@ public class FileManager {
         return "The report was saved successfully\n\n";
     }
 
+    /**
+     * The function loads the content of a text file given its path and returns it as a string.
+     * 
+     * @param path The path parameter is a string that represents the file path of the TXT file that
+     * needs to be loaded.
+     * @return The method is returning the content of the file as a String.
+     */
     public String loadFileTXT(String path) throws IOException, ExceptionFormatFileNotAllowed {
         if (!path.endsWith(".txt")) {
             throw new ExceptionFormatFileNotAllowed("TXT");
@@ -126,6 +164,14 @@ public class FileManager {
         return content;
     }
 
+    /**
+     * The function `loadCSV` reads a CSV file containing student data, parses the data, and returns an
+     * ArrayList of Student objects.
+     * 
+     * @param path The path parameter is a String that represents the file path of the CSV file that
+     * needs to be loaded.
+     * @return The method is returning an ArrayList of Student objects.
+     */
     public ArrayList<Student> loadCSV(String path) throws IOException, ExceptionFormatFileNotAllowed {
         if (!path.endsWith(".csv")) {
             throw new ExceptionFormatFileNotAllowed("CSV");
@@ -178,6 +224,15 @@ public class FileManager {
         return students;
     }
 
+   /**
+    * The function saves a list of students to a CSV file.
+    * 
+    * @param students An ArrayList of Student objects, which contains the student data to be saved in
+    * the CSV file.
+    * @param path The path parameter is a string that represents the file path where the CSV file will
+    * be saved.
+    * @return The method is returning a string message stating that the report was saved successfully.
+    */
     public String saveCSV(ArrayList<Student> students, String path) throws IOException, ExceptionFormatFileNotAllowed {
         if (!path.endsWith(".csv")) {
             throw new ExceptionFormatFileNotAllowed("CSV");

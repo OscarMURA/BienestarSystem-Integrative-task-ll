@@ -1,43 +1,61 @@
 package model;
 import java.util.Calendar;
 
+/**
+ * The NutritionalStates class is used to represent and manage different nutritional states.
+ */
 public class NutritionalStates {
     private double weight;
     private double height;
     private Calendar date;
 
-    /**
-     *
-     * @param weight
-     * @param height
-     * @param date
-     */
+    
+    // The `public NutritionalStates(double weight, double height, Calendar date)` is a constructor
+    // method for the `NutritionalStates` class. It is used to create a new instance of the
+    // `NutritionalStates` class and initialize its `weight`, `height`, and `date` properties with the
+    // values passed as arguments to the constructor.
     public NutritionalStates(double weight, double height, Calendar date) {
         this.weight = weight;
         this.height = height;
         this.date = date;
     }
 
+    /**
+     * The function returns the weight of an object.
+     * 
+     * @return The weight of the object.
+     */
     public double getWeight() {
         return this.weight;
     }
 
+    
     /**
-     *
-     * @param weight
+     * The function sets the weight of an object.
+     * 
+     * @param weight The weight parameter is a double data type, which means it can hold decimal
+     * values. It is used to set the weight of an object or entity.
      */
     public void setWeight(double weight) {
         this.weight = weight;
 
     }
 
+    /**
+     * The getHeight() function returns the height of an object.
+     * 
+     * @return The method is returning the value of the "height" variable, which is of type double.
+     */
     public double getHeight() {
         return this.height;
     }
 
+    
     /**
-     *
-     * @param height
+     * The function sets the height of an object.
+     * 
+     * @param height The height parameter is a double data type, which means it can store decimal
+     * values. It is used to set the height of an object or variable.
      */
     public void setHeight(double height) {
         this.height = height;
@@ -45,6 +63,12 @@ public class NutritionalStates {
     }
 
 
+    /**
+     * The function calculates and returns the Body Mass Index (BMI) based on the weight and height of
+     * an individual.
+     * 
+     * @return The method is returning the calculated BMI (Body Mass Index) value as a double.
+     */
     public double getBMI() {
         double bim = 0.0;
         bim = this.weight / (this.height * this.height);
@@ -52,20 +76,30 @@ public class NutritionalStates {
         return bim;
     }
 
+    /**
+     * The function returns the date stored in the Calendar object.
+     * 
+     * @return The method is returning a Calendar object.
+     */
     public Calendar getDate() {
         return this.date;
     }
 
+    
     /**
-     *
-     * @param date
+     * The function sets the value of the "date" variable to the provided Calendar object.
+     * 
+     * @param date The "date" parameter is of type Calendar, which is a class in Java that represents a
+     * specific point in time. It can be used to store and manipulate dates and times.
      */
     public void setDate(Calendar date) {
         this.date = date;
     }
 
     /**
-     *
+     * The function calculates and returns the nutritional state of an object.
+     * 
+     * @return The method is returning the nutritional state of an object as a TypeStates object.
      */
     TypeStates calculateTypeStates() {
         TypeStates type = null;
@@ -84,10 +118,12 @@ public class NutritionalStates {
         return type;
     }
 
+    /**
+     * The function returns the type states by calling the calculateTypeStates() method.
+     * 
+     * @return The method is returning an object of type TypeStates.
+     */
     public TypeStates getType() {
         return calculateTypeStates();
     }
-
-
-
 }
