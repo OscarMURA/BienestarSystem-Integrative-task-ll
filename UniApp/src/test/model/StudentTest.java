@@ -15,8 +15,6 @@ public class StudentTest {
     @Before
     public void setUpScenary1() {
         student = new Student("A00584564", 20, "Jaime", "Smith", Sex.M);
-        student.addNutritionalState(new NutritionalStates(70, 170, Calendar.getInstance()));
-        student.addNutritionalState(new NutritionalStates(75, 175, Calendar.getInstance()));
     }
 
     @Before
@@ -28,7 +26,6 @@ public class StudentTest {
 
     @Test
     public void testGettersAndSetters() {
-        setUpScenary1();
         assertEquals("A00584564", student.getId());
         assertEquals("Jaime", student.getName());
         assertEquals("Smith", student.getLastName());
@@ -72,7 +69,7 @@ public class StudentTest {
 
     @Test
     public void verifyDatesCSV() {
-        setUpScenary2();
+        Student student = new Student("A00584485", 20, "John", "Jaimes", Sex.M);
         NutritionalStates state1 = new NutritionalStates(70, 1.82, new GregorianCalendar(2023, Calendar.APRIL, 1));
         NutritionalStates state2 = new NutritionalStates(75, 1.82, new GregorianCalendar(2023, Calendar.APRIL, 1));
         student.addNutritionalState(state1);
@@ -97,13 +94,13 @@ public class StudentTest {
 
     @Test
     public void testIndicatorList() {
-        Student student = new Student("A00245865", 35, "Alice", "Smith", Sex.F);
+        Student student = new Student("A00325486", 35, "Bob", "Johnson", Sex.M);
         NutritionalStates state1 = new NutritionalStates(70, 1.70, new GregorianCalendar(2022, Calendar.SEPTEMBER, 1));
         NutritionalStates state2 = new NutritionalStates(75, 1.70, new GregorianCalendar(2023, Calendar.APRIL, 1));
         student.addNutritionalState(state1);
         student.addNutritionalState(state2);
 
-        String expected = "Code: A00245865 Name: Alice Smith Age: 35 Sex:M BIM (Sep)24.2 BIM(Abr)26.0   AverageBMI25.1";
+        String expected = "Code: A00325486 Name: Bob Johnson Age: 35 Sex:M BIM (Sep)24.2 BIM(Abr)26.0   AverageBMI25.1";
         String indicator = student.indicatorList();
         assertEquals(expected, indicator);
     }

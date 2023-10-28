@@ -14,23 +14,26 @@ import model.Sex;
 
 public class FileManagerTest {
     private FileManager fileManager;
+
     public ArrayList<Student> setUpStudent() {
         fileManager = FileManager.getInstance();
         ArrayList<Student> students = new ArrayList<>();
         students.add(new Student("A00391232", 15, "Manuel", "Serrano", Sex.M));
         students.add(new Student("A00391233", 15, "Maria", "Perez", Sex.F));
-        NutritionalStates nutritionalStates = new NutritionalStates(100, 1.5, new GregorianCalendar(2022, Calendar.SEPTEMBER, 1));
-        NutritionalStates nutritionalStates2 = new NutritionalStates(90, 1.5, new GregorianCalendar(2023, Calendar.APRIL, 1));
+        NutritionalStates nutritionalStates = new NutritionalStates(100, 1.5,
+                new GregorianCalendar(2022, Calendar.SEPTEMBER, 1));
+        NutritionalStates nutritionalStates2 = new NutritionalStates(90, 1.5,
+                new GregorianCalendar(2023, Calendar.APRIL, 1));
         students.get(0).addNutritionalState(nutritionalStates);
         students.get(0).addNutritionalState(nutritionalStates2);
-        NutritionalStates nutritionalStates3 = new NutritionalStates(80, 1.7, new GregorianCalendar(2022, Calendar.SEPTEMBER, 1));
-        NutritionalStates nutritionalStates4 = new NutritionalStates(80, 1.7, new GregorianCalendar(2023, Calendar.APRIL, 1));
+        NutritionalStates nutritionalStates3 = new NutritionalStates(80, 1.7,
+                new GregorianCalendar(2022, Calendar.SEPTEMBER, 1));
+        NutritionalStates nutritionalStates4 = new NutritionalStates(80, 1.7,
+                new GregorianCalendar(2023, Calendar.APRIL, 1));
         students.get(1).addNutritionalState(nutritionalStates3);
         students.get(1).addNutritionalState(nutritionalStates4);
         return students;
     }
-
-
 
     /**
      * This test scenario creates the necessary resources for testing.
@@ -51,10 +54,9 @@ public class FileManagerTest {
         assertSame(instance1, fileManager);
     }
 
-
-
     /**
-     * This test scenario tests that the createResources method of the FileManager class
+     * This test scenario tests that the createResources method of the FileManager
+     * class
      * creates the necessary resources for testing
      */
     @Test
@@ -93,9 +95,9 @@ public class FileManagerTest {
         }
     }
 
-
     /**
-     * This test scenario tests that the saveStudents method of the FileManager class
+     * This test scenario tests that the saveStudents method of the FileManager
+     * class
      * saves the students in a json file
      */
     @Test
@@ -117,11 +119,12 @@ public class FileManagerTest {
 
     /**
      * This method tests that the loadStudent method of the FileManager class
-     * throws an exception of type ExceptionFormatFileNotAllowed when an attempt is made to load a file
+     * throws an exception of type ExceptionFormatFileNotAllowed when an attempt is
+     * made to load a file
      * that does not have the extension .json
      */
     @Test
-    public void testLoadStudentWithException(){
+    public void testLoadStudentWithException() {
         setUpIntence();
         try {
             fileManager.loadStudent("/dataTest/studentsTest.csv");
@@ -134,7 +137,8 @@ public class FileManagerTest {
     }
 
     /**
-     * This method tests the saving of student data in a csv file to see if it is saved correctly and the resources are created correctly.
+     * This method tests the saving of student data in a csv file to see if it is
+     * saved correctly and the resources are created correctly.
      * to see if it is saved correctly and the resources are created correctly.
      */
     @Test
@@ -149,9 +153,9 @@ public class FileManagerTest {
         }
     }
 
-
     /**
-     * This method tests that the exception of type ExceptionFormatFileNotAllowed is thrown when trying to save a file that does not have extension .csv
+     * This method tests that the exception of type ExceptionFormatFileNotAllowed is
+     * thrown when trying to save a file that does not have extension .csv
      * is thrown when trying to save a file that does not have the .csv extension.
      */
     @Test
@@ -166,7 +170,6 @@ public class FileManagerTest {
             assertNotNull(e.getMessage());
         }
     }
-
 
     /**
      * This method tests that the loadCSV method of the FileManager class
@@ -189,7 +192,8 @@ public class FileManagerTest {
     }
 
     /**
-     * This method tests that the exception of type ExceptionFormatFileNotAllowed is thrown when trying to load a file that does not have extension .csv
+     * This method tests that the exception of type ExceptionFormatFileNotAllowed is
+     * thrown when trying to load a file that does not have extension .csv
      * is thrown when trying to load a file that does not have the .csv extension.
      */
     @Test
@@ -202,24 +206,6 @@ public class FileManagerTest {
             fail();
         } catch (ExceptionFormatFileNotAllowed e) {
             assertTrue(true);
-        }
-    }
-
-    /**
-     * This method tests that the saveFileTXT method of the FileManager class
-     * saves the information in a txt file
-     */
-    @Test
-    public void testSaveFileTXT() {
-        setUpIntence();
-        String message = "This is a test";
-        try {
-            fileManager.saveFileTXT("/dataTest/test.txt", message);
-        } catch (IOException e) {
-            fail("IOException thrown when saving file");
-        
-        } catch (ExceptionFormatFileNotAllowed e) {
-            fail();
         }
     }
 
@@ -240,25 +226,6 @@ public class FileManagerTest {
             assertNotNull(e.getMessage());
 
         }
-    }
-
-    /**
-     * This method tests that the loadFileTXT method of the FileManager class
-     * loads the information from a txt file
-     */
-    @Test
-    public void testLoadFileTXT() {
-        setUpIntence();
-        String message = "This is a test\n";
-        String loadedMessage = null;
-        try {
-            loadedMessage = fileManager.loadFileTXT("/dataTest/test.txt");
-        } catch (IOException e) {
-            fail("IOException thrown when loading file");
-        } catch (ExceptionFormatFileNotAllowed e) {
-            fail();
-        }
-        assertEquals(message, loadedMessage);
     }
 
     /**

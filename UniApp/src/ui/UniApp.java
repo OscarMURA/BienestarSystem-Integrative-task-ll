@@ -13,8 +13,10 @@ public class UniApp {
     private BienestarSystem bienestarSystem;
     private Scanner reader;
 
-    // The above code is defining a constructor for the UniApp class. It initializes a new instance of
-    // the BienestarSystem class and a new instance of the Scanner class, which reads input from the
+    // The above code is defining a constructor for the UniApp class. It initializes
+    // a new instance of
+    // the BienestarSystem class and a new instance of the Scanner class, which
+    // reads input from the
     // System.in stream.
     public UniApp() {
         bienestarSystem = new BienestarSystem();
@@ -22,7 +24,8 @@ public class UniApp {
     }
 
     /**
-     * The main function initializes an instance of the UniApp class, loads student data from JSON,
+     * The main function initializes an instance of the UniApp class, loads student
+     * data from JSON,
      * CSV, and TXT files, and then displays the menu for the application.
      */
     public static void main(String[] args) {
@@ -34,7 +37,8 @@ public class UniApp {
     }
 
     /**
-     * The menu function displays a menu of options for a university application and allows the user to
+     * The menu function displays a menu of options for a university application and
+     * allows the user to
      * select an option.
      */
     public void menu() {
@@ -91,35 +95,39 @@ public class UniApp {
     }
 
     /**
-     * The function "loadStudentJson" loads student data from a JSON file into the bienestarSystem.
+     * The function "loadStudentJson" loads student data from a JSON file into the
+     * bienestarSystem.
      */
     public void loadStudentJson() {
         bienestarSystem.loadStudentsJson();
     }
 
-   /**
-    * The function "saveStudentJson" saves student data in JSON format.
-    */
+    /**
+     * The function "saveStudentJson" saves student data in JSON format.
+     */
     public void saveStudentJson() {
         bienestarSystem.saveStudentsJson();
     }
 
     /**
-     * The function "loadStudentsCSV" loads student data from a CSV file into the bienestarSystem.
+     * The function "loadStudentsCSV" loads student data from a CSV file into the
+     * bienestarSystem.
      */
     public void loadStudentsCSV() {
         bienestarSystem.loadStudentsCSV();
     }
 
     /**
-     * The function "saveStudentCSV" saves student data in CSV format using the bienestarSystem object.
+     * The function "saveStudentCSV" saves student data in CSV format using the
+     * bienestarSystem object.
      */
     public void saveStudentCSV() {
         bienestarSystem.saveStudentsCVC();
     }
 
     /**
-     * The function "loadStudentTxt" loads student data from a text file into the bienestarSystem.
+     * The function "loadStudentTxt" loads student data from a text file into the
+     * bienestarSystem.
      */
     public void loadStudentTxt() {
         bienestarSystem.loadStudentsTxt();
@@ -128,15 +136,17 @@ public class UniApp {
     /**
      * The function saves student information to a text file in a bienestar system.
      * 
-     * @param information The "information" parameter is a string that contains the data or information
-     * about a student that needs to be saved.
+     * @param information The "information" parameter is a string that contains the
+     *                    data or information
+     *                    about a student that needs to be saved.
      */
     public void saveStudentTxt(String information) {
         bienestarSystem.saveStudentsTxt(information);
     }
 
     /**
-     * The function "addStudent" prompts the user to enter information about a student, validates the
+     * The function "addStudent" prompts the user to enter information about a
+     * student, validates the
      * input, and adds the student to the system.
      */
     public void addStudent() {
@@ -180,6 +190,7 @@ public class UniApp {
         } while (years <= 0);
 
         do {
+            reader.nextLine();
             System.out.print("Enter your Sex (M/F/O): ");
             String sexInput = reader.nextLine();
             sex = bienestarSystem.validateSex(sexInput);
@@ -198,14 +209,18 @@ public class UniApp {
         } while (sex == null);
     }
 
-   /**
-    * The `nutritionalState` function prompts the user to enter weight and height measurements for
-    * September 2022 and April 2023, validates the input, creates `Calendar` objects for the respective
-    * dates, calls the `addNutritionalStateToStudent` method with the provided data, and saves the
-    * student's information in JSON and CSV formats.
-    * 
-    * @param id The "id" parameter is a string that represents the unique identifier of a student.
-    */
+    /**
+     * The `nutritionalState` function prompts the user to enter weight and height
+     * measurements for
+     * September 2022 and April 2023, validates the input, creates `Calendar`
+     * objects for the respective
+     * dates, calls the `addNutritionalStateToStudent` method with the provided
+     * data, and saves the
+     * student's information in JSON and CSV formats.
+     * 
+     * @param id The "id" parameter is a string that represents the unique
+     *           identifier of a student.
+     */
     public void nutritionalState(String id) {
         System.out.println("");
         System.out.println("=========== Add Nutritional State ===========" + "\n");
@@ -232,7 +247,8 @@ public class UniApp {
             System.out.println("Enter the Weight Apr 2023: ");
             weightApril = validateDouble();
             if (weightApril <= 0 || weightApril <= weightSep) {
-                System.out.println("The April 2023 weight must be greater than the September 2022 weight and greater than 0..");
+                System.out.println(
+                        "The April 2023 weight must be greater than the September 2022 weight and greater than 0..");
             }
         } while (weightApril <= 0 || weightApril <= weightSep);
 
@@ -240,7 +256,8 @@ public class UniApp {
             System.out.println("Enter your Height Apr 2023:");
             heightApril = validateDouble();
             if (heightApril <= 0 || heightApril <= heightSep) {
-                System.out.println("The April 2023 height should be greater than the September 2022 height and greater than 0.");
+                System.out.println(
+                        "The April 2023 height should be greater than the September 2022 height and greater than 0.");
             }
         } while (heightApril <= 0 || heightApril <= heightSep);
 
@@ -258,7 +275,8 @@ public class UniApp {
     }
 
     /**
-     * The `modifyStudent()` function allows the user to modify various attributes of a student, such
+     * The `modifyStudent()` function allows the user to modify various attributes
+     * of a student, such
      * as their name, age, sex, and nutritional data.
      */
     public void modifyStudent() {
@@ -378,8 +396,8 @@ public class UniApp {
             Calendar newDateSep2022 = new GregorianCalendar(2022, Calendar.SEPTEMBER, 1);
 
             String modifyMessage = bienestarSystem.modifyStudent(id, newYears, newName, newLastName, newSex);
-            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightSep, newHealthSep, newDateSep2022);
-            modifyMessage += bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newHealthAbr, newDateAbr2023);
+            bienestarSystem.modifyNutritionalStudent(id, newWeightSep, newHealthSep, newDateSep2022);
+            bienestarSystem.modifyNutritionalStudent(id, newWeightApr, newHealthAbr, newDateAbr2023);
 
             System.out.println(modifyMessage);
             saveStudentJson();
@@ -393,7 +411,8 @@ public class UniApp {
     }
 
     /**
-     * The function removes a student from the system based on their ID and saves the updated student
+     * The function removes a student from the system based on their ID and saves
+     * the updated student
      * data in JSON and CSV formats.
      */
     public void removeStudent() {
@@ -416,12 +435,13 @@ public class UniApp {
         saveStudentCSV();
     }
 
-   /**
-    * The function "validateInt" reads an integer input from the user and validates it, returning the
-    * valid integer.
-    * 
-    * @return The method is returning an integer value.
-    */
+    /**
+     * The function "validateInt" reads an integer input from the user and validates
+     * it, returning the
+     * valid integer.
+     * 
+     * @return The method is returning an integer value.
+     */
     public int validateInt() {
         int option = 0;
         do {
@@ -440,7 +460,8 @@ public class UniApp {
     }
 
     /**
-     * The function "validateDouble" reads a double value from user input and validates it, returning
+     * The function "validateDouble" reads a double value from user input and
+     * validates it, returning
      * the valid double value.
      * 
      * @return The method is returning a double value.
@@ -467,11 +488,14 @@ public class UniApp {
     }
 
     /**
-     * The function `validateFormatId` checks if a given ID string follows a specific format.
+     * The function `validateFormatId` checks if a given ID string follows a
+     * specific format.
      * 
-     * @param id The parameter "id" is a string representing an identification number.
-     * @return The method is returning a boolean value, which indicates whether the given ID string is
-     * valid or not.
+     * @param id The parameter "id" is a string representing an identification
+     *           number.
+     * @return The method is returning a boolean value, which indicates whether the
+     *         given ID string is
+     *         valid or not.
      */
     public boolean validateFormatId(String id) {
         boolean esValido = true;
@@ -494,10 +518,11 @@ public class UniApp {
     }
 
     /**
-     * The function validates input data for years, height, and weight, and returns a validation
+     * The function validates input data for years, height, and weight, and returns
+     * a validation
      * message if any of the inputs are invalid.
      * 
-     * @param newYears The number of years.
+     * @param newYears     The number of years.
      * @param newHealthSep Height in September 2022
      * @param newHealthAbr The height in April 2023.
      * @param newWeightSep The weight in September 2022.
@@ -524,8 +549,10 @@ public class UniApp {
     }
 
     /**
-     * The classificationReport() function displays a menu of reporting options and allows the user to
-     * choose between generating a histogram report, a report by listing, or returning to the main
+     * The classificationReport() function displays a menu of reporting options and
+     * allows the user to
+     * choose between generating a histogram report, a report by listing, or
+     * returning to the main
      * menu.
      */
     public void classificationReport() {
@@ -563,10 +590,11 @@ public class UniApp {
         } while (option != 0);
     }
 
-   /**
-    * The function "nutritionalStateReport" displays a menu of options for generating nutritional state
-    * reports and allows the user to choose an option.
-    */
+    /**
+     * The function "nutritionalStateReport" displays a menu of options for
+     * generating nutritional state
+     * reports and allows the user to choose an option.
+     */
     public void nutritionalStateReport() {
         int option = 0;
         do {
@@ -603,11 +631,13 @@ public class UniApp {
     }
 
     /**
-     * The function displays a menu for selecting the type of order to report on and returns the report
+     * The function displays a menu for selecting the type of order to report on and
+     * returns the report
      * based on the selected option.
      * 
-     * @return The method is returning a String value, which is the report generated based on the
-     * user's selected option.
+     * @return The method is returning a String value, which is the report generated
+     *         based on the
+     *         user's selected option.
      */
     public String menuListReport() {
         String report = "";
@@ -632,12 +662,13 @@ public class UniApp {
         return report;
     }
 
-  /**
-   * The function displays a menu for selecting the type of order to report on and returns the
-   * corresponding report.
-   * 
-   * @return The method is returning a String variable named "report".
-   */
+    /**
+     * The function displays a menu for selecting the type of order to report on and
+     * returns the
+     * corresponding report.
+     * 
+     * @return The method is returning a String variable named "report".
+     */
     public String menuListReportIndicator() {
         String report = "";
         int optionReport = 0;

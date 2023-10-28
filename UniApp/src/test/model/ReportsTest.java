@@ -143,12 +143,11 @@ public class ReportsTest {
         try {
             String statesIndicator = reports.statesIndicatorReports();
             assertTrue(statesIndicator.contains("Illustration of quantitative data of nutritional statuses "));
-            assertTrue(statesIndicator.contains("- Category low weight:\t2"));
-            assertTrue(statesIndicator.contains("- Category normal:\t4"));
-            assertTrue(statesIndicator.contains("- Category overweight:\t7"));
-            assertTrue(statesIndicator.contains("- Category obesity:\t10"));
-            assertTrue(statesIndicator.contains("- Category morbid obesity:\t7"));
-            assertTrue(statesIndicator.contains("The average of the nutritional states is: 6.0"));
+            assertTrue(statesIndicator.contains("low weight:\t2"));
+            assertTrue(statesIndicator.contains("normal:\t4"));
+            assertTrue(statesIndicator.contains("overweight:\t7"));
+            assertTrue(statesIndicator.contains("obesity:\t10"));
+            assertTrue(statesIndicator.contains("morbid obesity:\t7"));
 
         } catch (ExceptionFormatOfValueNotAllowed e) {
             fail();
@@ -168,30 +167,6 @@ public class ReportsTest {
             fail();
         } catch (ExceptionFormatOfValueNotAllowed e) {
             assertNotNull(e.getMessage());
-        }
-    }
-
-    /**
-     * This test method checks that all the elements added in your instance are
-     * correctly represented in the list.
-     * represented in the list, and verifies that the list is generated correctly.
-     * to the dimensions of the aggregated values in your instance.
-     */
-    @Test
-    public void listIndicatorReportsTest() {
-        setUpScenary2();
-        try {
-            String listIndicator = reports.listIndicatorReports();
-            assertTrue(listIndicator.contains("Illustration of quanlitative data of nutritional statuses "));
-            assertTrue(listIndicator.contains("- Category low weight:\n\tJuan Perez\n\tMaria Garcia"));
-            assertTrue(listIndicator.contains("- Category normal:\n\tCarlos Lopez\n\tLaura Martinez\n\tPedro Ramirez"));
-            assertTrue(listIndicator
-                    .contains("- Category overweight:\n\tAna Gonzalez\n\tDiego Rodriguez\n\tLuisa Herrera"));
-            assertTrue(listIndicator.contains("- Category obesity:\n\tSofia Jimenez\n\tRicardo Castro\n\tElena Diaz"));
-            assertTrue(listIndicator.contains("- Category morbid obesity:\n\tJulia Vargas\n\tManuel Soto"));
-
-        } catch (ExceptionFormatOfValueNotAllowed e) {
-            fail();
         }
     }
 

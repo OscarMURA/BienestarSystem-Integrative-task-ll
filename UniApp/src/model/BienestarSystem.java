@@ -10,7 +10,8 @@ import exceptions.ExceptionFormatFileNotAllowed;
 import exceptions.ExceptionFormatOfValueNotAllowed;
 
 /**
- * The BienestarSystem class is a Java class that represents a system for managing well-being.
+ * The BienestarSystem class is a Java class that represents a system for
+ * managing well-being.
  */
 public class BienestarSystem {
 
@@ -18,10 +19,14 @@ public class BienestarSystem {
     private FileManager fileManager;
     private Reports reports;
 
-    // The above code is defining a constructor for the BienestarSystem class. It initializes the
-    // fileManager variable with an instance of the FileManager class, creates an empty ArrayList
-    // called students, and sets up a Reports object called reports with a title, categories, and
-    // values. The code also includes a comment describing a function that attempts to load student
+    // The above code is defining a constructor for the BienestarSystem class. It
+    // initializes the
+    // fileManager variable with an instance of the FileManager class, creates an
+    // empty ArrayList
+    // called students, and sets up a Reports object called reports with a title,
+    // categories, and
+    // values. The code also includes a comment describing a function that attempts
+    // to load student
     // data from a JSON file and returns an error message if there are any issues.
     public BienestarSystem() {
         fileManager = FileManager.getInstance();
@@ -33,12 +38,13 @@ public class BienestarSystem {
         reports = new Reports(title, new ArrayList<>(Arrays.asList(categories)), values);
     }
 
-   /**
-    * The function attempts to load student data from a JSON file and returns an error message if there
-    * are any issues.
-    * 
-    * @return The method is returning a String message.
-    */
+    /**
+     * The function attempts to load student data from a JSON file and returns an
+     * error message if there
+     * are any issues.
+     * 
+     * @return The method is returning a String message.
+     */
     public String loadStudentsJson() {
         String msj = "";
         try {
@@ -53,7 +59,8 @@ public class BienestarSystem {
     }
 
     /**
-     * The function saves a list of students to a JSON file and returns a message indicating if the
+     * The function saves a list of students to a JSON file and returns a message
+     * indicating if the
      * operation was successful or if there was an error.
      * 
      * @return The method is returning a String message.
@@ -71,11 +78,13 @@ public class BienestarSystem {
     }
 
     /**
-     * The function attempts to load student data from a CSV file and returns an error message if there
+     * The function attempts to load student data from a CSV file and returns an
+     * error message if there
      * are any issues.
      * 
-     * @return The method is returning a message (msj) indicating whether the students were
-     * successfully loaded from the CSV file or if there was an error.
+     * @return The method is returning a message (msj) indicating whether the
+     *         students were
+     *         successfully loaded from the CSV file or if there was an error.
      */
     public String loadStudentsCSV() {
         String msj = "";
@@ -90,7 +99,8 @@ public class BienestarSystem {
     }
 
     /**
-     * The function saves a list of students to a CSV file and returns a message indicating if the
+     * The function saves a list of students to a CSV file and returns a message
+     * indicating if the
      * operation was successful or if there was an error.
      * 
      * @return The method is returning a String message.
@@ -107,12 +117,13 @@ public class BienestarSystem {
         return msj;
     }
 
-   /**
-    * The function attempts to load student data from a TXT file and returns a message indicating the
-    * success or failure of the operation.
-    * 
-    * @return The method is returning a String message.
-    */
+    /**
+     * The function attempts to load student data from a TXT file and returns a
+     * message indicating the
+     * success or failure of the operation.
+     * 
+     * @return The method is returning a String message.
+     */
     public String loadStudentsTxt() {
         String msj = "";
         try {
@@ -126,11 +137,13 @@ public class BienestarSystem {
     }
 
     /**
-     * The function saves student information to a text file and returns a message indicating the
+     * The function saves student information to a text file and returns a message
+     * indicating the
      * success or failure of the operation.
      * 
-     * @param information The "information" parameter is a string that contains the data of the
-     * students that you want to save in the "students.txt" file.
+     * @param information The "information" parameter is a string that contains the
+     *                    data of the
+     *                    students that you want to save in the "students.txt" file.
      * @return The method is returning a String message.
      */
     public String saveStudentsTxt(String information) {
@@ -145,24 +158,26 @@ public class BienestarSystem {
         return msj;
     }
 
-   /**
-    * The function adds a nutritional state to a student and returns a message indicating whether the
-    * operation was successful or not.
-    * 
-    * @param id The unique identifier of the student.
-    * @param weight The weight of the student in kilograms.
-    * @param height The height of the student in meters.
-    * @param date The date parameter is a Calendar object that represents the date when the nutritional
-    * state is being added to the student.
-    * @return The method is returning a String message.
-    */
+    /**
+     * The function adds a nutritional state to a student and returns a message
+     * indicating whether the
+     * operation was successful or not.
+     * 
+     * @param id     The unique identifier of the student.
+     * @param weight The weight of the student in kilograms.
+     * @param height The height of the student in meters.
+     * @param date   The date parameter is a Calendar object that represents the
+     *               date when the nutritional
+     *               state is being added to the student.
+     * @return The method is returning a String message.
+     */
     public String addNutritionalStateToStudent(String id, double weight, double height, Calendar date) {
         String msj = "";
         NutritionalStates nutritionalState = new NutritionalStates(weight, height, date);
         Student student = binarySearch(students, id);
         if (student != null) {
             student.addNutritionalState(nutritionalState);
-        msj = "\nNutritional status added correctly";
+            msj = "\nNutritional status added correctly";
         } else {
             msj = "\nThe student with ID was not found: " + student.getId();
         }
@@ -170,44 +185,56 @@ public class BienestarSystem {
     }
 
     /**
-     * The function "addStudents" adds a new student to a collection of students, ensuring that the
+     * The function "addStudents" adds a new student to a collection of students,
+     * ensuring that the
      * collection is ordered by student ID.
      * 
-     * @param id The ID of the student to be added.
-     * @param years The parameter "years" represents the age or number of years of the student.
-     * @param name The name of the student to be added.
-     * @param lastName The "lastName" parameter is a String that represents the last name of the
-     * student.
-     * @param newsex The parameter "newsex" is a String that represents the sex of the student. It is
-     * used to create a Sex object using the Sex.valueOf() method.
-     * @return The method is returning a String message. The message will be either "Estudiante añadido
-     * exitosamente." if the student was successfully added to the collection, or "La lista de
-     * estudiantes no está ordenada." if the collection is not ordered.
+     * @param id       The ID of the student to be added.
+     * @param years    The parameter "years" represents the age or number of years
+     *                 of the student.
+     * @param name     The name of the student to be added.
+     * @param lastName The "lastName" parameter is a String that represents the last
+     *                 name of the
+     *                 student.
+     * @param newsex   The parameter "newsex" is a String that represents the sex of
+     *                 the student. It is
+     *                 used to create a Sex object using the Sex.valueOf() method.
+     * @return The method is returning a String message. The message will be either
+     *         "Estudiante añadido
+     *         exitosamente." if the student was successfully added to the
+     *         collection, or "La lista de
+     *         estudiantes no está ordenada." if the collection is not ordered.
      */
     public String addStudents(String id, int years, String name, String lastName, String newsex) {
         String msj = "";
         Sex sex = Sex.valueOf(newsex);
+        if (searchStudent(id)) {
+            msj = "The id of the student already exist";
+            return msj;
+        }
         Student student = new Student(id, years, name, lastName, sex);
         Collection<Student, Student> collection = new Collection<>();
         Comparator<Student> comparator = Comparator.comparing(Student::getId);
         try {
             collection.binaryInsert(students, comparator, student);
-            msj = "\nStudent added successfully.";
+            msj = "Estudiante añadido exitosamente.";
         } catch (ExceptionForArrayListUnordered e) {
-            msj = "\nThe list of students is not ordered.";
+            msj = "La lista de estudiantes no está ordenada.";
         }
         return msj;
     }
 
-    
-   /**
-    * The function removes a student from a list of students based on their ID and returns a message
-    * indicating whether the removal was successful or if the student was not found.
-    * 
-    * @param id The id parameter is a String that represents the unique identifier of the student to be
-    * removed.
-    * @return The method is returning a String message.
-    */
+    /**
+     * The function removes a student from a list of students based on their ID and
+     * returns a message
+     * indicating whether the removal was successful or if the student was not
+     * found.
+     * 
+     * @param id The id parameter is a String that represents the unique identifier
+     *           of the student to be
+     *           removed.
+     * @return The method is returning a String message.
+     */
     public String removedStudent(String id) {
         String msj = "";
         Student studentToRemove = binarySearch(students, id);
@@ -222,11 +249,13 @@ public class BienestarSystem {
     }
 
     /**
-     * The function searches for a student with a given ID in an array using binary search and returns
+     * The function searches for a student with a given ID in an array using binary
+     * search and returns
      * true if found, false otherwise.
      * 
-     * @param id The parameter "id" is a String representing the student ID that we want to search for
-     * in the "students" array.
+     * @param id The parameter "id" is a String representing the student ID that we
+     *           want to search for
+     *           in the "students" array.
      * @return The method is returning a boolean value.
      */
     public boolean searchStudent(String id) {
@@ -253,34 +282,36 @@ public class BienestarSystem {
      */
     public String modifyStudent(String id, int years, String name, String lastName, String newSex) {
         String msg = "";
-        Sex sex = Sex.valueOf(newSex.toUpperCase());
         Student student = binarySearch(students, id);
 
         if (student != null) {
             if (years != 0) {
                 student.setYears(years);
-                msg += "Modified year.";
+                msg += "\nModified year.";
             }
             if (name != null) {
                 student.setName(name);
-                msg += "Modified name.";
+                msg += "\nModified name.";
             }
-
             if (lastName != null) {
                 student.setLastName(lastName);
-                msg += "Modified last name.";
+                msg += "\nModified last name.\n";
             }
-
-            if (sex != null) {
-                student.setSex(sex);
-                msg += "Modified Sex";
+            if (newSex != null && !newSex.isEmpty()) {
+                String upperCaseSex = newSex.toUpperCase();
+                if (upperCaseSex.equals("M") || upperCaseSex.equals("F") || upperCaseSex.equals("O")) {
+                    student.setSex(Sex.valueOf(upperCaseSex));
+                    msg += "Modified Sex\n";
+                } else {
+                    msg = "\nInvalid Sex Input. Please enter M, F, or O.";
+                }
             }
 
             if (!msg.isEmpty()) {
-                msg = "\nSuccessfully modified attributes:" + msg;
+                msg = "\nSuccessfully modified attributes:\n" + msg;
             }
         } else {
-            msg = "\nThe task with the ID " + id + " does not exist.";
+            msg = "\nThe student with the ID " + id + " does not exist.";
         }
 
         return msg + "\n";
@@ -343,11 +374,14 @@ public class BienestarSystem {
     }
 
     /**
-     * The function finds and returns a specific nutritional state of a student based on a given date.
+     * The function finds and returns a specific nutritional state of a student
+     * based on a given date.
      * 
-     * @param student The student parameter is an object of the Student class. It represents a student
-     * and contains information about their nutritional states.
-     * @param date The "date" parameter is a Calendar object representing a specific date.
+     * @param student The student parameter is an object of the Student class. It
+     *                represents a student
+     *                and contains information about their nutritional states.
+     * @param date    The "date" parameter is a Calendar object representing a
+     *                specific date.
      * @return The method is returning a NutritionalStates object.
      */
     public NutritionalStates findNutritionalStateToModify(Student student, Calendar date) {
