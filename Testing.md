@@ -344,7 +344,6 @@
 -------
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-
 |BienestarSystem|testAddStudentAndNoPermitAddIdRepeated|setUpWithStudents|<p>id:“A00000001”\*</p><p>name: Ana \*</p><p>Last name: Lopez\*</p><p>years: 18\*</p><p>Sex: F\*</p>|This test should attempt to add a student with an ID that already exists in the system. The expected result is that a message saying "The id of the student already exists" is issued, and the number of students in the system should not change.|
 -------
 |Objective: These tests verify that nutritional statuses can be added to a student in the system. It checks if the addition of nutritional states is performed without errors and if the number of nutritional states of the student increases correctly.|
