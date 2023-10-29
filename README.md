@@ -1,5 +1,4 @@
-# !En esta rama no trabajamos,  en la que si trabajamos es en la develop, entonces evaluen esa rama por favor!
-
+# !En la carpeta de docs colocamos lo mas relevante, el resto de archivos quedaron aparte para que se pueda tener acceso desde el readme. Asi puedes tener mayor acceso a la segunda entrega. En la primera entrega trabajamos en el develop. Thanks!
 
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/n79VROXG)

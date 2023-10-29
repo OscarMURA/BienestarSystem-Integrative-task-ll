@@ -27,8 +27,8 @@ public class StudentTest {
     @Before
     public void setUpScenary2() {
         student = new Student("A00399954", 21, "Jane", "Doe", Sex.F);
-        student.addNutritionalState(new NutritionalStates(65, 160, Calendar.getInstance()));
-        student.addNutritionalState(new NutritionalStates(70, 165, Calendar.getInstance()));
+        student.addNutritionalState(new NutritionalStates(65, 1.60, Calendar.getInstance()));
+        student.addNutritionalState(new NutritionalStates(70, 1.65, Calendar.getInstance()));
     }
 
     /**

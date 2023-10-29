@@ -261,6 +261,14 @@
 
 ## Student Testing 
 
+-------
+|**Name**|**Class**|**Scenery**|
+| :-: | :-: | :-: |
+|**setUpScenary1**|**Student**|[Diagram](https://drive.google.com/file/d/1ZzVKgOQnFmatmaBywhFGDmoaUrr83Fh2/view?usp=drive_link)|
+|setUpScenary2|Student|[Diagram](https://drive.google.com/file/d/1ifBnhDFCUkamgmFEnArMZlqGszDGdUbd/view?usp=drive_link)|
+
+---
+
 
 |Objective: Test that all attributes can be obtained correctly|
 | :- |
@@ -310,7 +318,6 @@
 | :-: | :-: | :-: | :-: | :-: |
 |StudentTest|testFormatList|SetupScenary2|-|Expected result: "Code: A00245865 Name: Alice Smith Age: 30 Sex:F weight:65.0 Height: 1.6 BMI: 25.4"|
 -------
-
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
 |StudentTest|testIndicatorList|SetupScenary2|-|Expected result: "Code: A00325486 Name: Bob Johnson Age: 35 Sex:M BIM (Sep)24.2 BIM(Apr)26.0 AverageBMI25.1"|
@@ -319,10 +326,9 @@
 | :-: | :-: | :-: | :-: | :-: |
 |StudentTest|testAverageBMI|SetupScenary2|-|Expected result: The calculated value of the average BMI (average BMI) coincides with the expected value, with a margin of error of +/- 0.01.|
 -------
-
 ## BienestarSystem Testing
-
 -------
+
 |**Name**|**Class**|**Scenery**|
 | :-: | :-: | :-: |
 |**setUpWithStudents**|**BienestarSystem**|[Diagram](https://drive.google.com/file/d/1jfPoIid9A3oKbf1-KbrMcFVDRbXxfFLa/view?usp=drive_link)|
@@ -334,39 +340,60 @@
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-|BienestarSystem|testAddStudentCorrecty|setUpWithStudents|-|It is expected that this test will successfully add a student to the system and that the returned message will be "Student added successfully." The number of students in the system should increase by 1.|
+|BienestarSystem|testAddStudentCorrecty|setUpWithStudents|<p>id:“A00000001”\*</p><p>name: Ana \*</p><p>Last name: Lopez\*</p><p>years: 18\*</p><p>Sex: F\*</p>|It is expected that this test will successfully add a student to the system and that the returned message will be "Student added successfully." The number of students in the system should increase by 1.|
 -------
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
 
-|BienestarSystem|testAddStudentAndNoPermitAddIdRepeated|setUpWithStudents|-|This test should attempt to add a student with an ID that already exists in the system. The expected result is that a message saying "The id of the student already exists" is issued, and the number of students in the system should not change.|
+|BienestarSystem|testAddStudentAndNoPermitAddIdRepeated|setUpWithStudents|<p>id:“A00000001”\*</p><p>name: Ana \*</p><p>Last name: Lopez\*</p><p>years: 18\*</p><p>Sex: F\*</p>|This test should attempt to add a student with an ID that already exists in the system. The expected result is that a message saying "The id of the student already exists" is issued, and the number of students in the system should not change.|
 -------
 |Objective: These tests verify that nutritional statuses can be added to a student in the system. It checks if the addition of nutritional states is performed without errors and if the number of nutritional states of the student increases correctly.|
 | :- |
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-|BienestarSystem|testAddNutritionalStates|setUpWithStudents|-|This test is expected to add nutritional statuses to a student in the system and the message returned is "Nutritional status added correctly.". The number of nutritional statuses for the student should increase.|
+|BienestarSystem|testAddNutritionalStates|setUpWithStudents|<p>id:“A00000001”*</p><p>Weight: 46,0*</p><p>Height: 1.70*</p><p>date: 2022,08,1*</p><p>-*</p><p>id:“A00000001”*</p><p>Weight: 58,0*</p><p>Height: 1.70*</p><p>date: 2023,04,1*</p>|This test is expected to add nutritional statuses to a student in the system and the message returned is "Nutritional status added correctly.". The number of nutritional statuses for the student should increase.|
 -------
+
 |Objective: Tests the behavior of the function that removes students from the system, when an attempt is made to remove a student that does not exist in the system. Checks if an error message is issued and if the number of students in the system does not change.|
 | :- |
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
+
 |BienestarSystem|testRemovedStutentThatNotExists|setUpWithStudents|Id: “A00000018”|It is expected that this test will attempt to delete a student that does not exist in the system and that the returned message will be "Student not found.". The number of students in the system should not change.|
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
 |BienestarSystem|testRemovedStutentThatExists|setUpWithStudents|Id: “A00000001”|This test should attempt to remove a student that exists in the system and the message returned is expected to be "Student removed successfully.". The number of students in the system should decrease by 1.|
 -------
+
 |Objective: Tests the student modification function when modifying a student that exists in the system or does not exist in the system.|
 | :- |
 
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testModifyStudentThatNoExist|setUpWithStudents|<p>id:“A00000018”\*</p><p>name: Ana\*</p><p>Last name: Lopez\*</p><p>years: 22\*</p><p>Sex: F\*</p>|It is expected that this test will attempt to modify a student that does not exist in the system and that the message returned will be "The student with the ID does not exist". The student information should not change.|
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-|BienestarSystem|testModifyStudentThatNoExist|setUpWithStudents|-|It is expected that this test will attempt to modify a student that does not exist in the system and that the message returned will be "The student with the ID does not exist". The student information should not change.|
+|BienestarSystem|testModifyStudentThatExist|setUpWithStudents|<p>id:“A00000018”\*</p><p>name: Ana Maria\*</p><p>Last name: Lopez Gonzales\*</p><p>years: 22\*</p><p>Sex: F\*</p>|This test should modify a student that exists in the system and the message returned is expected to indicate the modifications made. The number of students in the system should not change.|
+-------
+|Objective: Tests the function of modifying students' nutritional statuses in the two months when a student who exists in the system or does not exist in the system is modified.|
+| :- |
 
 |Class|Method|Scenary|Input value|Result|
 | :-: | :-: | :-: | :-: | :-: |
-|BienestarSystem|testModifyStudentThatExist|setUpWithStudents|-|This test should modify a student that exists in the system and the message returned is expected to indicate the modifications made. The number of students in the system should not change.|
+|BienestarSystem|testModifyNutritionalStudentToStudentThatNoExist|setUpWithNutritionalStates|<p>id:“A00000018”\*</p><p>Weight: 46,0\*</p><p>Height: 1.70\*</p><p>date: 2022,08,1\*</p>|It is expected that this test will attempt to modify the nutritional status of a student who does not exist in the system and that the message returned will be "Student not found.".|
+-------
+|Objective: Tests the function of modifying students' nutritional statuses in the two months when a student who exists in the system or does not exist in the system is modified.|
+| :- |
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testModifyNutritionalAtSeptember|setUpWithNutritionalStates|<p>id:“A00000018”\*</p><p>Weight: 46,0\*</p><p>Height: 1.70\*</p><p>date: 2022,08,1\*</p>|This test should modify a student's nutritional status on a specific date in September and the message returned is expected to be "Nutritional state modified successfully."|
+
+|Class|Method|Scenary|Input value|Result|
+| :-: | :-: | :-: | :-: | :-: |
+|BienestarSystem|testModifyNutritionalAtAbril|setUpWithNutritionalStates|<p>id:“A00000018”\*</p><p>Weight: 58,0\*</p><p>Height: 1.70\*</p><p>date: 2022,04,1\*</p>|This test is expected to modify a student's nutritional status on a specific date and the message returned is "Nutritional state modified successfully."|
+
