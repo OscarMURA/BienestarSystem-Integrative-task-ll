@@ -1,5 +1,3 @@
-# !En la carpeta de docs colocamos lo mas relevante, el resto de archivos quedaron aparte para que se pueda tener acceso desde el readme. Asi puedes tener mayor acceso a la tabla de contenido. En la primera entrega trabajamos en el develop.
-
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/n79VROXG)
 # TareaIntegradora2-232
