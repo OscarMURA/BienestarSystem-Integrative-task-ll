@@ -44,11 +44,6 @@ This Java terminal application is a continuation of the Bienestar Universitario 
 - The project follows TDD principles, with tests written before the implementation of features.
 - A minimum of 10 commits are required, with each commit accompanied by reports on three quality indicators.
 
-### Quality Indicators
-1. **Error-Failure Density**: \( \text{Total Failures} / \text{Total Tests} \)
-2. **Reliability**: \( 1 - \text{Error-Failure Density} \)
-3. **Completeness**: \( \text{Test Cases} / \text{Total Functionalities} \)  
-   *The final completeness score is expected to exceed 5.*
 
 ## Deliverables
 
